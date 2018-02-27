@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:padding="@dimen/_7sdp"
+    android:background="@color/white"
+    android:layout_marginTop="@dimen/_1sdp"
+    android:layout_marginBottom="@dimen/_1sdp"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="0dp"
+        android:layout_weight="0.15"
+        android:layout_gravity="center_vertical"
+        android:layout_height="@dimen/_40sdp"
+        android:src="@drawable/men" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.65">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_gravity="center_vertical"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            android:text="archirayan"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_gravity="center_vertical"
+            android:textSize="@dimen/_12sdp"
+            android:text="invites you to join the party room!!"/>
+
+        <TextView
+            android:id="@+id/you_tvInvitation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/navyBlue"
+            android:text="Party"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:paddingLeft="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:visibility="gone"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/you_tvFollow"
+        android:layout_width="0dp"
+        android:layout_weight="0.2"
+        android:layout_height="wrap_content"
+        android:background="@color/pink"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingTop="@dimen/_2sdp"
+        android:paddingBottom="@dimen/_2sdp"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/white" />
+
+</LinearLayout>

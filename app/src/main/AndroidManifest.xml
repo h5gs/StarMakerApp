@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.archirayan.starmakerapp">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_starcreator"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_starcreator"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.MainActivity"
+            android:theme="@style/MyTheme" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:theme="@style/MyTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.WelcomeActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/MyTheme" />
+        <activity
+            android:name=".activity.LoginwithMobileActivity"
+            android:theme="@style/MyTheme" />
+        <activity
+            android:name=".activity.VerifyingOTPActivity"
+            android:theme="@style/MyTheme" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:theme="@style/MyTheme" />
+        <activity
+            android:name=".activity.SignUpActivity"
+            android:theme="@style/MyTheme" />
+        <activity
+            android:name=".activity.VerifyingEmailActivity"
+            android:theme="@style/MyTheme" />
+        <activity
+            android:name=".activity.DidnotgetOTPActivity"
+            android:theme="@style/MyTheme" />
+        <activity
+            android:name=".activity.ProfileSettingsActivity"
+            android:theme="@style/MyTheme" />
+        <activity
+            android:name=".activity.FindFriendActivity"
+            android:theme="@style/MyTheme" />
+        <activity
+            android:name=".activity.DailyCheckInActivity"
+            android:theme="@style/MyTheme" />
+        <activity
+            android:name=".activity.AboutusActivity"
+            android:theme="@style/MyTheme" />
+        <activity
+            android:name=".activity.EditprofileActivity"
+            android:theme="@style/MyTheme">
+
+        </activity>
+        <activity
+            android:name=".activity.VerifiedActivity"
+            android:theme="@style/MyTheme" />
+
+
+        <activity
+            android:name=".activity.EventsActivity"
+            android:theme="@style/MyTheme" />
+
+        <activity
+            android:name=".activity.HotHashtagActivity"
+            android:theme="@style/MyTheme" />
+
+        <activity
+            android:name=".activity.FindYourFreindsActivity"
+            android:theme="@style/MyTheme" />
+        <activity android:name=".activity.PeopleLikeActivity" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:label="@string/app_name" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider149916442361969"
+            android:exported="true" />
+
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>

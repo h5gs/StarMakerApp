@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "320573147983",
+    "project_id": "firebase-starcreator"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320573147983:android:94fa4eab611389cd",
+        "android_client_info": {
+          "package_name": "com.archirayan.starmakerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "320573147983-d5c8bgtptpflmvl6l2tpi921ok8k5ebv.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "320573147983-kqrtn94pk0r91emcjb0hhptroct6cq7k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.archirayan.starmakerapp",
+            "certificate_hash": "a1c18d7f119c7789608e1bac2b3ecd3e5d5f1534"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeVe13UX-Byq6BdDN084HU8O7eRdtDzc0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
