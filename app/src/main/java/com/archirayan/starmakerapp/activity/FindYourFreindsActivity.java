@@ -27,7 +27,8 @@ public class FindYourFreindsActivity extends AppCompatActivity {
 
 
         txt_next = findViewById(R.id.txt_next);
-        txt_next.setOnClickListener(new View.OnClickListener() {
+        txt_next.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(FindYourFreindsActivity.this, PeopleLikeActivity.class));

@@ -199,12 +199,12 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
     protected void getUserDetails(final LoginResult loginResult) {
         GraphRequest data_request = GraphRequest.newMeRequest(
                 loginResult.getAccessToken(),
-                new GraphRequest.GraphJSONObjectCallback() {
+                new GraphRequest.GraphJSONObjectCallback()
+                {
                     @Override
                     public void onCompleted(
                             JSONObject json_object,
                             GraphResponse response) {
-
                         Log.e("FACEBOOK RESPONSE==>", response.toString());
                         try {
                             fbid = json_object.getString("id");
@@ -216,14 +216,6 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
-
-//                      //  Utils.WriteSharePrefrence(WelcomeActivity.this, Constant.USERID, login.data.user_id);
-//                        Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-//                        intent.putExtra("username", fbfirst_name);
-//                        startActivity(intent);
-//                        finish();
-
                         Facebooklogin();
                     }
 
@@ -234,7 +226,6 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
         permission_param.putString("fields", "id,first_name,last_name,email,gender");
         data_request.setParameters(permission_param);
         data_request.executeAsync();
-
     }
 
 
@@ -331,10 +322,11 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "Login RESPONSE-" + response);
-
-                if (!response.equals("")) {
+                if (!response.equals(""))
+                {
                     Login login = new Gson().fromJson(new String(String.valueOf(response)), Login.class);
-                    if (login.status.equals("true")) {
+                    if (login.status.equals("true"))
+                    {
                         Utils.WriteSharePrefrence(WelcomeActivity.this, Constant.USERID, login.data.user_id);
                         Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                         intent.putExtra("username", fbfirst_name);
@@ -346,8 +338,6 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                 } else {
                     Toast.makeText(WelcomeActivity.this, "Something Wrong!", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
 
             @Override

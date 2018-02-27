@@ -73,7 +73,8 @@ public class LoginActivity extends AppCompatActivity {
         pd.setCancelable(true);
         pd.show();
 
-        try {
+        try
+        {
             RestClient.getMutualTransfer().login(email, password, new Callback<Response>() {
                 @Override
                 public void success(Response response, Response response2) {
@@ -81,9 +82,10 @@ public class LoginActivity extends AppCompatActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(Util.getString(response.getBody().in()));
                         Log.v("", "===== Json =====: " + jsonObject.toString());
-                        if (jsonObject.getString("status").toString().equals("true")) {
+                        if (jsonObject.getString("status").toString().equals("true"))
+                        {
 
-                            Toast.makeText(LoginActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, jsonObject.getString("msg"), Toast.LENGTH_SHORT).show();
                             pd.dismiss();
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();
@@ -91,9 +93,10 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             pd.dismiss();
                             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                            Toast.makeText(LoginActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, jsonObject.getString("msg"), Toast.LENGTH_SHORT).show();
                         }
-                    } catch (Exception e) {
+                    } catch (Exception e)
+                    {
                         pd.dismiss();
                         e.printStackTrace();
                         Toast.makeText(LoginActivity.this, "Something went wrong, please try again.", Toast.LENGTH_SHORT).show();
@@ -106,7 +109,8 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Something went wrong, please try again.", Toast.LENGTH_SHORT).show();
                 }
             });
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }

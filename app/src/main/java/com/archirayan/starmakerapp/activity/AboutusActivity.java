@@ -5,10 +5,11 @@ import android.os.Bundle;
 
 import com.archirayan.starmakerapp.R;
 
-public class AboutusActivity extends AppCompatActivity {
-
+public class AboutusActivity extends AppCompatActivity
+{
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aboutus);
     }

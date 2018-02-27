@@ -1,30 +1,46 @@
 package com.archirayan.starmakerapp.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.archirayan.starmakerapp.R;
+import com.archirayan.starmakerapp.retrofit.RestClient;
+import com.archirayan.starmakerapp.utils.Util;
+import com.archirayan.starmakerapp.utils.Utils;
 import com.rilixtech.CountryCodePicker;
 
-public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener
+{
     Button btn_emaillogin;
     CountryCodePicker ccp;
     EditText edit_emailaddress;
     LinearLayout ll_emailaddress, ll_verify_progress, ll_verify_otp_sent;
+    private ProgressDialog pd;
+    private ProgressDialog progress;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         FindviewById();
         Init();
-
     }
     // // TODO: 22/2/18 Initialize the Variable ...
 
@@ -54,24 +70,31 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 } else {
                     ll_emailaddress.setVisibility(View.GONE);
                     ll_verify_progress.setVisibility(View.VISIBLE);
-                    Handler handler = new Handler();
-                    final Handler handler1 = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            ll_verify_progress.setVisibility(View.GONE);
-                            ll_verify_otp_sent.setVisibility(View.VISIBLE);
-                            handler1.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    ll_verify_otp_sent.setVisibility(View.GONE);
-                                    startActivity(new Intent(SignUpActivity.this, VerifyingEmailActivity.class));
-                                    finish();
+                    SignUp(edit_emailaddress.getText().toString());
+//
+//                    Handler handler = new Handler();
+//                    final Handler handler1 = new Handler();
+//                    handler.postDelayed(new Runnable()
+//                    {
+//                        @Override
+//                        public void run()
+//                        {
+//                            ll_verify_progress.setVisibility(View.GONE);
+//                            ll_verify_otp_sent.setVisibility(View.VISIBLE);
+//                            handler1.postDelayed(new Runnable()
+//                            {
+//                                @Override
+//                                public void run()
+//                                {
+//                                    ll_verify_otp_sent.setVisibility(View.GONE);
+//                                    startActivity(new Intent(SignUpActivity.this, VerifyingEmailActivity.class));
+//                                    finish();
+//
+//                                }
+//                            }, 2000);
+//                        }
+//                    }, 5000);
 
-                                }
-                            }, 2000);
-                        }
-                    }, 5000);
                 }
                 break;
             default:
@@ -79,10 +102,126 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    private void SignUp(String email) {
+        if (Utils.isConnectingToInternet(SignUpActivity.this)) {
+            signupCallApi(email);
+        } else {
+            Toast.makeText(SignUpActivity.this, "Please Check the Internet Connection? Try Again.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void signupCallApi(String email) {
+//        pd = new ProgressDialog(SignUpActivity.this);
+//        pd.setMessage("Loading...");
+//        pd.setCancelable(true);
+//        pd.show();
+        RestClient.getMutualTransfer().SignUp(email, new Callback<Response>() {
+            @Override
+            public void success(Response response, Response response2) {
+                //pd.dismiss();
+                ll_verify_progress.setVisibility(View.GONE);
+                ll_verify_otp_sent.setVisibility(View.VISIBLE);
+                try {
+                    JSONObject jsonObject = new JSONObject(Util.getString(response.getBody().in()));
+                    Log.v("", "===== Json =====: " + jsonObject.toString());
+                    if (jsonObject.getString("status").toString().equals("true")) {
+
+                        Toast.makeText(SignUpActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                        //pd.dismiss();
+                        Intent intent = new Intent(SignUpActivity.this, VerifyingEmailActivity.class);
+                        intent.putExtra("emailid", edit_emailaddress.getText().toString());
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        // pd.dismiss();
+                        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                        Toast.makeText(SignUpActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                        emailVerificayion(edit_emailaddress.getText().toString());
+                    }
+                } catch (Exception e) {
+                    // pd.dismiss();
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                // pd.dismiss();
+                Toast.makeText(SignUpActivity.this, "Something went wrong, please try again.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         startActivity(new Intent(SignUpActivity.this, WelcomeActivity.class));
         overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+    }
+
+    private void emailVerificayion(String str_Email) {
+        pd = new ProgressDialog(SignUpActivity.this);
+        pd.setMessage("Loading...");
+        pd.setCancelable(true);
+        pd.show();
+        try {
+            RestClient.getMutualTransfer().VerifiedEmail(str_Email, new Callback<Response>()
+            {
+                @Override
+                public void success(Response response, Response response2)
+                {
+                    pd.dismiss();
+                    try {
+                        JSONObject jsonObject = new JSONObject(Util.getString(response.getBody().in()));
+                        Log.v("", "===== Json =====: " + jsonObject.toString());
+                        if (jsonObject.getString("status").toString().equals("true"))
+                        {
+                            JSONObject array=jsonObject.getJSONObject("data");
+                            Toast.makeText(SignUpActivity.this, jsonObject.getString("msg"), Toast.LENGTH_SHORT).show();
+                            pd.dismiss();
+                            Intent intent = new Intent(SignUpActivity.this, SignuppasswordActivity.class);
+                            intent.putExtra("user_id", array.getString("id"));
+                            startActivity(intent);
+                            finish();
+                        }
+                        else
+                        {
+                            pd.dismiss();
+                            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                            Toast.makeText(SignUpActivity.this, jsonObject.getString("msg"), Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception e) {
+                        pd.dismiss();
+                        e.printStackTrace();
+                        Toast.makeText(SignUpActivity.this, "Something went wrong, please try again.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    pd.dismiss();
+                    Toast.makeText(SignUpActivity.this, "Something went wrong, please try again.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void Hideprogress()
+    {
+        // TODO Auto-generated method stub
+        if (progress.isShowing())
+        {
+            progress.dismiss();
+        }
+    }
+
+    private void ShowProgress() {
+        // TODO Auto-generated method stub
+        progress = new ProgressDialog(SignUpActivity.this);
+        progress.setMessage("Please wait...");
+        progress.setCancelable(false);
+        progress.show();
     }
 }

@@ -27,7 +27,6 @@ public class TopFriendsActivity extends AppCompatActivity implements View.OnClic
         recycler_topallfriends.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         topAllFriendsAdapter = new TopAllFriendsAdapter(this);
         recycler_topallfriends.setAdapter(topAllFriendsAdapter);
-
         iv_backtopfriends.setOnClickListener(this);
     }
 
