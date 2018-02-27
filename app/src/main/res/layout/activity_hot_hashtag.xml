@@ -13,7 +13,7 @@
         android:background="@color/pink">
 
         <ImageView
-            android:id="@+id/iv_backevents"
+            android:id="@+id/iv_backhashtag"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
             android:src="@drawable/ic_back_white"
@@ -42,6 +42,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/recycler_hashtag"/>
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

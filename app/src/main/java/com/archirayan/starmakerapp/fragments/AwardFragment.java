@@ -17,8 +17,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.archirayan.starmakerapp.R;
+import com.archirayan.starmakerapp.activity.BestCollabsActivity;
+import com.archirayan.starmakerapp.activity.BestSolosActivity;
 import com.archirayan.starmakerapp.activity.EventsActivity;
 import com.archirayan.starmakerapp.activity.HotHashtagActivity;
+import com.archirayan.starmakerapp.activity.MostSharedActivity;
+import com.archirayan.starmakerapp.activity.TopFriendsActivity;
+import com.archirayan.starmakerapp.activity.TopsStarsActivity;
 import com.archirayan.starmakerapp.activity.VerifiedActivity;
 import com.archirayan.starmakerapp.adapter.BestCollabsAdapter;
 import com.archirayan.starmakerapp.adapter.BestSolosAdapter;
@@ -54,7 +59,7 @@ public class AwardFragment extends Fragment implements View.OnClickListener {
     private RecyclerView recycler_topfriends;
     private TopFriendsAdapter topFriendsAdapter;
     private LinearLayout linear_events, linear_verified;
-    private TextView txt_hashtagseeall;
+    private TextView txt_hashtagseeall,txt_seebestsolos,txt_seemostshared,txt_seebestcollabs,txt_seetopstars,txt_topfriends;
 
     public AwardFragment() {
         // Required empty public constructor
@@ -124,10 +129,20 @@ public class AwardFragment extends Fragment implements View.OnClickListener {
         linear_verified = view.findViewById(R.id.linear_verified);
 
         txt_hashtagseeall = view.findViewById(R.id.txt_hashtagseeall);
+        txt_seebestsolos = view.findViewById(R.id.txt_seebestsolos);
+        txt_seemostshared = view.findViewById(R.id.txt_seemostshared);
+        txt_seebestcollabs = view.findViewById(R.id.txt_seebestcollabs);
+        txt_seetopstars = view.findViewById(R.id.txt_seetopstars);
+        txt_topfriends = view.findViewById(R.id.txt_topfriends);
 
         linear_events.setOnClickListener(this);
         linear_verified.setOnClickListener(this);
         txt_hashtagseeall.setOnClickListener(this);
+        txt_seebestsolos.setOnClickListener(this);
+        txt_seemostshared.setOnClickListener(this);
+        txt_seebestcollabs.setOnClickListener(this);
+        txt_seetopstars.setOnClickListener(this);
+        txt_topfriends.setOnClickListener(this);
     }
 
     @Override
@@ -141,6 +156,21 @@ public class AwardFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.txt_hashtagseeall:
                 startActivity(new Intent(getActivity(), HotHashtagActivity.class));
+                break;
+            case R.id.txt_seebestsolos:
+                startActivity(new Intent(getActivity(), BestSolosActivity.class));
+                break;
+            case R.id.txt_seemostshared:
+                startActivity(new Intent(getActivity(), MostSharedActivity.class));
+                break;
+            case R.id.txt_seebestcollabs:
+                startActivity(new Intent(getActivity(), BestCollabsActivity.class));
+                break;
+            case R.id.txt_seetopstars:
+                startActivity(new Intent(getActivity(), TopsStarsActivity.class));
+                break;
+            case R.id.txt_topfriends:
+                startActivity(new Intent(getActivity(), TopFriendsActivity.class));
                 break;
         }
     }
