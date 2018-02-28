@@ -12,7 +12,7 @@
         android:orientation="horizontal"
         android:padding="@dimen/_7sdp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_pic"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
@@ -48,6 +48,7 @@
                 android:src="@drawable/record" />
 
             <TextView
+                android:id="@+id/txt_levels"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_2sdp"
@@ -78,11 +79,45 @@
 
     </RelativeLayout>
 
-    <ImageView
+    <TextView
+        android:id="@+id/txt_tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:textSize="@dimen/_13sdp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:visibility="gone"/>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_120sdp"
-        android:background="#ecf0f1"
-        android:src="@drawable/img_splashtxt" />
+        android:layout_height="wrap_content">
+
+    <VideoView
+        android:id="@+id/iv_video"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_250sdp"
+        android:layout_gravity="center"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_start"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/ic_vedio_start"/>
+            <ImageView
+                android:id="@+id/iv_stop"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/ic_vedio_stop"
+                android:visibility="gone"/>
+        </RelativeLayout>
+
+    </FrameLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -107,6 +142,7 @@
                 android:src="@drawable/red_heart" />
 
             <TextView
+                android:id="@+id/txt_likenum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_2sdp"
@@ -135,6 +171,7 @@
                 android:src="@drawable/red_star" />
 
             <TextView
+                android:id="@+id/txt_starnum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_2sdp"
@@ -159,7 +196,7 @@
                 android:text="Top Gifters"
                 android:textSize="@dimen/_12sdp" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/gifters"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
@@ -171,6 +208,7 @@
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:src="@drawable/img_splashtxt" />
+
 
         </LinearLayout>
 
