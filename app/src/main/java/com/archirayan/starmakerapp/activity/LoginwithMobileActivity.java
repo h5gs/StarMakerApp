@@ -25,7 +25,6 @@ public class LoginwithMobileActivity extends AppCompatActivity implements View.O
         setContentView(R.layout.activity_loginwith_mobile);
         FindviewById();
         Init();
-
     }
     // // TODO: 22/2/18 Initialize the Variable ...
 

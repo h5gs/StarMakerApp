@@ -31,7 +31,6 @@
             android:textSize="@dimen/_17sdp" />
     </LinearLayout>
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
@@ -45,15 +44,17 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/rl_profilepic"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
                 android:gravity="center">
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_uplodepic"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_80sdp"
                     android:layout_gravity="center"
-                    android:background="@mipmap/ic_launch_starmaker" />
+                    android:src="@mipmap/ic_launch_starmaker" />
 
                 <LinearLayout
                     android:layout_width="@dimen/_80sdp"
@@ -105,12 +106,18 @@
                     android:textAllCaps="true"
                     android:textSize="@dimen/_16sdp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
                 <android.support.v7.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:id="@+id/recycler_suggestion"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_25sdp"
-                    android:orientation="horizontal" />
+                    android:orientation="horizontal"/>
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_profile_save"

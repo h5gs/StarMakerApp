@@ -38,6 +38,5 @@ public class TopFriendsActivity extends AppCompatActivity implements View.OnClic
                 onBackPressed();
                 break;
         }
-
     }
 }

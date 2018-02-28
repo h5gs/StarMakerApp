@@ -1,49 +1,313 @@
 package com.archirayan.starmakerapp.activity;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.archirayan.starmakerapp.R;
-import com.archirayan.starmakerapp.adapter.SuggestedStageNameAdapter;
+import com.archirayan.starmakerapp.model.SuggestedName;
+import com.archirayan.starmakerapp.model.SuggestedResponse;
+import com.archirayan.starmakerapp.utils.Constant;
+import com.archirayan.starmakerapp.utils.Utility;
+import com.google.gson.Gson;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
-public class EditprofileActivity extends AppCompatActivity
-{
-    RecyclerView recycler_suggestion;
-    SuggestedStageNameAdapter followingAdapter;
-Button btn_profile_save;
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class EditprofileActivity extends AppCompatActivity {
+
+     private static final String TAG = "EditprofileActivity";
+     RecyclerView recycler_suggestion;
+     SuggestedStageNameAdapter followingAdapter;
+     Button btn_profile_save;
+     private EditText editTextEmail;
+     private String edit_vlue;
+     private ArrayList<SuggestedName> suggestedNames;
+     private RelativeLayout rl_profilepic;
+     private String userChoosenTask;
+     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
+     private CircleImageView iv_uplodepic;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editprofile);
-        btn_profile_save=findViewById(R.id.btn_profile_save);
-        btn_profile_save.setOnClickListener(new View.OnClickListener()
-        {
+
+        rl_profilepic = findViewById(R.id.rl_profilepic);
+
+        rl_profilepic.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View v) {
+                selectImage();
+
+            }
+        });
+
+        iv_uplodepic = findViewById(R.id.iv_uplodepic);
+        btn_profile_save=findViewById(R.id.btn_profile_save);
+        btn_profile_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 startActivity(new Intent(EditprofileActivity.this, FindYourFreindsActivity.class));
                 overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
                 finish();
             }
         });
         recycler_suggestion = findViewById(R.id.recycler_suggestion);
-        followingAdapter = new SuggestedStageNameAdapter(EditprofileActivity.this);
-        recycler_suggestion.setLayoutManager(new LinearLayoutManager(EditprofileActivity.this, LinearLayoutManager.HORIZONTAL, false));
-        recycler_suggestion.setAdapter(followingAdapter);
+        recycler_suggestion.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
+
+        editTextEmail = findViewById(R.id.editTextEmail);
+        edit_vlue = editTextEmail.getText().toString();
+       // editTextEmail.setText(Utils.ReadSharePrefrence(EditprofileActivity.this,Constant.SUGGESTEDNAME));
+
+        editTextEmail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                getSuggetion();
+
+            }
+        });
     }
 
+    private void getSuggetion() {
+        suggestedNames = new ArrayList<>();
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.put("text",editTextEmail.getText().toString());
+
+        Log.e(TAG, "URL:" + Constant.URL + "suggestion_text.php?" + params);
+        Log.e(TAG, params.toString());
+        client.post(this, Constant.URL + "suggestion_text.php?", params, new JsonHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+            }
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                Log.e(TAG, "RESPONSE-" + response);
+                SuggestedResponse model = new Gson().fromJson(new String(String.valueOf(response)), SuggestedResponse.class);
+                if (model.getStatus().equals("true")){
+                    suggestedNames = model.getData();
+                    followingAdapter = new SuggestedStageNameAdapter(EditprofileActivity.this, suggestedNames);
+                    //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(EditprofileActivity.this);
+                    //recycler_suggestion.setLayoutManager(mLayoutManager);
+                   // recycler_suggestion.setItemAnimator(new DefaultItemAnimator());
+                    recycler_suggestion.setAdapter(followingAdapter);
+                    followingAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+                Log.e(TAG, throwable.getMessage());
+
+            }
+        });
+    }
 
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         super.onBackPressed();
         startActivity(new Intent(EditprofileActivity.this,SignUpActivity.class));
         overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+    }
+
+    public class SuggestedStageNameAdapter extends RecyclerView.Adapter<SuggestedStageNameAdapter.MyViewHolder> {
+
+        Context context;
+        private ArrayList<SuggestedName> suggestedNames;
+
+        public SuggestedStageNameAdapter(Context context, ArrayList<SuggestedName> suggestedNames) {
+            this.context = context;
+            this.suggestedNames = suggestedNames;
+        }
+        @Override
+        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View itemView = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_suggested_stagename, parent, false);
+
+            return new MyViewHolder(itemView);
+        }
+        @Override
+        public void onBindViewHolder(SuggestedStageNameAdapter.MyViewHolder holder, final int position) {
+            holder.txt_suggeted_name.setText(suggestedNames.get(position).getTest());
+
+            holder.txt_suggeted_name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v){
+                  editTextEmail.setText(suggestedNames.get(position).getTest());
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return suggestedNames.size();
+        }
+
+        class MyViewHolder extends RecyclerView.ViewHolder {
+            private TextView txt_suggeted_name;
+            MyViewHolder(View view) {
+                super(view);
+                txt_suggeted_name = itemView.findViewById(R.id.txt_suggeted_name);
+
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case Utility.MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if(userChoosenTask.equals("Take Photo"))
+                        cameraIntent();
+                    else if(userChoosenTask.equals("Choose from Gallary"))
+                        galleryIntent();
+                } else {
+                    //code for deny
+                }
+                break;
+        }
+    }
+
+    private void selectImage() {
+        final CharSequence[] items = { "Take Photo", "Choose from Gallary"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(EditprofileActivity.this);
+        builder.setTitle("Choose Photo");
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                boolean result=Utility.checkPermission(EditprofileActivity.this);
+
+                if (items[item].equals("Take Photo")) {
+                    userChoosenTask ="Take Photo";
+                    if(result)
+                        cameraIntent();
+
+                } else if (items[item].equals("Choose from Gallary")) {
+                    userChoosenTask ="Choose from Gallary";
+                    if(result)
+                        galleryIntent();
+                }
+            }
+        });
+        builder.show();
+    }
+
+    private void galleryIntent()
+    {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);//
+        startActivityForResult(Intent.createChooser(intent, "Select File"),SELECT_FILE);
+    }
+
+    private void cameraIntent()
+    {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, REQUEST_CAMERA);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == SELECT_FILE) {
+                onSelectFromGalleryResult(data);
+
+            }
+            else if (requestCode == REQUEST_CAMERA) {
+                onCaptureImageResult(data);
+            }
+        }
+    }
+
+    private void onCaptureImageResult(Intent data) {
+        Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+
+        File destination = new File(Environment.getExternalStorageDirectory(),
+                System.currentTimeMillis() + ".jpg");
+
+        FileOutputStream fo;
+        try {
+            destination.createNewFile();
+            fo = new FileOutputStream(destination);
+            fo.write(bytes.toByteArray());
+            fo.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        iv_uplodepic.setImageBitmap(thumbnail);
+    }
+
+    @SuppressWarnings("deprecation")
+    private void onSelectFromGalleryResult(Intent data) {
+
+        Bitmap bm=null;
+        if (data != null) {
+            try {
+                bm = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), data.getData());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        iv_uplodepic.setImageBitmap(bm);
     }
 }

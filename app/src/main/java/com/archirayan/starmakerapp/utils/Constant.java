@@ -8,6 +8,7 @@ public class Constant {
     public static final String Prefrence = "prefrence";
     public static final String DRIVERID = "driverId";
     public static final String USERID = "userid";
+    public static final String SUGGESTEDNAME = "suggested";
     // Base Url
 
     public static String URL = "http://web-medico.com/web1/StarCreator/APIs/";
