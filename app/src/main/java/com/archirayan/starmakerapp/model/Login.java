@@ -9,7 +9,8 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 
-public class Login implements Serializable {
+public class Login implements Serializable
+{
 
     @SerializedName("status")
     public String status;
@@ -18,7 +19,8 @@ public class Login implements Serializable {
     @SerializedName("data")
     public data data;
 
-    public class data implements Serializable {
+    public class data implements Serializable
+    {
         @SerializedName("id")
         public String user_id;
 //        @SerializedName("user_firstname")

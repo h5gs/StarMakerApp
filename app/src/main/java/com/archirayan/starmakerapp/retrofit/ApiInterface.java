@@ -23,10 +23,23 @@ public interface ApiInterface
     @FormUrlEncoded
     @POST("/login.php")
     void login(
-
             @Field("email_address") String email_address,
             @Field("password") String password,
             Callback<Response> user);
+
+    @Multipart
+    @POST("/send_mail_for_registration.php")
+    void SignUp(
+            @Part("email_address") String email_address,
+            Callback<Response> user);
+
+
+    @Multipart
+    @POST("/verified.php")
+    void VerifiedEmail(
+            @Part("email_address") String email_address,
+            Callback<Response> user);
+
 
 }
 

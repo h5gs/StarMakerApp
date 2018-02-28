@@ -78,7 +78,8 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
     private String googleid, googlefirst_name, googlelast_name, googleemail;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -110,6 +111,10 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+
+
+
+
 
         //// TODO: 26/2/18 Facebook...
         loginButton.setReadPermissions(Arrays.asList(
@@ -318,9 +323,11 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
             public void onFinish() {
                 super.onFinish();
                 Hideprogress();
+
             }
 
             @Override
+
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "Login RESPONSE-" + response);
@@ -340,6 +347,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                     Toast.makeText(WelcomeActivity.this, "Something Wrong!", Toast.LENGTH_SHORT).show();
                 }
 
+
             }
 
             @Override
@@ -350,6 +358,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
         });
 
     }
+
 
     private void Hideprogress() {
         // TODO Auto-generated method stub
@@ -401,7 +410,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
             googleemail = acct.getEmail();
 
             updateUI(true);
-            startActivity(new Intent(WelcomeActivity.this, EditprofileActivity.class));
+            startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
 
         } else {
             // Signed out, show unauthenticated UI.
@@ -418,13 +427,14 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
             iv_loginwithgoogle.setVisibility(View.VISIBLE);
             iv_logoutwithgoogle.setVisibility(View.GONE);
         }
+
     }
+
 
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 

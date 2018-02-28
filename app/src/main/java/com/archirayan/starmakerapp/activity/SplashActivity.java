@@ -9,14 +9,17 @@ import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.utils.Constant;
 import com.archirayan.starmakerapp.utils.Utils;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity
+{
     private static int SPLASH_TIME_OUT = 4000;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        new Handler().postDelayed(new Runnable() {
+        new Handler().postDelayed(new Runnable()
+        {
 
             @Override
             public void run() {
@@ -35,4 +38,7 @@ public class SplashActivity extends AppCompatActivity {
             }
         }, SPLASH_TIME_OUT);
     }
+
+
+
 }

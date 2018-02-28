@@ -38,7 +38,8 @@ public class FindYourFreindsActivity extends AppCompatActivity implements Loader
         setContentView(R.layout.activity_find_your_freinds);
 
         txt_next = findViewById(R.id.txt_next);
-        txt_next.setOnClickListener(new View.OnClickListener() {
+        txt_next.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(FindYourFreindsActivity.this, PeopleLikeActivity.class));
