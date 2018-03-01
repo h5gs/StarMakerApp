@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -25,14 +26,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.archirayan.starmakerapp.R;
+import com.archirayan.starmakerapp.model.EditUserProfileResponse;
 import com.archirayan.starmakerapp.model.SuggestedName;
 import com.archirayan.starmakerapp.model.SuggestedResponse;
 import com.archirayan.starmakerapp.utils.Constant;
+import com.archirayan.starmakerapp.utils.ImageFilePath;
 import com.archirayan.starmakerapp.utils.Utility;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
 
@@ -59,6 +63,7 @@ public class EditprofileActivity extends AppCompatActivity {
      private String userChoosenTask;
      private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
      private CircleImageView iv_uplodepic;
+    private String imagePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -267,12 +272,69 @@ public class EditprofileActivity extends AppCompatActivity {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == SELECT_FILE) {
                 onSelectFromGalleryResult(data);
+                Uri imageUri = data.getData();
+                imagePath = ImageFilePath.getPath(EditprofileActivity.this, data.getData());
+                getDriverProfilePic();
+
 
             }
             else if (requestCode == REQUEST_CAMERA) {
                 onCaptureImageResult(data);
+                Uri uri = data.getData();
+                imagePath = ImageFilePath.getPath(EditprofileActivity.this,data.getData());
+                getDriverProfilePic();
             }
         }
+    }
+
+    private void getDriverProfilePic() {
+        AsyncHttpClient client = new AsyncHttpClient();
+        File file = new File(imagePath);
+        RequestParams params = new RequestParams();
+        params.put("user_id", "1");
+        try {
+            params.put("file", file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Log.e(TAG, "PicURL:" + Constant.URL + "change_profile_picture.php?" + params);
+        Log.e(TAG, params.toString());
+        client.post(this, Constant.URL + "change_profile_picture.php?", params, new JsonHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+            }
+
+            @Override
+            public void onFinish() {
+
+                super.onFinish();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                Log.e(TAG, "Pic~" + response);
+                EditUserProfileResponse dmodel = new Gson().fromJson(new String(String.valueOf(response)), EditUserProfileResponse.class);
+                if (dmodel.getStatus().equalsIgnoreCase("true")){
+                    if (dmodel.getDate().getImage().isEmpty()) {
+                        Picasso.with(EditprofileActivity.this).load(R.mipmap.ic_launch_starmaker);
+                    } else {
+                        Picasso.with(EditprofileActivity.this).load(dmodel.getDate().getImage()).placeholder(R.mipmap.ic_launch_starmaker).into(iv_uplodepic);
+
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+                Log.e(TAG, throwable.getMessage());
+            }
+        });
+
     }
 
     private void onCaptureImageResult(Intent data) {

@@ -21,6 +21,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/txt_contectname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -50,6 +51,7 @@
         android:gravity="center_vertical">
 
         <Button
+            android:id="@+id/btn_invite"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_20sdp"
             android:background="@drawable/file_pink_corner"
