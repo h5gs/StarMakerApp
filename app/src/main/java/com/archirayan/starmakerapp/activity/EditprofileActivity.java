@@ -252,16 +252,14 @@ public class EditprofileActivity extends AppCompatActivity {
         builder.show();
     }
 
-    private void galleryIntent()
-    {
+    private void galleryIntent() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);//
         startActivityForResult(Intent.createChooser(intent, "Select File"),SELECT_FILE);
     }
 
-    private void cameraIntent()
-    {
+    private void cameraIntent() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, REQUEST_CAMERA);
     }
@@ -281,9 +279,9 @@ public class EditprofileActivity extends AppCompatActivity {
             }
             else if (requestCode == REQUEST_CAMERA) {
                 onCaptureImageResult(data);
-                Uri uri = data.getData();
+              /*  Uri uri = data.getData();
                 imagePath = ImageFilePath.getPath(EditprofileActivity.this,data.getData());
-                getDriverProfilePic();
+                getDriverProfilePic();*/
             }
         }
     }

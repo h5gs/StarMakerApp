@@ -5,6 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.archirayan.starmakerapp.fragments.FollowingFragment;
+import com.archirayan.starmakerapp.fragments.HotLiveFragment;
+import com.archirayan.starmakerapp.fragments.NearbyLiveFragment;
 import com.archirayan.starmakerapp.fragments.SongListFragment;
 import com.archirayan.starmakerapp.fragments.SongListRecorderFragment;
 import com.archirayan.starmakerapp.fragments.YouFragment;
@@ -19,7 +21,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     public ViewPagerAdapter(FragmentManager fm, String come) {
         super(fm);
-
         this.come = come;
     }
 
@@ -57,6 +58,13 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                     fragment = new SongListRecorderFragment();
                 }
                 break;
+            case "Live":
+                if (position == 0) {
+                    fragment = new HotLiveFragment();
+                }else if (position == 1) {
+                    fragment = new NearbyLiveFragment();
+                }
+                break;
         }
 
         return fragment;
@@ -76,6 +84,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 break;
             case "record":
                 val = 4;
+                break;
+            case "Live":
+                val = 2;
                 break;
         }
 
@@ -112,6 +123,13 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                     title = "NEW";
                 } else if (position == 3) {
                     title = "MY SONGS";
+                }
+                break;
+            case "Live":
+                if (position == 0) {
+                    title = "HOT";
+                }else if(position == 1){
+                    title = "NEARBY";
                 }
                 break;
         }

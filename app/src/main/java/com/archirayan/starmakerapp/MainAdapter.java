@@ -43,17 +43,18 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
         holder.btn_sing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialog = new Dialog(getApplicationContext());
+                final Dialog dialog = new Dialog(getApplicationContext());
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.sing_dialod);
                 TextView txt_solo = dialog.findViewById(R.id.txt_solo);
                 txt_solo.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(context,Grantpermissons.class);
-                        context.getApplicationContext().startActivity(intent);
+                     context.startActivity(new Intent(getApplicationContext(),Grantpermissons.class));
+                     dialog.dismiss();
                     }
                 });
+
                 TextView txt_startcollab = dialog.findViewById(R.id.txt_startcollab);
                 dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
                 //dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));

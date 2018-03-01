@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.archirayan.starmakerapp.fragments.HotLiveFragment">
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/grid_hotlive"
+        android:numColumns="2"
+        android:layout_gravity="center"
+        android:gravity="center">
+    </GridView>
+
+</LinearLayout>

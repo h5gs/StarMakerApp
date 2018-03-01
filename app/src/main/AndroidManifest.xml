@@ -16,7 +16,6 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_starcreator"
@@ -70,34 +69,25 @@
         <activity
             android:name=".activity.AboutusActivity"
             android:theme="@style/MyTheme" />
-
-        <activity android:name=".activity.BestSolosActivity"></activity>
+        <activity android:name=".activity.BestSolosActivity" />
         <activity
             android:name=".activity.EditprofileActivity"
-            android:theme="@style/MyTheme">
-
-
-        </activity>
+            android:theme="@style/MyTheme"></activity>
         <activity
             android:name=".activity.VerifiedActivity"
             android:theme="@style/MyTheme" />
-
         <activity android:name=".activity.SignuppasswordActivity" />
-
         <activity
             android:name=".activity.EventsActivity"
             android:theme="@style/MyTheme" />
-
         <activity
             android:name=".activity.HotHashtagActivity"
             android:theme="@style/MyTheme" />
-
         <activity android:name=".activity.PeopleLikeActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-
 
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -108,11 +98,12 @@
             android:authorities="com.facebook.app.FacebookContentProvider149916442361969"
             android:exported="true" />
 
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <activity android:name=".activity.LiveActivity" />
+        <activity android:name=".activity.NearbyActivity"></activity>
     </application>
 
 </manifest>
