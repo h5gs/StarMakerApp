@@ -199,7 +199,6 @@ public class FindYourFreindsActivity extends AppCompatActivity implements Loader
             }
             displayAllContacts();
         }
-
     }
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
