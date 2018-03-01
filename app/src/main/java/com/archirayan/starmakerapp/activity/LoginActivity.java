@@ -31,7 +31,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText edit_email, edit_password;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         btn_login = findViewById(R.id.btn_login);
@@ -39,19 +40,24 @@ public class LoginActivity extends AppCompatActivity {
 
         edit_email = findViewById(R.id.edit_email);
         edit_password = findViewById(R.id.edit_password);
-        img_back_title_Dsignin.setOnClickListener(new View.OnClickListener() {
+        img_back_title_Dsignin.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 startActivity(new Intent(LoginActivity.this, WelcomeActivity.class));
                 overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
             }
         });
-        btn_login.setOnClickListener(new View.OnClickListener() {
+        btn_login.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view) {
-                if (edit_email.getText().toString().equals("")) {
+                if (edit_email.getText().toString().equals(""))
+                {
                     Toast.makeText(LoginActivity.this, "Please enter email address", Toast.LENGTH_SHORT).show();
-                } else if (edit_password.getText().toString().equals("")) {
+                }
+                else if (edit_password.getText().toString().equals("")) {
                     Toast.makeText(LoginActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
                 } else {
                     login(edit_email.getText().toString(), edit_password.getText().toString());
@@ -60,7 +66,8 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void login(String email, String password) {
+    private void login(String email, String password)
+    {
         if (Utils.isConnectingToInternet(LoginActivity.this)) {
             loginCallApi(email, password);
         } else {
@@ -71,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
     private void loginCallApi(String email, String password) {
         pd = new ProgressDialog(LoginActivity.this);
         pd.setMessage("Loading...");
-        pd.setCancelable(true);
+        pd.setCancelable(false);
         pd.show();
 
         try

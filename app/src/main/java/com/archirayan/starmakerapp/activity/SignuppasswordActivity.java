@@ -27,8 +27,8 @@ public class SignuppasswordActivity extends AppCompatActivity {
     ImageView img_back;
     Button btn_password_signup;
     EditText edit_password;
+    String str_Id;
     private ProgressDialog progress;
-    private String str_UserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,12 @@ public class SignuppasswordActivity extends AppCompatActivity {
         img_back = findViewById(R.id.img_back);
         btn_password_signup = findViewById(R.id.btn_password_signup);
         edit_password = findViewById(R.id.edit_password);
+
+
+        Intent iin = getIntent();
+        Bundle b = iin.getExtras();
+        str_Id = b.getString("id_user");
+
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,11 +52,6 @@ public class SignuppasswordActivity extends AppCompatActivity {
             }
         });
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        if (bundle != null) {
-            str_UserId = bundle.getString("user_id");
-        }
 
         btn_password_signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +70,7 @@ public class SignuppasswordActivity extends AppCompatActivity {
     private void passwordsetSignUp() {
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams requestParams = new RequestParams();
-        requestParams.put("user_id", str_UserId);
+        requestParams.put("user_id", str_Id);
         requestParams.put("password", edit_password.getText().toString());
         Log.d("Login()", "http://web-medico.com/web1/StarCreator/APIs/set_password.php?" + requestParams);
         client.post("http://web-medico.com/web1/StarCreator/APIs/set_password.php?", requestParams, new JsonHttpResponseHandler() {
@@ -85,12 +86,15 @@ public class SignuppasswordActivity extends AppCompatActivity {
                 Hideprogress();
 
             }
+
             @Override
 
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response)
+            {
                 super.onSuccess(statusCode, headers, response);
                 Log.d("Login()", "Login RESPONSE-" + response.toString());
-                if (!response.equals("")) {
+                if (!response.equals(""))
+                {
                     Password password = new Gson().fromJson(new String(String.valueOf(response)), Password.class);
                     if (password.status.equals("true")) {
                         Toast.makeText(SignuppasswordActivity.this, password.msg, Toast.LENGTH_SHORT).show();

@@ -84,7 +84,8 @@ public class EditprofileActivity extends AppCompatActivity {
         btn_profile_save=findViewById(R.id.btn_profile_save);
         btn_profile_save.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 startActivity(new Intent(EditprofileActivity.this, FindYourFreindsActivity.class));
                 overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
                 finish();

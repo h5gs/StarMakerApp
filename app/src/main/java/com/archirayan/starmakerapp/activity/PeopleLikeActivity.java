@@ -26,7 +26,8 @@ public class PeopleLikeActivity extends AppCompatActivity {
         txt_next_homepage = findViewById(R.id.txt_next_homepage);
         txt_next_homepage.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 startActivity(new Intent(PeopleLikeActivity.this, MainActivity.class));
                 overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
                 finish();

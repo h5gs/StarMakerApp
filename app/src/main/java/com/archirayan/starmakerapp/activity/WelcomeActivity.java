@@ -9,7 +9,7 @@ import android.content.pm.Signature;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.service.carrier.CarrierMessagingService;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -46,7 +46,6 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
-import com.google.android.gms.common.api.ResultCallback;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -78,8 +77,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
     private String googleid, googlefirst_name, googlelast_name, googleemail;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -111,9 +109,6 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
-
-
-
 
 
         //// TODO: 26/2/18 Facebook...
@@ -152,22 +147,17 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
             @Override
             public void onClick(View view) {
                 signIn();
-//                SpinKitView progressBar = (SpinKitView) findViewById(R.id.spin_kit);
-//                DoubleBounce doubleBounce = new DoubleBounce();
-//                progressBar.setIndeterminateDrawable(doubleBounce);
-//                Handler handler = new Handler();
-//                handler.postDelayed(new Runnable()
-//                {
-//                    @Override
-//                    public void run()
-//                    {
-//                        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
-//                        finish();
-//                    }
-//                }, 2000);
-//
-//            }
-                //});
+                ShowProgress();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run()
+                    {
+                        Hideprogress();
+                        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                        finish();
+                    }
+                }, 2000);
             }
         });
 
@@ -250,8 +240,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
     }
 
 
-    private void printHashKey(WelcomeActivity welcomeActivity)
-    {
+    private void printHashKey(WelcomeActivity welcomeActivity) {
         try {
             PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
@@ -260,8 +249,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                 String hashKey = new String(Base64.encode(md.digest(), 0));
                 Log.e(TAG, "printHashKey() Hash Key: " + hashKey);
             }
-        } catch (NoSuchAlgorithmException e)
-        {
+        } catch (NoSuchAlgorithmException e) {
             Log.e(TAG, "printHashKey()", e);
         } catch (Exception e) {
             Log.e(TAG, "printHashKey()", e);
@@ -435,6 +423,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
+
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 

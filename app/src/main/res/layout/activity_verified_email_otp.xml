@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="casual"
+            android:text="Enter the code that was sent to"
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_emailname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="casual"
+            android:text=""
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="bold" />
+
+
+        <com.chaos.view.PinView
+            android:id="@+id/pinView"
+            style="@style/PinWidget.PinView"
+            ba="@color/light_dark_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:cursorVisible="true"
+            android:hint="Hint."
+            android:inputType="text"
+            android:padding="@dimen/_5sdp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:cursorColor="@color/light_dark_color"
+            app:cursorWidth="2dp"
+            app:itemCount="6"
+            app:itemHeight="@dimen/_40sdp"
+            app:itemRadius="@dimen/_2sdp"
+            app:itemSpacing="0dp"
+            app:itemWidth="@dimen/_40sdp"
+            app:lineWidth="@dimen/_1sdp"
+            app:viewType="rectangle" />
+
+        <Button
+            android:id="@+id/btn_otpcheck"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@color/light_pink_color"
+            android:text="Continue"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/txt_licenseandtc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:gravity="center_horizontal"
+            android:text="Tap Continue to accept Facebook's Terms,Data Policy,Cookie use and the Privacy Policy and terns of Service of Star Creator."
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

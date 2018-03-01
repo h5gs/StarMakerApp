@@ -7,20 +7,30 @@ import android.widget.ImageView;
 
 import com.archirayan.starmakerapp.R;
 
-public class AboutusActivity extends AppCompatActivity {
+public class EditAllProfileActivity extends AppCompatActivity
+{
     ImageView img_back;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_aboutus);
+        setContentView(R.layout.activity_edit_all_profile);
         img_back = findViewById(R.id.img_back);
 
-        img_back.setOnClickListener(new View.OnClickListener() {
+        img_back.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 onBackPressed();
             }
         });
+    }
+
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
     }
 }

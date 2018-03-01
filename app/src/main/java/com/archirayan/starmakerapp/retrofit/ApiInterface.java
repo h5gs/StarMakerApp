@@ -34,10 +34,10 @@ public interface ApiInterface
             Callback<Response> user);
 
 
-    @Multipart
+    @FormUrlEncoded
     @POST("/verified.php")
     void VerifiedEmail(
-            @Part("email_address") String email_address,
+            @Field("email_address") String email_address,
             Callback<Response> user);
 
 

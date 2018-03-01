@@ -14,11 +14,11 @@ import android.widget.Toast;
 
 import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.retrofit.RestClient;
+import com.archirayan.starmakerapp.utils.Constant;
 import com.archirayan.starmakerapp.utils.Util;
 import com.archirayan.starmakerapp.utils.Utils;
 import com.rilixtech.CountryCodePicker;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import retrofit.Callback;
@@ -44,7 +44,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
     // // TODO: 22/2/18 Initialize the Variable ...
 
-    private void Init() {
+    private void Init()
+    {
         ll_emailaddress.setVisibility(View.VISIBLE);
         btn_emaillogin.setOnClickListener(this);
 
@@ -62,8 +63,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View view)
+    {
+        switch (view.getId())
+        {
             case R.id.btn_emaillogin:
                 if (edit_emailaddress.getText().toString().isEmpty()) {
                     edit_emailaddress.setError("Please enter email id");
@@ -102,50 +105,61 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    private void SignUp(String email) {
-        if (Utils.isConnectingToInternet(SignUpActivity.this)) {
+    private void SignUp(String email)
+    {
+        if (Utils.isConnectingToInternet(SignUpActivity.this))
+        {
             signupCallApi(email);
-        } else {
+        }
+        else
+        {
             Toast.makeText(SignUpActivity.this, "Please Check the Internet Connection? Try Again.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void signupCallApi(String email) {
+    private void signupCallApi(String email)
+    {
 //        pd = new ProgressDialog(SignUpActivity.this);
 //        pd.setMessage("Loading...");
 //        pd.setCancelable(true);
 //        pd.show();
-        RestClient.getMutualTransfer().SignUp(email, new Callback<Response>() {
+        RestClient.getMutualTransfer().SignUp(email, new Callback<Response>()
+        {
             @Override
-            public void success(Response response, Response response2) {
+            public void success(Response response, Response response2)
+            {
                 //pd.dismiss();
                 ll_verify_progress.setVisibility(View.GONE);
                 ll_verify_otp_sent.setVisibility(View.VISIBLE);
                 try {
                     JSONObject jsonObject = new JSONObject(Util.getString(response.getBody().in()));
                     Log.v("", "===== Json =====: " + jsonObject.toString());
-                    if (jsonObject.getString("status").toString().equals("true")) {
-
+                    if (jsonObject.getString("status").toString().equals("true"))
+                    {
                         Toast.makeText(SignUpActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
                         //pd.dismiss();
                         Intent intent = new Intent(SignUpActivity.this, VerifyingEmailActivity.class);
-                        intent.putExtra("emailid", edit_emailaddress.getText().toString());
+                        Utils.WriteSharePrefrence(SignUpActivity.this, Constant.SIGNUP_PREF_EMAIL,edit_emailaddress.getText().toString());
                         startActivity(intent);
                         finish();
-                    } else {
+                    }
+                    else
+                    {
                         // pd.dismiss();
                         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                         Toast.makeText(SignUpActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
                         emailVerificayion(edit_emailaddress.getText().toString());
                     }
-                } catch (Exception e) {
+                } catch (Exception e)
+                {
                     // pd.dismiss();
                     e.printStackTrace();
                 }
             }
 
             @Override
-            public void failure(RetrofitError error) {
+            public void failure(RetrofitError error)
+            {
                 // pd.dismiss();
                 Toast.makeText(SignUpActivity.this, "Something went wrong, please try again.", Toast.LENGTH_SHORT).show();
             }
@@ -153,13 +167,15 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         super.onBackPressed();
         startActivity(new Intent(SignUpActivity.this, WelcomeActivity.class));
         overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
     }
 
-    private void emailVerificayion(String str_Email) {
+    private void emailVerificayion(String str_Email)
+    {
         pd = new ProgressDialog(SignUpActivity.this);
         pd.setMessage("Loading...");
         pd.setCancelable(true);
@@ -167,6 +183,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         try {
             RestClient.getMutualTransfer().VerifiedEmail(str_Email, new Callback<Response>()
             {
+
                 @Override
                 public void success(Response response, Response response2)
                 {
@@ -176,16 +193,17 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         Log.v("", "===== Json =====: " + jsonObject.toString());
                         if (jsonObject.getString("status").toString().equals("true"))
                         {
-                            JSONObject array=jsonObject.getJSONObject("data");
+                            JSONObject array = jsonObject.getJSONObject("data");
                             Toast.makeText(SignUpActivity.this, jsonObject.getString("msg"), Toast.LENGTH_SHORT).show();
                             pd.dismiss();
-                            Intent intent = new Intent(SignUpActivity.this, SignuppasswordActivity.class);
-                            intent.putExtra("user_id", array.getString("id"));
+                            Intent intent = new Intent(SignUpActivity.this, VerifiedEmailOtpActivity.class);
+                            intent.putExtra("otp",jsonObject.getString("OTP"));
+                           // Utils.WriteSharePrefrence(SignUpActivity.this, Constant.SIGNUP_PREF_OTP, jsonObject.getString("OTP"));
+                            Utils.WriteSharePrefrence(SignUpActivity.this, Constant.SIGNUP_PREF_USERID, array.getString("id"));
+                            Utils.WriteSharePrefrence(SignUpActivity.this, Constant.SIGNUP_PREF_EMAIL, array.getString("email_address"));
                             startActivity(intent);
                             finish();
-                        }
-                        else
-                        {
+                        } else {
                             pd.dismiss();
                             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                             Toast.makeText(SignUpActivity.this, jsonObject.getString("msg"), Toast.LENGTH_SHORT).show();
@@ -208,11 +226,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    private void Hideprogress()
-    {
+    private void Hideprogress() {
         // TODO Auto-generated method stub
-        if (progress.isShowing())
-        {
+        if (progress.isShowing()) {
             progress.dismiss();
         }
     }

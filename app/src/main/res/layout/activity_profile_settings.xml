@@ -17,7 +17,6 @@
             android:id="@+id/linear_title_Dsignin"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
-
             android:background="@drawable/file_title_bg"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -56,6 +55,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/ll_laout_editallprofile"
                     android:background="@color/white"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
@@ -464,7 +464,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-
+                    android:id="@+id/ll_laout_feedback"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="@dimen/_10sdp">
@@ -490,8 +490,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
+                    android:id="@+id/ll_laout_faq"
                     android:gravity="center_vertical"
-
                     android:orientation="horizontal"
                     android:padding="@dimen/_10sdp">
 
