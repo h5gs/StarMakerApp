@@ -1,4 +1,3 @@
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -52,14 +51,16 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_180sdp"
         android:orientation="horizontal"
-        android:id="@+id/recycler_friendfollowing"/>
+        android:id="@+id/recycler_friendfollowing"
+        android:scrollbars="none"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/item_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/main_bottom"
-        android:layout_below="@+id/main_header" />
+        android:layout_below="@+id/main_header"
+        android:scrollbars="none"/>
 
 </LinearLayout>
     </ScrollView>

@@ -4,8 +4,10 @@ import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.GridView;
 
 import com.archirayan.starmakerapp.R;
+import com.archirayan.starmakerapp.adapter.HotLiveAdapter;
 import com.archirayan.starmakerapp.adapter.SliderAdapter;
 
 import java.util.ArrayList;
@@ -15,12 +17,14 @@ import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator;
 
-public class NearbyActivity extends AppCompatActivity {
+public class PartiesActivity extends AppCompatActivity {
 
     private static final Integer[] XMEN = {R.drawable.img_splashtxt, R.drawable.images, R.drawable.images_one, R.drawable.images_two, R.drawable.img_splashtxt};
     private static ViewPager mPager;
     private static int currentPage = 0;
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
+    private GridView grid_partieshotlist;
+    private HotLiveAdapter hotLiveAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,5 +54,10 @@ public class NearbyActivity extends AppCompatActivity {
                 handler.post(Update);
             }
         }, 2500, 2500);
+
+        grid_partieshotlist = findViewById(R.id.grid_partieshotlist);
+        hotLiveAdapter = new HotLiveAdapter(this);
+        grid_partieshotlist.setAdapter(hotLiveAdapter);
+
     }
 }

@@ -36,7 +36,6 @@ public class FindFriendActivity extends AppCompatActivity {
         mainAdapter = new FindFreindsAdapter(FindFriendActivity.this);
         rvList.setLayoutManager(new LinearLayoutManager(FindFriendActivity.this, LinearLayoutManager.VERTICAL, false));
         rvList.setAdapter(mainAdapter);
-
     }
 
 

@@ -105,11 +105,16 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".activity.LiveActivity" />
-        <activity android:name=".activity.NearbyActivity" />
+        <activity android:name=".activity.PartiesActivity" />
         <activity android:name=".activity.FindYourFreindsActivity" />
         <activity android:name=".activity.PlaysongfullActivity" />
         <activity android:name=".activity.Grantpermissons" />
-        <activity android:name=".activity.RecordingSongs"></activity>
+        <activity android:name=".activity.RecordingSongs"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/MyTheme"
+            android:windowSoftInputMode="adjustPan" >
+
+        </activity>
     </application>
 
 </manifest>

@@ -17,7 +17,7 @@ import android.widget.ImageView;
 
 import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.activity.LiveActivity;
-import com.archirayan.starmakerapp.activity.NearbyActivity;
+import com.archirayan.starmakerapp.activity.PartiesActivity;
 import com.archirayan.starmakerapp.adapter.SliderAdapter;
 import com.archirayan.starmakerapp.adapter.ViewPagerAdapter;
 
@@ -42,7 +42,7 @@ public class RecordFragment extends Fragment {
     ViewPagerAdapter viewPagerAdapter;
     ImageView iv_backcard;
     CircleImageView iv_liveprofile;
-    private CardView card_live,crad_nearby;
+    private CardView card_live,crad_parties;
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
 //    ScrollView mScrollView;
 
@@ -104,7 +104,7 @@ public class RecordFragment extends Fragment {
         iv_liveprofile = view.findViewById(R.id.iv_liveprofile);
 
         card_live = view.findViewById(R.id.card_live);
-        crad_nearby = view.findViewById(R.id.crad_nearby);
+        crad_parties = view.findViewById(R.id.crad_parties);
 
         card_live.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,10 +112,10 @@ public class RecordFragment extends Fragment {
                 startActivity(new Intent(getActivity(),LiveActivity.class));
             }
         });
-        crad_nearby.setOnClickListener(new View.OnClickListener() {
+        crad_parties.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),NearbyActivity.class));
+                startActivity(new Intent(getActivity(),PartiesActivity.class));
             }
         });
 

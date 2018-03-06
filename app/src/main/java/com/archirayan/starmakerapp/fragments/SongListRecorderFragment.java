@@ -22,24 +22,19 @@ public class SongListRecorderFragment extends Fragment {
     RecyclerView itemrecoder_list;
     MainAdapter mainAdapter;
 
-
     public SongListRecorderFragment() {
         // Required empty public constructor
     }
 
     @Override
     public boolean getUserVisibleHint() {
-
         if(isVisible()){
             mainAdapter = new MainAdapter(getActivity());
             itemrecoder_list.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-
             itemrecoder_list.setAdapter(mainAdapter);
         }
         return isVisible();
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
