@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/gray">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="@dimen/_3sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@color/white">
+
+
+            <LinearLayout
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_160sdp"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_cancle"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:src="@drawable/ic_clear"/>
+                </RelativeLayout>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:src="@drawable/ic_back_round"
+                    app:border_width="@dimen/_1sdp"/>
+
+                <TextView
+                    android:id="@+id/txt_profilename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Profile name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"/>
+
+                <TextView
+                    android:id="@+id/txt_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:text="Comments"
+                    android:textSize="@dimen/_10sdp"/>
+
+                <Button
+                    android:id="@+id/btn_follow"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:background="@drawable/follow_btn_bg"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/white"
+                    android:text="Follow"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+</LinearLayout>

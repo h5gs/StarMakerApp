@@ -17,6 +17,8 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 
+import com.archirayan.starmakerapp.activity.LoginActivity;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -274,6 +276,5 @@ public class Utils {
         }
         return response.toString();
     }
-
 
 }

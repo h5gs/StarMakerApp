@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +16,10 @@ import android.view.ViewGroup;
 
 import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.activity.EditprofileActivity;
+import com.archirayan.starmakerapp.adapter.FriendsRecommedAdapter;
 import com.archirayan.starmakerapp.adapter.SongAdapter;
+import com.archirayan.starmakerapp.model.FollowList;
+import com.archirayan.starmakerapp.model.FollowingListResponse;
 import com.archirayan.starmakerapp.model.GetSongList;
 import com.archirayan.starmakerapp.model.SongListResponse;
 import com.archirayan.starmakerapp.model.SuggestedResponse;
@@ -35,14 +39,16 @@ import cz.msebera.android.httpclient.Header;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SongListFragment extends Fragment
-{
+public class SongListFragment extends Fragment {
 
     private static final String TAG = "SongListFragment";
-    RecyclerView rvList;
+    RecyclerView rvList,recycler_friendfollowing;
     SongAdapter songAdapter;
     private ArrayList<GetSongList> getSongList;
     private ProgressDialog pd;
+    private FriendsRecommedAdapter friendsRecommedAdapter;
+    private ArrayList<FollowList> followLists;
+    private SwipeRefreshLayout swipe_view;
 
     public SongListFragment() {
         // Required empty public constructor
@@ -71,10 +77,68 @@ public class SongListFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
 
         rvList = view.findViewById(R.id.item_list);
+        recycler_friendfollowing = view.findViewById(R.id.recycler_friendfollowing);
+        recycler_friendfollowing.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,true));
+        //friendsRecommedAdapter = new FriendsRecommedAdapter(getActivity());
+        //recycler_friendfollowing.setAdapter(friendsRecommedAdapter);
+        getFollowList();
         getSongList();
         //songAdapter = new SongAdapter(getActivity());
         rvList.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        //rvList.setAdapter(songAdapter);
+
+        swipe_view = view.findViewById(R.id.swipe_view);
+
+        swipe_view.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getFollowList();
+                swipe_view.setRefreshing(false);
+            }
+        });
+
+    }
+
+    private void getFollowList() {
+        followLists = new ArrayList<>();
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.put("user_id", Utils.ReadSharePrefrence(getActivity(),Constant.USERID));
+
+        Log.e(TAG, "URL:" + Constant.URL + "user_list.php?" + params);
+        Log.e(TAG, params.toString());
+        client.post(getActivity(), Constant.URL + "user_list.php?", params, new JsonHttpResponseHandler() {
+            @Override
+            public void onStart() {
+                super.onStart();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+            }
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                Log.e(TAG, "RESPONSE-" + response);
+                FollowingListResponse model = new Gson().fromJson(new String(String.valueOf(response)), FollowingListResponse.class);
+                if (model.getStatus().equals("true")){
+                    followLists = model.getData();
+                    friendsRecommedAdapter = new FriendsRecommedAdapter(getActivity(), followLists);
+                    //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+                   // recycler_friendfollowing.setLayoutManager(mLayoutManager);
+                  //  recycler_friendfollowing.setItemAnimator(new DefaultItemAnimator());
+                    recycler_friendfollowing.setAdapter(friendsRecommedAdapter);
+                    friendsRecommedAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+                Log.e(TAG, throwable.getMessage());
+
+            }
+        });
     }
 
     private void getSongList() {

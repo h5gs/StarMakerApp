@@ -63,7 +63,7 @@ public class EditprofileActivity extends AppCompatActivity {
      private String userChoosenTask;
      private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
      private CircleImageView iv_uplodepic;
-    private String imagePath;
+     private String imagePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
