@@ -20,7 +20,6 @@ public class Grantpermissons extends AppCompatActivity implements View.OnClickLi
     private boolean permissionTostorageAccepted = false;
     private boolean permissionToRecordAccepted = false;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +41,7 @@ public class Grantpermissons extends AppCompatActivity implements View.OnClickLi
             case R.id.txt_okpermission:
                 boolean result = Utility.checkPermission(Grantpermissons.this);
                 if (result) {
-                    startActivity(new Intent(Grantpermissons.this,LiveActivity.class));
+                    startActivity(new Intent(Grantpermissons.this,RecordingSongs.class));
                 }
         }
     }
@@ -53,6 +52,7 @@ public class Grantpermissons extends AppCompatActivity implements View.OnClickLi
         switch (requestCode){
             case Utility.MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE:
                 permissionTocameraAccepted  = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                startActivity(new Intent(Grantpermissons.this,RecordingSongs.class));
                 break;
         }
 

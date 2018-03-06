@@ -15,7 +15,8 @@
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -73,7 +74,7 @@
         <activity android:name=".activity.BestSolosActivity" />
         <activity
             android:name=".activity.EditprofileActivity"
-            android:theme="@style/MyTheme"></activity>
+            android:theme="@style/MyTheme" />
         <activity
             android:name=".activity.VerifiedActivity"
             android:theme="@style/MyTheme" />
@@ -106,8 +107,9 @@
         <activity android:name=".activity.LiveActivity" />
         <activity android:name=".activity.NearbyActivity" />
         <activity android:name=".activity.FindYourFreindsActivity" />
-        <activity android:name=".activity.PlaysongfullActivity"></activity>
-        <activity android:name=".activity.Grantpermissons"/>
+        <activity android:name=".activity.PlaysongfullActivity" />
+        <activity android:name=".activity.Grantpermissons" />
+        <activity android:name=".activity.RecordingSongs"></activity>
     </application>
 
 </manifest>
