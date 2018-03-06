@@ -1,12 +1,14 @@
 package com.archirayan.starmakerapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.MediaController;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.archirayan.starmakerapp.R;
+import com.archirayan.starmakerapp.activity.PlaysongfullActivity;
 import com.archirayan.starmakerapp.model.GetSongList;
 import com.github.rtoshiro.view.video.FullscreenVideoView;
 import com.squareup.picasso.Picasso;
@@ -85,6 +88,13 @@ public class SongAdapter  extends RecyclerView.Adapter<SongAdapter.MyViewHolder>
 
        Picasso.with(context).load(getSongLists.get(position).getProfile_picture()).placeholder(R.drawable.men).into(holder.gifters);
 
+        holder.fram_video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context.getApplicationContext(), PlaysongfullActivity.class));
+            }
+        });
+
     }
 
     @Override
@@ -103,6 +113,7 @@ public class SongAdapter  extends RecyclerView.Adapter<SongAdapter.MyViewHolder>
         private TextView txt_starnum;
         private CircleImageView gifters;
         private ImageView iv_start,iv_stop;
+        private FrameLayout fram_video;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -117,6 +128,8 @@ public class SongAdapter  extends RecyclerView.Adapter<SongAdapter.MyViewHolder>
             gifters = itemView.findViewById(R.id.gifters);
             iv_start = itemView.findViewById(R.id.iv_start);
             iv_stop = itemView.findViewById(R.id.iv_stop);
+            fram_video = itemView.findViewById(R.id.fram_video);
+
         }
     }
 }

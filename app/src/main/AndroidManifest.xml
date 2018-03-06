@@ -29,7 +29,11 @@
         <activity
             android:name=".activity.SplashActivity"
             android:theme="@style/MyTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activity.WelcomeActivity"
@@ -68,13 +72,7 @@
         <activity android:name=".activity.BestSolosActivity" />
         <activity
             android:name=".activity.EditprofileActivity"
-            android:theme="@style/MyTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/MyTheme"></activity>
         <activity
             android:name=".activity.VerifiedActivity"
             android:theme="@style/MyTheme" />
@@ -105,9 +103,9 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".activity.LiveActivity" />
-        <activity android:name=".activity.NearbyActivity"></activity>
-
-        <activity android:name=".activity.FindYourFreindsActivity"/>
+        <activity android:name=".activity.NearbyActivity" />
+        <activity android:name=".activity.FindYourFreindsActivity" />
+        <activity android:name=".activity.PlaysongfullActivity"></activity>
     </application>
 
 </manifest>
