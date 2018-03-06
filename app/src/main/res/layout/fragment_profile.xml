@@ -17,6 +17,7 @@
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|snap">
             ​
+
             <ImageView
                 android:id="@+id/materialup.profile_backdrop"
                 android:layout_width="match_parent"
@@ -46,7 +47,7 @@
                     android:gravity="center_vertical|center_horizontal"
                     android:text="Archirayan"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/_17sdp"/>
+                    android:textSize="@dimen/_17sdp" />
 
                 <ImageView
                     android:id="@+id/img_daily_checkin"
@@ -76,8 +77,9 @@
                 ​
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
                     android:gravity="center_horizontal|bottom"
                     android:orientation="horizontal">
 
@@ -94,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:background="@drawable/file_light_dark"
-                        android:padding="@dimen/_2sdp"
+                        android:padding="@dimen/_4sdp"
                         android:text="Get Vip"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_9sdp" />
@@ -109,18 +111,19 @@
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_9sdp" />
 
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:gravity="center_horizontal">
 
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_30sdp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:background="@drawable/file_pink_bluelight_bg"
                         android:gravity="center_horizontal"
@@ -136,7 +139,7 @@
 
                         <LinearLayout
                             android:layout_width="@dimen/_50sdp"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_5sdp"
                             android:orientation="vertical">
 
@@ -152,16 +155,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Received"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                                 android:textColor="@android:color/white"
-                                android:textSize="@dimen/_10sdp" />
+                                android:textSize="@dimen/_11sdp" />
                         </LinearLayout>
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_30sdp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:background="@drawable/file_yellow_red_bg"
@@ -178,7 +180,7 @@
 
                         <LinearLayout
                             android:layout_width="@dimen/_50sdp"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_5sdp"
                             android:orientation="vertical">
 
@@ -215,7 +217,8 @@
                         android:layout_marginTop="4dp"
                         android:text="Welcome to my stag"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_10sdp" />
 
                     <ImageView
                         android:id="@+id/img_back_t546itle_Dsignin"
@@ -349,13 +352,14 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:scrollbars="none"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/materialup.profile_image"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
         android:layout_gravity="center_horizontal"
         android:elevation="8dp"
         android:src="@mipmap/ic_starcreator"
@@ -363,6 +367,5 @@
         app:border_width="2dp"
         app:layout_anchor="@id/materialup.title_container"
         app:layout_anchorGravity="top|center_horizontal"
-        app:layout_scrollFlags="scroll"
-        />
+        app:layout_scrollFlags="scroll" />
 </android.support.design.widget.CoordinatorLayout>

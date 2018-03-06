@@ -57,7 +57,8 @@ public class SongListFragment extends Fragment {
     @Override
     public boolean getUserVisibleHint() {
 
-        if (isVisible()) {
+        if (isVisible())
+        {
             songAdapter = new SongAdapter(getActivity(),getSongList);
             rvList.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
             rvList.setAdapter(songAdapter);

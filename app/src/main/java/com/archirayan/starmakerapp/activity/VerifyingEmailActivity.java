@@ -277,8 +277,10 @@ import com.archirayan.starmakerapp.utils.Constant;
 import com.archirayan.starmakerapp.utils.Util;
 import com.archirayan.starmakerapp.utils.Utils;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.Calendar;
 
 import retrofit.Callback;
@@ -323,11 +325,11 @@ public class VerifyingEmailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-//                Intent emailIntent = new Intent(Intent.ACTION_SEND);
-//                emailIntent.setType("text/plain");
-//                startActivity(emailIntent);
-                Intent intent = new Intent(VerifyingEmailActivity.this, EditprofileActivity.class);
-                startActivity(intent);
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setType("text/plain");
+                startActivity(emailIntent);
+               // Intent intent = new Intent(VerifyingEmailActivity.this, EditprofileActivity.class);
+              //  startActivity(intent);
             }
         });
     }
@@ -364,25 +366,26 @@ public class VerifyingEmailActivity extends AppCompatActivity {
             public void success(Response response, Response response2)
             {
                 progress.dismiss();
-                try {
-                    JSONObject jsonObject = new JSONObject(Util.getString(response.getBody().in()));
-                    if (jsonObject.getString("status").equals("true"))
-                    {
-                        JSONObject jsonObj=jsonObject.getJSONObject("data");
-                        Utils.WriteSharePrefrence(VerifyingEmailActivity.this, Constant.SIGNUP_PREF_USERID, jsonObj.getString("id"));
-                        //Utils.WriteSharePrefrence(VerifyingEmailActivity.this, Constant.SIGNUP_PREF_EMAIL, jsonObj.getString("email_address"));
-                        Intent intent = new Intent(VerifyingEmailActivity.this, VerifiedEmailOtpActivity
-                                .class);
-                        intent.putExtra("otp",jsonObject.getString("OTP"));
-                        intent.putExtra("id",jsonObj.getString("id"));
-                        startActivity(intent);
-                        finish();
-                    }
-                    else
-                    {
-                    }
-                } catch (Exception e)
+
+                JSONObject jsonObject = null;
+                try
                 {
+                    jsonObject = new JSONObject(Util.getString(response.getBody().in()));
+                    if (jsonObject.getString("status").equals("true"))
+                        {
+                            JSONObject jsonObj=jsonObject.getJSONObject("data");
+                            Utils.WriteSharePrefrence(VerifyingEmailActivity.this, Constant.SIGNUP_PREF_USERID, jsonObj.getString("id"));
+                            Utils.WriteSharePrefrence(VerifyingEmailActivity.this, Constant.SIGNUP_PREF_EMAIL, jsonObj.getString("email_address"));
+                            Intent intent = new Intent(VerifyingEmailActivity.this, VerifiedEmailOtpActivity
+                                    .class);
+                            intent.putExtra("otp",jsonObject.getString("OTP"));
+                            intent.putExtra("id",jsonObj.getString("id"));
+                            startActivity(intent);
+                            finish();
+                        }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }

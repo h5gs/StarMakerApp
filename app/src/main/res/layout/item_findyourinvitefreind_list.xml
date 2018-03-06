@@ -52,8 +52,9 @@
 
         <Button
             android:id="@+id/btn_invite"
+            android:padding="@dimen/_5sdp"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_20sdp"
+            android:layout_height="@dimen/_25sdp"
             android:background="@drawable/file_pink_corner"
             android:text="Invite"
             android:textAlignment="center"

@@ -148,7 +148,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         // pd.dismiss();
                         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                         Toast.makeText(SignUpActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
-                        emailVerificayion(edit_emailaddress.getText().toString());
+                      //  emailVerificayion(edit_emailaddress.getText().toString());
                     }
                 } catch (Exception e)
                 {

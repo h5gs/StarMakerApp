@@ -1,60 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <FrameLayout
         android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/main_bottom"/>
+        android:layout_above="@+id/main_bottom" />
 
     <LinearLayout
         android:id="@+id/main_bottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/_5sdp"
-        android:gravity="center"
+        android:layout_height="@dimen/_55sdp"
+        android:layout_alignParentBottom="true"
         android:background="@color/white"
-        android:layout_alignParentBottom="true">
+        android:gravity="center"
+        android:padding="@dimen/_5sdp">
 
         <ImageView
             android:id="@+id/main_song"
             android:layout_width="0dp"
+            android:layout_height="@dimen/_25sdp"
             android:layout_weight="0.2"
-            android:src="@drawable/toine"
-            android:layout_height="@dimen/_25sdp"/>
+            android:src="@drawable/toine" />
 
         <ImageView
             android:id="@+id/main_award"
             android:layout_width="0dp"
+            android:layout_height="@dimen/_25sdp"
             android:layout_weight="0.2"
-            android:src="@drawable/award"
-            android:layout_height="@dimen/_25sdp"/>
+            android:src="@drawable/award" />
 
         <ImageView
             android:id="@+id/main_record"
             android:layout_width="0dp"
+            android:layout_height="@dimen/_45sdp"
             android:layout_weight="0.2"
-            android:src="@drawable/record"
-            android:layout_height="@dimen/_45sdp"/>
+            android:src="@drawable/record" />
 
         <ImageView
             android:id="@+id/main_notification"
             android:layout_width="0dp"
+            android:layout_height="@dimen/_25sdp"
             android:layout_weight="0.2"
-            android:src="@drawable/bell"
-            android:layout_height="@dimen/_25sdp"/>
+            android:src="@drawable/bell" />
 
         <ImageView
             android:id="@+id/main_profile"
             android:layout_width="0dp"
+            android:layout_height="@dimen/_25sdp"
             android:layout_weight="0.2"
-            android:src="@drawable/men"
-            android:layout_height="@dimen/_25sdp"/>
+            android:src="@drawable/men" />
 
     </LinearLayout>
 

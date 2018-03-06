@@ -32,7 +32,6 @@
             android:drawablePadding="@dimen/_5sdp"
             android:hint="Search by Artists, Songs or Stagenames"
             android:padding="@dimen/_3sdp"
-            android:textIsSelectable="true"
             android:textSize="@dimen/_12sdp" />
 
     </LinearLayout>

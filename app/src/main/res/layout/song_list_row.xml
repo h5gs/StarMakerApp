@@ -97,7 +97,7 @@
     <VideoView
         android:id="@+id/iv_video"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_250sdp"
+        android:layout_height="@dimen/_150sdp"
         android:layout_gravity="center"/>
 
         <RelativeLayout
@@ -265,7 +265,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/_2sdp"
             android:layout_marginRight="@dimen/_5sdp"
-            android:background="@color/colorAccent"
+            android:background="@drawable/file_pink_corner"
             android:paddingBottom="@dimen/_5sdp"
             android:paddingLeft="@dimen/_15sdp"
             android:paddingRight="@dimen/_15sdp"

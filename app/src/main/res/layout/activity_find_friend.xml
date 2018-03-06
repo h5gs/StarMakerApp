@@ -15,7 +15,7 @@
         <LinearLayout
             android:id="@+id/linear_title_Dsignin"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
+            android:layout_height="@dimen/_40sdp"
             android:background="@drawable/file_title_bg"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -201,6 +201,7 @@
 
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/item_list"
+                       android:scrollbars="none"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                 </LinearLayout>

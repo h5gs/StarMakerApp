@@ -14,7 +14,7 @@
         <LinearLayout
             android:id="@+id/linear_title_Dsignin"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
+            android:layout_height="@dimen/_40sdp"
             android:background="@drawable/file_title_bg"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -48,7 +48,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1.8"
+                android:layout_weight="1.7"
                 android:orientation="vertical">
 
                 <ScrollView
@@ -133,6 +133,7 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
                                 android:orientation="horizontal">
 
                                 <ImageView
@@ -288,17 +289,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.2">
+                android:layout_weight="0.3"
+                android:gravity="center_vertical">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:orientation="vertical">
 
                         <TextView
@@ -320,18 +324,20 @@
                             android:textSize="@dimen/_11sdp" />
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="@dimen/_90sdp"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorAccent"
-                        android:gravity="center"
-                        android:src="@drawable/ic_back_arrow"
-                        android:text="Get VIP"
-                        android:textAllCaps="true"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_15sdp"
-                        android:textStyle="bold" />
+
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/file_pink_corner"
+                    android:gravity="center"
+                    android:text="Get VIP"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

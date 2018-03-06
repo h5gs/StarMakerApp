@@ -82,7 +82,8 @@
                 android:background="@color/light_pink_color"
                 android:text="Send SMS Again"
                 android:textAllCaps="false"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_13sdp" />
 
 
             <LinearLayout
@@ -120,10 +121,12 @@
                         android:layout_height="@dimen/_40sdp"
                         android:layout_marginLeft="@dimen/_15sdp"
                         android:background="@color/light_pink_color"
+
                         android:gravity="left|center_vertical"
                         android:text="Get a Code on Facebook Code will arrive as Facebook notification"
                         android:textAllCaps="false"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_12sdp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -150,7 +153,8 @@
                         android:gravity="left|center_vertical"
                         android:text="Get a Call Get your code in voice call"
                         android:textAllCaps="false"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_12sdp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

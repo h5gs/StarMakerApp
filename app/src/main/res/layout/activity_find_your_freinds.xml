@@ -41,42 +41,41 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+            android:layout_height="fill_parent"
             android:orientation="vertical">
 
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/_10sdp"-->
+            <!--android:text="Freinds on Star Creator "-->
+            <!--android:textSize="@dimen/_13sdp" />-->
+
+            <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/item_findfreinds_starcreator_list"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/_200sdp"-->
+            <!--android:layout_above="@+id/main_bottom"-->
+            <!--android:layout_below="@+id/main_header" />-->
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:text="Freinds on Star Creator "
-                android:textSize="@dimen/_13sdp" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/item_findfreinds_starcreator_list"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_200sdp"
-                android:layout_above="@+id/main_bottom"
-                android:layout_below="@+id/main_header" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:text="People You Should Invite"
                 android:textSize="@dimen/_13sdp" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/item_findyourfreinds_list"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_200sdp"
-                android:layout_above="@+id/main_bottom"
-                android:layout_below="@+id/main_header" />
+                android:layout_height="match_parent"
+                android:scrollbars="none" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

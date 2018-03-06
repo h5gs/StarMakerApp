@@ -11,5 +11,6 @@
         android:layout_marginRight="@dimen/_10sdp"
         android:background="@drawable/edit_border"
         android:padding="@dimen/_8sdp"
-        android:text="archirayan45" />
+        android:text="archirayan45"
+        android:textSize="@dimen/_13sdp" />
 </LinearLayout>

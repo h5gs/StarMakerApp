@@ -39,28 +39,22 @@
             android:gravity="bottom"
             android:orientation="vertical">
 
-            <!--<ImageView-->
-                <!--android:layout_width="@dimen/_200sdp"-->
-                <!--android:layout_height="@dimen/_30sdp"-->
-                <!--android:layout_gravity="center_horizontal"-->
-                <!--android:layout_marginLeft="@dimen/_10sdp"-->
-                <!--android:background="@drawable/img_starmaker_white" />-->
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center_horizontal"
-                android:text="Star Creator"
                 android:fontFamily="serif"
+                android:text="Star Creator"
+                android:textStyle="bold"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/_35sdp" />
+                android:textSize="@dimen/_33sdp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:text="Sign with 50,0000,000+ music lover"
+                android:text="@string/txt_sign_musicelover"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_10sdp"
                 android:textStyle="bold" />
@@ -84,19 +78,19 @@
                         android:orientation="horizontal">
 
                         <com.facebook.login.widget.LoginButton
-                        android:id="@+id/login_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:visibility="gone" />
+                            android:id="@+id/login_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:visibility="gone" />
                     </LinearLayout>
 
                     <ImageView
                         android:id="@+id/img_fb"
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
+                        android:layout_marginLeft="@dimen/_3sdp"
                         android:layout_marginTop="@dimen/_5sdp"
-
                         android:padding="@dimen/_5sdp"
                         app:srcCompat="@drawable/ic_facebook" />
 
@@ -163,6 +157,7 @@
                     android:background="@mipmap/ic_google"
                     ads:border_color="@android:color/white"
                     ads:border_width="1dp" />
+
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/iv_logoutwithgoogle"
                     android:layout_width="@dimen/_50sdp"
@@ -170,9 +165,9 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/_30sdp"
                     android:background="@mipmap/ic_google"
+                    android:visibility="gone"
                     ads:border_color="@android:color/white"
-                    ads:border_width="1dp"
-                    android:visibility="gone"/>
+                    ads:border_width="1dp" />
             </LinearLayout>
 
 
@@ -190,7 +185,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/txt_privacypolicy_tc"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_11sdp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,22 +15,23 @@
             android:id="@+id/iv_backtopfriends"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
-            android:src="@drawable/ic_back_white"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_8sdp"/>
+            android:layout_marginTop="@dimen/_8sdp"
+            android:src="@drawable/ic_back_white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/_15sdp"
-            android:textColor="@color/white"
-            android:text="Top Ftiends"
-            android:textStyle="bold"
+            android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/_30sdp"
-            android:layout_centerInParent="true"/>
+            android:text="Top Ftiends"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/_120sdp"
@@ -43,40 +43,32 @@
             android:layout_height="@dimen/_40sdp"
             android:layout_gravity="center"
             android:layout_margin="@dimen/_10sdp"
-            android:src="@drawable/ic_back_round"/>
+            android:src="@drawable/ic_back_round" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_15sdp"
-            android:textStyle="bold"
+            android:layout_gravity="center"
             android:text="Profile name"
-            android:layout_gravity="center"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white">
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/recycler_topallfriends"/>
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_30sdp"
-            android:background="@color/colorAccent"
-            android:layout_alignParentBottom="true"
-            android:textSize="@dimen/_15sdp"
-            android:text="INVITE FRIENDS"
             android:textColor="@color/white"
-            android:textStyle="bold"/>
-    </RelativeLayout>
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_topallfriends"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/file_pink_corner"
+        android:text="INVITE FRIENDS"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold" />
 </LinearLayout>

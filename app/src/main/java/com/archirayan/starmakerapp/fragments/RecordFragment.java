@@ -12,6 +12,7 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
@@ -42,7 +43,7 @@ public class RecordFragment extends Fragment {
     ViewPagerAdapter viewPagerAdapter;
     ImageView iv_backcard;
     CircleImageView iv_liveprofile;
-    private CardView card_live,crad_parties;
+    private CardView card_live, crad_parties;
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
 //    ScrollView mScrollView;
 
@@ -54,7 +55,9 @@ public class RecordFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_record, container, false);
+        View view = inflater.inflate(R.layout.fragment_record, container, false);
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        return view;
     }
 
     @Override
@@ -99,7 +102,7 @@ public class RecordFragment extends Fragment {
 
         iv_backcard = view.findViewById(R.id.iv_backcard);
 
-        iv_backcard.setAnimation(AnimationUtils.loadAnimation(getActivity(),R.anim.blink_in));
+        iv_backcard.setAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.blink_in));
 
         iv_liveprofile = view.findViewById(R.id.iv_liveprofile);
 
@@ -109,13 +112,13 @@ public class RecordFragment extends Fragment {
         card_live.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),LiveActivity.class));
+                startActivity(new Intent(getActivity(), LiveActivity.class));
             }
         });
         crad_parties.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),PartiesActivity.class));
+                startActivity(new Intent(getActivity(), PartiesActivity.class));
             }
         });
 

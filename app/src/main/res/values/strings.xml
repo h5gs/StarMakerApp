@@ -1,6 +1,6 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">Star Creator</string>
-    <string name="txt_privacypolicy_tc">You agree to our<u>Terms Of Service</u>And<u>Privacy Policy</u></string>
+    <string name="txt_privacypolicy_tc">You agree to our <u>Terms Of Service</u> &amp; <u>Privacy Policy</u></string>
     <string name="txt_mobileverify">Tap Next to verify your account with Account Kit powered by Facebook. you don\'t ned a Facebook  account to use Account Kit. An SMS may be sent to verify your number.Message and data rates may apply.  <u>Learn how Facebook uses your info.</u></string>
     <string name="abc_aps_just_reposted_a_cover_of_abcd_efg"><b>Archirayan</b> just reposted a cover of <b>ABCD EFG</b></string>
 
@@ -9,4 +9,5 @@
 
     <string name="facebook_app_id">149916442361969</string>
     <string name="fb_login_protocol_scheme">fb149916442361969</string>
+    <string name="txt_sign_musicelover">"Sign with 50,0000,000+ music lover"</string>
 </resources>

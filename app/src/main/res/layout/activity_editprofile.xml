@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/linear_title_Dsignin"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_height="@dimen/_40sdp"
         android:background="@drawable/file_title_bg"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -31,105 +31,115 @@
             android:textSize="@dimen/_17sdp" />
     </LinearLayout>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:scrollbars="none">
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_10sdp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_profilepic"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:gravity="center">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_uplodepic"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_launch_starmaker" />
+
+            <LinearLayout
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_74sdp"
+                android:gravity="right|bottom">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:src="@drawable/ic_plue_circle" />
+            </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/_10sdp"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <RelativeLayout
-                android:id="@+id/rl_profilepic"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
-                android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="A decent photo will increase your popularity!"
+                android:textSize="@dimen/_12sdp" />
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/iv_uplodepic"
-                    android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_80sdp"
-                    android:layout_gravity="center"
-                    android:src="@mipmap/ic_launch_starmaker" />
 
-                <LinearLayout
-                    android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_80sdp"
-                    android:gravity="right|bottom">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/layout_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColorHint="@color/color_light_orange">
 
-                    <ImageView
-                        android:layout_width="@dimen/_25sdp"
-                        android:layout_height="@dimen/_25sdp"
-                        android:src="@drawable/ic_plue_circle" />
-                </LinearLayout>
-            </RelativeLayout>
+                <EditText
+                    android:id="@+id/editTextEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Stage name"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/color_light_orange"
+                    android:textSize="@dimen/_11sdp" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="Suggested Stage Names"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_13sdp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:text="A decent photo will increase your popularity!"
-                    android:textSize="@dimen/_12sdp" />
-
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/layout_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="@color/color_light_orange">
-
-                    <EditText
-                        android:id="@+id/editTextEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Stage name"
-                        android:inputType="textEmailAddress"
-                        android:textColor="@color/color_light_orange" />
-                </android.support.design.widget.TextInputLayout>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:text="Suggested Stage Names"
-                    android:textAllCaps="true"
-                    android:textSize="@dimen/_16sdp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_100sdp"
                     android:orientation="vertical">
 
-                <android.support.v7.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:id="@+id/recycler_suggestion"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_25sdp"
-                    android:orientation="horizontal"/>
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_suggestion"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:orientation="horizontal" />
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/btn_profile_save"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:layout_marginBottom="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:background="@color/light_pink_color"
-                    android:text="Save"
-                    android:textAllCaps="true"
-                    android:textColor="@android:color/white" />
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_profile_save"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_37sdp"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:background="@color/light_pink_color"
+                        android:text="Save"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_13sdp" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 </LinearLayout>

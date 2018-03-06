@@ -31,10 +31,12 @@ public class VerifiedEmailOtpActivity extends AppCompatActivity {
         str_Id = b.getString("id");
 
         btn_otpcheck = findViewById(R.id.btn_otpcheck);
-        btn_otpcheck.setOnClickListener(new View.OnClickListener() {
+        btn_otpcheck.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view) {
-                if (pinView.getText().toString().equals(str_Otp)) {
+                if (pinView.getText().toString().equals(str_Otp))
+                {
                     Intent intent = new Intent(VerifiedEmailOtpActivity.this, SignuppasswordActivity.class);
                     intent.putExtra("id_user", str_Id);
                     startActivity(intent);

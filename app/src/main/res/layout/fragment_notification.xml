@@ -51,6 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textSize="@dimen/_11sdp"
                 android:textColor="@color/black"
                 android:text="System" />
 
@@ -73,6 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textSize="@dimen/_11sdp"
                 android:textColor="@color/black"
                 android:text="Gifts" />
 
@@ -95,6 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textSize="@dimen/_11sdp"
                 android:textColor="@color/black"
                 android:text="Collabs" />
 
@@ -117,6 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textSize="@dimen/_11sdp"
                 android:textColor="@color/black"
                 android:text="Messages" />
 

@@ -32,7 +32,8 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_weight="1"
             android:background="@color/light_dark_color"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:textSize="@dimen/_11sdp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,10 +55,11 @@
                 android:id="@+id/btn_emaillogin"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
-                android:background="@color/light_pink_color"
+                android:background="@drawable/file_pink_corner"
                 android:text="Next"
                 android:textAllCaps="false"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_13sdp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -85,8 +87,9 @@
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"
             android:layout_marginTop="@dimen/_20sdp"
+            android:indeterminateDrawable="@drawable/file_progress_bg" />
 
-            />
+        />
     </LinearLayout>
 
 

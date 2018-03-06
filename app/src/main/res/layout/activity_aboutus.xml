@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/linear_title_Dsignin"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_height="@dimen/_40sdp"
         android:background="@drawable/file_title_bg"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -31,49 +31,56 @@
             android:textSize="@dimen/_17sdp" />
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:orientation="vertical">
+        android:layout_height="fill_parent"
+        android:scrollbars="none">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_150sdp"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_40sdp"
-            android:src="@mipmap/ic_starcreator" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:fontFamily="serif"
-            android:text="Star Creator"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_30sdp" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:src="@mipmap/ic_starcreator" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_3sdp"
-            android:fontFamily="serif"
-            android:text="Version 1.0"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/_11sdp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="serif"
+                android:text="Star Creator"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_30sdp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_50sdp"
-            android:fontFamily="serif"
-            android:text="Copyright @ 2018 Star Creator"
-            android:textSize="@dimen/_11sdp" />
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:fontFamily="serif"
+                android:text="Version 1.0"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:fontFamily="serif"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="Copyright @ 2018 Star Creator"
+                android:textSize="@dimen/_11sdp" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

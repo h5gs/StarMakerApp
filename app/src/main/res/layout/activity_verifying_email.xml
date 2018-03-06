@@ -20,8 +20,8 @@
             android:fontFamily="casual"
             android:gravity="center_horizontal"
             android:text="Open the email and confirm your email address"
-            android:textSize="@dimen/_13sdp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/_14sdp"
+           />
 
 
         <ImageView
@@ -45,6 +45,7 @@
                 android:layout_height="@dimen/_40sdp"
                 android:background="@color/light_pink_color"
                 android:text="Open your email"
+                android:textSize="@dimen/_13sdp"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white" />
 

@@ -217,13 +217,6 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                             e.printStackTrace();
                         }
 
-
-//                      //  Utils.WriteSharePrefrence(WelcomeActivity.this, Constant.USERID, login.data.user_id);
-//                        Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-//                        intent.putExtra("username", fbfirst_name);
-//                        startActivity(intent);
-//                        finish();
-
                         Facebooklogin();
                     }
 
