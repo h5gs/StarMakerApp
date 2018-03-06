@@ -64,6 +64,8 @@
         <activity
             android:name=".activity.DailyCheckInActivity"
             android:theme="@style/MyTheme" />
+
+
         <activity
             android:name=".activity.AboutusActivity"
             android:theme="@style/MyTheme" />
