@@ -22,8 +22,7 @@ public class FindFriendActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_friend);
         img_back = findViewById(R.id.img_back);
-        img_back.setOnClickListener(new View.OnClickListener()
-        {
+        img_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -37,8 +36,6 @@ public class FindFriendActivity extends AppCompatActivity {
         rvList.setLayoutManager(new LinearLayoutManager(FindFriendActivity.this, LinearLayoutManager.VERTICAL, false));
         rvList.setAdapter(mainAdapter);
     }
-
-
 
     @Override
     public void onBackPressed()
