@@ -8,6 +8,8 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,12 +28,42 @@ public class ProfileSettingsActivity extends AppCompatActivity {
     private String str_emailSend;
     private String str_emailsubject;
     private String str_emailcontent;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_settings);
-        img_back = findViewById(R.id.img_back);
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setTitleBar();
+        init();
+
+
+    }
+
+    //Toolbar title
+    public void setTitleBar() {
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Setting");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+
+            onBackPressed();
+            overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void init()
+    {
         txt_user_logout = findViewById(R.id.txt_user_logout);
         ll_laout_faq=findViewById(R.id.ll_laout_faq);
         ll_laout_about=findViewById(R.id.ll_laout_about);
@@ -62,13 +94,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
             }
         });
 
-        img_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
-            }
-        });
+
 
         ll_laout_faq.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +134,6 @@ public class ProfileSettingsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     @Override

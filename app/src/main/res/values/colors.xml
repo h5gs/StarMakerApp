@@ -23,4 +23,6 @@
     <color name="black">#000000</color>
     <color name="gray">#ecf0f1</color>
     <color name="pink">#EC0F88</color>
+    <color name="green">#6FC116</color>
+
 </resources>

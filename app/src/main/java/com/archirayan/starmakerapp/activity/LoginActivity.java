@@ -4,7 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -36,26 +38,46 @@ public class LoginActivity extends AppCompatActivity {
     Button btn_login;
     ImageView img_back_title_Dsignin;
     EditText edit_email, edit_password;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setTitleBar();
+        init();
+
+    }
+
+    //Toolbar title
+    public void setTitleBar() {
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Login");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+
+            onBackPressed();
+            overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void init()
+    {
         btn_login = findViewById(R.id.btn_login);
-        img_back_title_Dsignin = findViewById(R.id.img_back_title_Dsignin);
 
         edit_email = findViewById(R.id.edit_email);
         edit_password = findViewById(R.id.edit_password);
-        img_back_title_Dsignin.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(LoginActivity.this, WelcomeActivity.class));
-                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
-            }
-        });
+
         btn_login.setOnClickListener(new View.OnClickListener()
         {
             @Override

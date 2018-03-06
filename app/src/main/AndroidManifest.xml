@@ -47,9 +47,7 @@
         <activity
             android:name=".activity.VerifyingOTPActivity"
             android:theme="@style/MyTheme" />
-        <activity
-            android:name=".activity.LoginActivity"
-            android:theme="@style/MyTheme" />
+        <activity android:name=".activity.LoginActivity" />
         <activity
             android:name=".activity.SignUpActivity"
             android:theme="@style/MyTheme" />
@@ -59,9 +57,7 @@
         <activity
             android:name=".activity.DidnotgetOTPActivity"
             android:theme="@style/MyTheme" />
-        <activity
-            android:name=".activity.ProfileSettingsActivity"
-            android:theme="@style/MyTheme" />
+        <activity android:name=".activity.ProfileSettingsActivity" />
         <activity
             android:name=".activity.FindFriendActivity"
             android:theme="@style/MyTheme" />
