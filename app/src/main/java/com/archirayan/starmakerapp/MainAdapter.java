@@ -39,8 +39,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.btn_sing.setOnClickListener(new View.OnClickListener() {
+    public void onBindViewHolder(MyViewHolder holder, int position)
+    {
+        holder.btn_sing.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 final Dialog dialog = new Dialog(getApplicationContext());

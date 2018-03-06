@@ -323,9 +323,11 @@ public class VerifyingEmailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent emailIntent = new Intent(Intent.ACTION_SEND);
-                emailIntent.setType("text/plain");
-                startActivity(emailIntent);
+//                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+//                emailIntent.setType("text/plain");
+//                startActivity(emailIntent);
+                Intent intent = new Intent(VerifyingEmailActivity.this, EditprofileActivity.class);
+                startActivity(intent);
             }
         });
     }
