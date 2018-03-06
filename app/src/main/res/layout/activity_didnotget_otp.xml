@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.archirayan.starmakerapp.activity.DidnotgetOTPActivity">
 
@@ -36,9 +36,9 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:src="@drawable/men" />
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:src="@drawable/ic_mobilephone" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -61,7 +61,7 @@
                 <ImageView
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
-                    android:src="@drawable/men" />
+                    android:src="@drawable/ic_smsinbox" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -129,8 +129,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:background="@color/light_pink_color"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
@@ -139,10 +139,10 @@
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
-                        android:src="@drawable/men" />
+                        android:src="@drawable/ic_voicecall" />
 
                     <Button
-                        android:id="@+id/btn_sensmsagain"
+                        android:id="@+id/btn_sensmsagainone"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_marginLeft="@dimen/_15sdp"

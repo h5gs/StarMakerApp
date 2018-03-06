@@ -240,4 +240,5 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         progress.setCancelable(false);
         progress.show();
     }
+
 }
