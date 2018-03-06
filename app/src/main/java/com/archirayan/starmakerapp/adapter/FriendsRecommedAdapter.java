@@ -62,7 +62,6 @@ public class FriendsRecommedAdapter extends RecyclerView.Adapter<FriendsRecommed
         return new MyViewHolder(itemView);
     }
 
-
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         holder.txt_profilename.setText(followLists.get(position).getUsername());

@@ -107,6 +107,7 @@
         <activity android:name=".activity.NearbyActivity" />
         <activity android:name=".activity.FindYourFreindsActivity" />
         <activity android:name=".activity.PlaysongfullActivity"></activity>
+        <activity android:name=".activity.Grantpermissons"/>
     </application>
 
 </manifest>

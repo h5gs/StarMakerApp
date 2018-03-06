@@ -95,9 +95,7 @@ public class SongListFragment extends Fragment {
                 swipe_view.setRefreshing(false);
             }
         });
-
     }
-
     private void getFollowList() {
         followLists = new ArrayList<>();
         AsyncHttpClient client = new AsyncHttpClient();
@@ -148,7 +146,7 @@ public class SongListFragment extends Fragment {
         getSongList = new ArrayList<>();
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
-        params.put("id", "1");
+        params.put("id", Utils.ReadSharePrefrence(getActivity(),Constant.USERID));
 
         Log.e(TAG, "URL:" + Constant.URL + "get_user_profile.php?" + params);
         Log.e(TAG, params.toString());
