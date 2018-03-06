@@ -74,6 +74,9 @@
             android:name=".activity.EditprofileActivity"
             android:theme="@style/MyTheme" />
         <activity
+            android:name=".activity.EditAllProfileActivity"
+            android:theme="@style/MyTheme" />
+        <activity
             android:name=".activity.VerifiedActivity"
             android:theme="@style/MyTheme" />
         <activity android:name=".activity.SignuppasswordActivity" />
