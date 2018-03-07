@@ -92,15 +92,59 @@
         </LinearLayout>
     </RelativeLayout>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+    <com.archirayan.starmakerapp.util.FixedRatioCroppedTextureView
+        android:id="@+id/video_recoder"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_280sdp"/>
+
+            <ImageView
+                android:id="@+id/iv_cameraswich"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/ic_camera_type"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/_10sdp"/>
+        </RelativeLayout>
+    </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="@dimen/_20sdp">
+        android:layout_marginTop="@dimen/_20sdp"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <VideoView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_280sdp"/>
+            android:layout_height="@dimen/_280sdp"
+            android:background="#f16969"/>
+
+            <TextView
+                android:id="@+id/txt_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:text="Tap to start button and Recode your song and Video"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:visibility="gone"/>
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -160,12 +204,43 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:textSize="@dimen/_12sdp"/>
         </LinearLayout>
+        
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:id="@+id/pb"
+                    android:layout_width="@dimen/_65sdp"
+                    android:layout_height="@dimen/_65sdp"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:progressDrawable="@drawable/progressbar_states"
+                    android:layout_marginBottom="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:text="0"/>
+            </RelativeLayout>
+            
+        </FrameLayout>
         <ImageView
-            android:id="@+id/main_record"
+            android:id="@+id/main_start"
             android:layout_width="0dp"
             android:layout_weight="0.2"
             android:src="@drawable/start"
-            android:layout_height="@dimen/_55sdp" />
+            android:layout_height="@dimen/_55sdp" 
+            android:visibility="gone"/>
 
         <LinearLayout
             android:layout_width="0dp"

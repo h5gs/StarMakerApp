@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.archirayan.starmakerapp.MainAdapter;
+import com.archirayan.starmakerapp.adapter.MainAdapter;
 import com.archirayan.starmakerapp.R;
 
 /**

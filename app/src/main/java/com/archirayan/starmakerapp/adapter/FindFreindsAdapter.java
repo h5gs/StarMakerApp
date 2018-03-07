@@ -29,13 +29,10 @@ public class FindFreindsAdapter  extends RecyclerView.Adapter<FindFreindsAdapter
         return new MyViewHolder(itemView);
     }
 
-
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
     }
-
-
 
     @Override
     public int getItemCount() {

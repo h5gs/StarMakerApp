@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.adapter.FollowingAdapter;
-import com.archirayan.starmakerapp.adapter.MainAdapter;
 
 /**
  * A simple {@link Fragment} subclass.

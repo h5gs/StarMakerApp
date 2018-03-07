@@ -2,19 +2,17 @@ package com.archirayan.starmakerapp.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.archirayan.starmakerapp.MainAdapter;
+import com.archirayan.starmakerapp.adapter.MainAdapter;
 import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.fragments.AwardFragment;
 import com.archirayan.starmakerapp.fragments.NotificationFragment;
 import com.archirayan.starmakerapp.fragments.ProfileFragment;
 import com.archirayan.starmakerapp.fragments.RecordFragment;
 import com.archirayan.starmakerapp.fragments.SongFragment;
-import com.archirayan.starmakerapp.utils.Utils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 

@@ -9,7 +9,6 @@ import android.widget.ImageView;
 
 import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.adapter.FindFreindsAdapter;
-import com.archirayan.starmakerapp.adapter.MainAdapter;
 
 public class FindFriendActivity extends AppCompatActivity {
     ImageView img_back;

@@ -4,12 +4,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.archirayan.starmakerapp.fragments.CollabListRecorderFragment;
 import com.archirayan.starmakerapp.fragments.FollowingFragment;
+import com.archirayan.starmakerapp.fragments.HotListRecorderFragment;
 import com.archirayan.starmakerapp.fragments.HotLiveFragment;
+import com.archirayan.starmakerapp.fragments.MysongsListRecorderFragment;
 import com.archirayan.starmakerapp.fragments.NearbyLiveFragment;
 import com.archirayan.starmakerapp.fragments.SongListFragment;
 import com.archirayan.starmakerapp.fragments.SongListRecorderFragment;
 import com.archirayan.starmakerapp.fragments.YouFragment;
+import com.archirayan.starmakerapp.fragments.newListRecorderFragment;
 
 /**
  * Created by archirayan on 22/2/18.
@@ -49,13 +53,13 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 break;
             case "record":
                 if (position == 0) {
-                    fragment = new SongListRecorderFragment();
+                    fragment = new HotListRecorderFragment();
                 } else if (position == 1) {
-                    fragment = new SongListRecorderFragment();
+                    fragment = new CollabListRecorderFragment();
                 } else if (position == 2) {
-                    fragment = new SongListRecorderFragment();
+                    fragment = new newListRecorderFragment();
                 } else if (position == 3) {
-                    fragment = new SongListRecorderFragment();
+                    fragment = new MysongsListRecorderFragment();
                 }
                 break;
             case "Live":

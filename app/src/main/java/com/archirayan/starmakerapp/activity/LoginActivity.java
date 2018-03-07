@@ -41,20 +41,17 @@ public class LoginActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitleBar();
         init();
-
     }
 
     //Toolbar title
     public void setTitleBar() {
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Login");
@@ -130,8 +127,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response)
-            {
+            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "LOGIN DriverRESPONSE-" + response);
                 LoginResponse model = new Gson().fromJson(new String(String.valueOf(response)),LoginResponse.class);
@@ -155,48 +151,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-     /*   try
-        {
-            RestClient.getMutualTransfer().login(email, password, new Callback<Response>() {
-                @Override
-                public void success(Response response, Response response2) {
-                    pd.dismiss();
-                    try {
-                        JSONObject jsonObject = new JSONObject(Util.getString(response.getBody().in()));
-                        Log.v("", "===== Json =====: " + jsonObject.toString());
-                        if (jsonObject.getString("status").toString().equals("true"))
-                        {
-
-                            Toast.makeText(LoginActivity.this, jsonObject.getString("msg"), Toast.LENGTH_SHORT).show();
-                            pd.dismiss();
-                            Utils.WriteSharePrefrence(LoginActivity.this,Constant.USERID,jsonObject.getString("data").);
-                            String user_id = Utils.ReadSharePrefrence(LoginActivity.this,Constant.USERID);
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            finish();
-
-                        } else {
-                            pd.dismiss();
-                            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                            Toast.makeText(LoginActivity.this, jsonObject.getString("msg"), Toast.LENGTH_SHORT).show();
-                        }
-                    } catch (Exception e)
-                    {
-                        pd.dismiss();
-                        e.printStackTrace();
-                        Toast.makeText(LoginActivity.this, "Something went wrong, please try again.", Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-                @Override
-                public void failure(RetrofitError error) {
-                    pd.dismiss();
-                    Toast.makeText(LoginActivity.this, "Something went wrong, please try again.", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }*/
     }
 
     @Override
