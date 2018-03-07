@@ -5,8 +5,9 @@
     android:orientation="vertical">
 
     <ImageView
+        android:layout_margin="@dimen/_5sdp"
         android:layout_width="@dimen/_90sdp"
         android:layout_height="@dimen/_90sdp"
-        android:src="@drawable/ic_back_video"/>
+        android:background="@drawable/images_one"/>
 
 </LinearLayout>

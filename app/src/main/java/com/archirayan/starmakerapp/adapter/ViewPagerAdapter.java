@@ -35,7 +35,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
         switch (come) {
             case "notification":
-                if (position == 0) {
+                if (position == 0)
+                {
                     fragment = new FollowingFragment();
                 } else if (position == 1) {
                     fragment = new YouFragment();

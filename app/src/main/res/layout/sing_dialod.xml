@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300dp"
-    android:layout_height="70dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/white">
 
+
     <TextView
         android:id="@+id/txt_solo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_5sdp"
         android:text="Solo"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:textSize="@dimen/_13sdp"/>
+        android:padding="@dimen/_5sdp"
+        android:textSize="@dimen/_14sdp"/>
 
     <View
         android:layout_width="match_parent"
@@ -22,12 +23,11 @@
 
     <TextView
         android:id="@+id/txt_startcollab"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_5sdp"
+        android:padding="@dimen/_5sdp"
         android:text="Start Collab"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:textSize="@dimen/_13sdp"/>
-
+        android:textSize="@dimen/_14sdp"/>
 </LinearLayout>

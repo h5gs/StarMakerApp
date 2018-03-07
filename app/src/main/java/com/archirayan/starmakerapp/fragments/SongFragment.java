@@ -20,7 +20,8 @@ import com.archirayan.starmakerapp.utils.Utils;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SongFragment extends Fragment {
+public class SongFragment extends Fragment
+{
 
     TabLayout tabLayout;
     ViewPager viewPager;
