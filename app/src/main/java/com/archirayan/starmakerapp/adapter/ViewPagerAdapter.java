@@ -11,7 +11,6 @@ import com.archirayan.starmakerapp.fragments.HotLiveFragment;
 import com.archirayan.starmakerapp.fragments.MysongsListRecorderFragment;
 import com.archirayan.starmakerapp.fragments.NearbyLiveFragment;
 import com.archirayan.starmakerapp.fragments.SongListFragment;
-import com.archirayan.starmakerapp.fragments.SongListRecorderFragment;
 import com.archirayan.starmakerapp.fragments.YouFragment;
 import com.archirayan.starmakerapp.fragments.newListRecorderFragment;
 

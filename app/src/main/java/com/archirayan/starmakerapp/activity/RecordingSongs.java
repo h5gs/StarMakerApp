@@ -65,6 +65,8 @@ public class RecordingSongs extends AppCompatActivity {
     private ImageView main_start;
     private TextView tv,txt_video;
     private ProgressBar pb;
+    private ImageView iv_closerecoing;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +93,14 @@ public class RecordingSongs extends AppCompatActivity {
         //dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         dialog.show();
         main_start = findViewById(R.id.main_start);
+
+        iv_closerecoing = findViewById(R.id.iv_closerecoing);
+        iv_closerecoing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
     }
 

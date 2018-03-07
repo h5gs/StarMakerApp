@@ -1,4 +1,4 @@
-package com.archirayan.starmakerapp.adapter;
+package com.archirayan.starmakerapp.model;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -8,14 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.activity.Grantpermissons;
 import com.archirayan.starmakerapp.activity.RecordingSongs;
-import com.archirayan.starmakerapp.model.MySongsList;
+import com.archirayan.starmakerapp.adapter.HotSongsListAdapter;
 import com.archirayan.starmakerapp.utils.Utility;
 import com.squareup.picasso.Picasso;
 
@@ -24,43 +24,41 @@ import java.util.ArrayList;
 import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
- * Created by archirayan on 21/2/18.
+ * Created by archirayan on 7/3/18.
  */
 
-public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> {
+public class NewSongListAdaper extends RecyclerView.Adapter<NewSongListAdaper.MyViewHolder>{
 
     private Context context;
+    private ArrayList<NewSongList> newSongLists;
 
-    public MainAdapter(Context context, ArrayList<MySongsList> mySongsLists) {
+    public NewSongListAdaper(Context context, ArrayList<NewSongList> newSongLists) {
         this.context = context;
-        this.mySongsLists = mySongsLists;
+        this.newSongLists = newSongLists;
     }
 
-    private ArrayList<MySongsList> mySongsLists;
-
-
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public NewSongListAdaper.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.main_list_row, parent, false);
 
         return new MyViewHolder(itemView);
     }
 
+
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position)
-    {
+    public void onBindViewHolder(NewSongListAdaper.MyViewHolder holder, int position) {
         holder.btn_sing.setVisibility(View.VISIBLE);
         holder.btn_join.setVisibility(View.GONE);
-        if (mySongsLists.get(position).getImgae().isEmpty()){
+        if (newSongLists.get(position).getImgae().isEmpty()){
             Picasso.with(context).load(R.drawable.starmakermusic);
         }else {
-            Picasso.with(context).load(mySongsLists.get(position).getImgae()).placeholder(R.drawable.starmakermusic).into(holder.iv_songicon);
+            Picasso.with(context).load(newSongLists.get(position).getImgae()).placeholder(R.drawable.starmakermusic).into(holder.iv_songicon);
 
         }
-        holder.txt_songtital.setText(mySongsLists.get(position).getTitle());
-        holder.txt_caption.setText(mySongsLists.get(position).getCaption());
-        holder.txt_joined.setText(mySongsLists.get(position).getJoined()+" "+"joined");
+        holder.txt_songtital.setText(newSongLists.get(position).getTitle());
+        holder.txt_caption.setText(newSongLists.get(position).getCaption());
+        holder.txt_joined.setText(newSongLists.get(position).getJoined()+" "+"joined");
         holder.btn_sing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,16 +98,15 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MyViewHolder> 
                 dialog.show();
             }
         });
-
     }
+
 
     @Override
     public int getItemCount() {
-        return mySongsLists.size();
+        return newSongLists.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
-
+    public class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView txt_songtital,txt_caption,txt_joined,btn_sing,btn_join;
         private ImageView iv_songicon;
 
