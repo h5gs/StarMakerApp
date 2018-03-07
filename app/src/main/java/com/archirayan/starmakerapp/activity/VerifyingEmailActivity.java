@@ -374,7 +374,7 @@ public class VerifyingEmailActivity extends AppCompatActivity {
                     if (jsonObject.getString("status").equals("true"))
                         {
                             JSONObject jsonObj=jsonObject.getJSONObject("data");
-                            Utils.WriteSharePrefrence(VerifyingEmailActivity.this, Constant.SIGNUP_PREF_USERID, jsonObj.getString("id"));
+                            Utils.WriteSharePrefrence(VerifyingEmailActivity.this, Constant.USERID, jsonObj.getString("id"));
                             Utils.WriteSharePrefrence(VerifyingEmailActivity.this, Constant.SIGNUP_PREF_EMAIL, jsonObj.getString("email_address"));
                             Intent intent = new Intent(VerifyingEmailActivity.this, VerifiedEmailOtpActivity
                                     .class);

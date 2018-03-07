@@ -3,6 +3,7 @@ package com.archirayan.starmakerapp.adapter;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,7 +62,7 @@ public class CollabsongsListAdapter extends RecyclerView.Adapter<CollabsongsList
         holder.btn_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final Dialog dialog = new Dialog(getApplicationContext());
+                final Dialog dialog = new Dialog(context);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.sing_dialod);
                 TextView txt_solo = dialog.findViewById(R.id.txt_solo);
@@ -92,7 +93,7 @@ public class CollabsongsListAdapter extends RecyclerView.Adapter<CollabsongsList
                         }
                     }
                 });
-                dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+                //dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
                 //dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
                 dialog.show();
             }

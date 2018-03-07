@@ -3,49 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.archirayan.starmakerapp.activity.EditAllProfileActivity">
 
 
-    <LinearLayout
-        android:id="@+id/linear_title_Dsignin"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="@drawable/file_title_bg"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="0.5dp"
+            android:background="@drawable/file_title_bg"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ToolbarTheme"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:layout_alignParentLeft="true" >
 
-        <ImageView
-            android:id="@+id/img_back"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_22sdp"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:src="@drawable/ic_back_arrow" />
+        </android.support.v7.widget.Toolbar>
 
-        <TextView
-            android:id="@+id/txt_title_Dsignin"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_weight="1"
-            android:text="Edit Profile"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_17sdp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_5sdp"
-            android:text="Done"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_17sdp" />
-    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:background="@color/dark_white_color"
+        android:layout_below="@+id/toolbar"
         android:scrollbars="none">
 
         <LinearLayout

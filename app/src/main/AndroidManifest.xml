@@ -17,7 +17,9 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <uses-feature android:name="android.hardware.camera" />
+
 
     <application
         android:allowBackup="true"
@@ -48,7 +50,9 @@
         <activity
             android:name=".activity.VerifyingOTPActivity"
             android:theme="@style/MyTheme" />
-        <activity android:name=".activity.LoginActivity" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:theme="@style/MyTheme" />
         <activity
             android:name=".activity.SignUpActivity"
             android:theme="@style/MyTheme" />
@@ -58,10 +62,17 @@
         <activity
             android:name=".activity.DidnotgetOTPActivity"
             android:theme="@style/MyTheme" />
-        <activity android:name=".activity.ProfileSettingsActivity" />
+        <activity
+            android:name=".activity.ProfileSettingsActivity"
+            android:theme="@style/MyTheme" />
         <activity
             android:name=".activity.FindFriendActivity"
             android:theme="@style/MyTheme" />
+
+        <activity
+            android:name=".activity.VerifiedEmailOtpActivity"
+            android:theme="@style/MyTheme" />
+
         <activity
             android:name=".activity.DailyCheckInActivity"
             android:theme="@style/MyTheme" />
@@ -87,7 +98,8 @@
         <activity
             android:name=".activity.HotHashtagActivity"
             android:theme="@style/MyTheme" />
-        <activity android:name=".activity.PeopleLikeActivity" />
+        <activity android:name=".activity.PeopleLikeActivity"
+            android:theme="@style/MyTheme" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -108,13 +120,15 @@
 
         <activity android:name=".activity.LiveActivity" />
         <activity android:name=".activity.PartiesActivity" />
-        <activity android:name=".activity.FindYourFreindsActivity" />
+        <activity android:name=".activity.FindYourFreindsActivity"
+            android:theme="@style/MyTheme" />
         <activity android:name=".activity.PlaysongfullActivity" />
         <activity android:name=".activity.Grantpermissons" />
-        <activity android:name=".activity.RecordingSongs"
+        <activity
+            android:name=".activity.RecordingSongs"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/MyTheme"
-            android:windowSoftInputMode="adjustPan" >
+            android:windowSoftInputMode="adjustPan">
 
         </activity>
     </application>

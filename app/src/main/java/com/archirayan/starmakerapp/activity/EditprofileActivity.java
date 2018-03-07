@@ -14,10 +14,12 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -64,12 +66,41 @@ public class EditprofileActivity extends AppCompatActivity {
      private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
      private CircleImageView iv_uplodepic;
      private String imagePath;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editprofile);
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setTitleBar();
+        init();
 
+
+    }
+
+    //Toolbar title
+    public void setTitleBar() {
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Edite Profile");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+
+            onBackPressed();
+            overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void init()
+    {
         rl_profilepic = findViewById(R.id.rl_profilepic);
 
         rl_profilepic.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +127,7 @@ public class EditprofileActivity extends AppCompatActivity {
 
         editTextEmail = findViewById(R.id.editTextEmail);
         edit_vlue = editTextEmail.getText().toString();
-       // editTextEmail.setText(Utils.ReadSharePrefrence(EditprofileActivity.this,Constant.SUGGESTEDNAME));
+        // editTextEmail.setText(Utils.ReadSharePrefrence(EditprofileActivity.this,Constant.SUGGESTEDNAME));
 
         editTextEmail.addTextChangedListener(new TextWatcher() {
             @Override
@@ -117,6 +148,7 @@ public class EditprofileActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void getSuggetion() {
         suggestedNames = new ArrayList<>();

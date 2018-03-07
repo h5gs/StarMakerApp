@@ -3,33 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.archirayan.starmakerapp.activity.EditprofileActivity">
 
-    <LinearLayout
-        android:id="@+id/linear_title_Dsignin"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:elevation="0.5dp"
         android:background="@drawable/file_title_bg"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/img_back_title_Dsignin"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_22sdp"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:src="@drawable/ic_back_arrow" />
-
-        <TextView
-            android:id="@+id/txt_title_Dsignin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:text="Edit Profile"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_17sdp" />
-    </LinearLayout>
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ToolbarTheme"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:layout_alignParentLeft="true" />
 
     <LinearLayout
         android:layout_width="match_parent"
