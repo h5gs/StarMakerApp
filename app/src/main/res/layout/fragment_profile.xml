@@ -24,9 +24,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true" />
 
-
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
@@ -41,6 +38,7 @@
                     android:src="@drawable/add_user" />
 
                 <TextView
+                    android:id="@+id/txt_usertitle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -84,6 +82,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/txt_username"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Archirayan"
@@ -242,6 +241,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/txt_followers"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
@@ -268,11 +268,11 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/txt_following"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
                             android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-
                             android:textColor="@android:color/white"
                             android:textSize="@dimen/_12sdp" />
 
@@ -295,6 +295,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/txt_post"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"

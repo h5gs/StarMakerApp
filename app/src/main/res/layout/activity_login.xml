@@ -40,6 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
+                android:textSize="@dimen/_11sdp"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/color_light_orange" />
         </android.support.design.widget.TextInputLayout>
@@ -59,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="45dp"
                 android:hint="Password"
+                android:textSize="@dimen/_11sdp"
                 android:inputType="textPassword"
                 android:textColor="@color/color_light_orange" />
         </android.support.design.widget.TextInputLayout>
@@ -69,6 +71,8 @@
             android:layout_height="@dimen/_40sdp"
             android:background="@color/light_pink_color"
             android:text="Log in"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:textSize="@dimen/_13sdp"
             android:textAllCaps="true"
             android:textColor="@android:color/white" />
 

@@ -49,7 +49,8 @@ public class HotSongsListAdapter extends RecyclerView.Adapter<HotSongsListAdapte
     public void onBindViewHolder(HotSongsListAdapter.MyViewHolder holder, int position) {
         holder.btn_sing.setVisibility(View.VISIBLE);
         holder.btn_join.setVisibility(View.GONE);
-        if (hotSingLists.get(position).getImgae().isEmpty()){
+        if (hotSingLists.get(position).getImgae().isEmpty())
+        {
             Picasso.with(context).load(R.drawable.starmakermusic);
         }else {
             Picasso.with(context).load(hotSingLists.get(position).getImgae()).placeholder(R.drawable.starmakermusic).into(holder.iv_songicon);

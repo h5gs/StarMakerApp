@@ -15,7 +15,7 @@ import retrofit.converter.GsonConverter;
  */
 public class RestClient extends Activity
 {
-    private static ApiInterface REST_CLIENT_MUTUAL_TRANSFER;
+    private static ApiInterface REST_CLIENT_STARCREATOR;
 
     static {
         setupRestClient();
@@ -31,7 +31,7 @@ public class RestClient extends Activity
                 .setDateFormat("yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'")
                 .create();
 
-        REST_CLIENT_MUTUAL_TRANSFER = buildAdapter(Constant.URL, gson).create(ApiInterface.class);
+        REST_CLIENT_STARCREATOR = buildAdapter(Constant.URL, gson).create(ApiInterface.class);
     }
 
     private static RestAdapter buildAdapter(String endPoint, Gson gson)
@@ -43,8 +43,8 @@ public class RestClient extends Activity
                 .build();
     }
 
-    public static ApiInterface getMutualTransfer() {
-        return REST_CLIENT_MUTUAL_TRANSFER;
+    public static ApiInterface getStarCreator() {
+        return REST_CLIENT_STARCREATOR;
     }
 
 

@@ -94,7 +94,8 @@ public class CollabListRecorderFragment extends Fragment {
                 Log.e(TAG, "RESPONSE-" + response);
                 CollabsSongListResponse model = new Gson().fromJson(new String(String.valueOf(response)), CollabsSongListResponse.class);
                 pd.dismiss();
-                if (model.getStatus().equals("true")){
+                if (model.getStatus().equals("true"))
+                {
                     collabsSongLists = model.getData();
                     collabsongsListAdapter = new CollabsongsListAdapter(getActivity(), collabsSongLists);
                     RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());

@@ -54,18 +54,18 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EditprofileActivity extends AppCompatActivity {
 
-     private static final String TAG = "EditprofileActivity";
-     RecyclerView recycler_suggestion;
-     SuggestedStageNameAdapter followingAdapter;
-     Button btn_profile_save;
-     private EditText editTextEmail;
-     private String edit_vlue;
-     private ArrayList<SuggestedName> suggestedNames;
-     private RelativeLayout rl_profilepic;
-     private String userChoosenTask;
-     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
-     private CircleImageView iv_uplodepic;
-     private String imagePath;
+    private static final String TAG = "EditprofileActivity";
+    RecyclerView recycler_suggestion;
+    SuggestedStageNameAdapter followingAdapter;
+    Button btn_profile_save;
+    private EditText editTextEmail;
+    private String edit_vlue;
+    private ArrayList<SuggestedName> suggestedNames;
+    private RelativeLayout rl_profilepic;
+    private String userChoosenTask;
+    private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
+    private CircleImageView iv_uplodepic;
+    private String imagePath;
     private Toolbar toolbar;
 
     @Override
@@ -99,8 +99,7 @@ public class EditprofileActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void init()
-    {
+    private void init() {
         rl_profilepic = findViewById(R.id.rl_profilepic);
 
         rl_profilepic.setOnClickListener(new View.OnClickListener() {
@@ -112,11 +111,10 @@ public class EditprofileActivity extends AppCompatActivity {
         });
 
         iv_uplodepic = findViewById(R.id.iv_uplodepic);
-        btn_profile_save=findViewById(R.id.btn_profile_save);
+        btn_profile_save = findViewById(R.id.btn_profile_save);
         btn_profile_save.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 startActivity(new Intent(EditprofileActivity.this, FindYourFreindsActivity.class));
                 overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
                 finish();
@@ -154,7 +152,7 @@ public class EditprofileActivity extends AppCompatActivity {
         suggestedNames = new ArrayList<>();
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
-        params.put("text",editTextEmail.getText().toString());
+        params.put("text", editTextEmail.getText().toString());
 
         Log.e(TAG, "URL:" + Constant.URL + "suggestion_text.php?" + params);
         Log.e(TAG, params.toString());
@@ -168,17 +166,18 @@ public class EditprofileActivity extends AppCompatActivity {
             public void onFinish() {
                 super.onFinish();
             }
+
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "RESPONSE-" + response);
                 SuggestedResponse model = new Gson().fromJson(new String(String.valueOf(response)), SuggestedResponse.class);
-                if (model.getStatus().equals("true")){
+                if (model.getStatus().equals("true")) {
                     suggestedNames = model.getData();
                     followingAdapter = new SuggestedStageNameAdapter(EditprofileActivity.this, suggestedNames);
                     //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(EditprofileActivity.this);
                     //recycler_suggestion.setLayoutManager(mLayoutManager);
-                   // recycler_suggestion.setItemAnimator(new DefaultItemAnimator());
+                    // recycler_suggestion.setItemAnimator(new DefaultItemAnimator());
                     recycler_suggestion.setAdapter(followingAdapter);
                     followingAdapter.notifyDataSetChanged();
                 }
@@ -196,51 +195,8 @@ public class EditprofileActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(EditprofileActivity.this,SignUpActivity.class));
+        startActivity(new Intent(EditprofileActivity.this, SignUpActivity.class));
         overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
-    }
-
-    public class SuggestedStageNameAdapter extends RecyclerView.Adapter<SuggestedStageNameAdapter.MyViewHolder> {
-
-        Context context;
-        private ArrayList<SuggestedName> suggestedNames;
-
-        public SuggestedStageNameAdapter(Context context, ArrayList<SuggestedName> suggestedNames) {
-            this.context = context;
-            this.suggestedNames = suggestedNames;
-        }
-        @Override
-        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_suggested_stagename, parent, false);
-
-            return new MyViewHolder(itemView);
-        }
-        @Override
-        public void onBindViewHolder(SuggestedStageNameAdapter.MyViewHolder holder, final int position) {
-            holder.txt_suggeted_name.setText(suggestedNames.get(position).getTest());
-
-            holder.txt_suggeted_name.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v){
-                  editTextEmail.setText(suggestedNames.get(position).getTest());
-                }
-            });
-        }
-
-        @Override
-        public int getItemCount() {
-            return suggestedNames.size();
-        }
-
-        class MyViewHolder extends RecyclerView.ViewHolder {
-            private TextView txt_suggeted_name;
-            MyViewHolder(View view) {
-                super(view);
-                txt_suggeted_name = itemView.findViewById(R.id.txt_suggeted_name);
-
-            }
-        }
     }
 
     @Override
@@ -248,9 +204,9 @@ public class EditprofileActivity extends AppCompatActivity {
         switch (requestCode) {
             case Utility.MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if(userChoosenTask.equals("Take Photo"))
+                    if (userChoosenTask.equals("Take Photo"))
                         cameraIntent();
-                    else if(userChoosenTask.equals("Choose from Gallary"))
+                    else if (userChoosenTask.equals("Choose from Gallary"))
                         galleryIntent();
                 } else {
                     //code for deny
@@ -260,23 +216,23 @@ public class EditprofileActivity extends AppCompatActivity {
     }
 
     private void selectImage() {
-        final CharSequence[] items = { "Take Photo", "Choose from Gallary"};
+        final CharSequence[] items = {"Take Photo", "Choose from Gallary"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(EditprofileActivity.this);
         builder.setTitle("Choose Photo");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int item) {
-                boolean result=Utility.checkPermission(EditprofileActivity.this);
+                boolean result = Utility.checkPermission(EditprofileActivity.this);
 
                 if (items[item].equals("Take Photo")) {
-                    userChoosenTask ="Take Photo";
-                    if(result)
+                    userChoosenTask = "Take Photo";
+                    if (result)
                         cameraIntent();
 
                 } else if (items[item].equals("Choose from Gallary")) {
-                    userChoosenTask ="Choose from Gallary";
-                    if(result)
+                    userChoosenTask = "Choose from Gallary";
+                    if (result)
                         galleryIntent();
                 }
             }
@@ -288,7 +244,7 @@ public class EditprofileActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);//
-        startActivityForResult(Intent.createChooser(intent, "Select File"),SELECT_FILE);
+        startActivityForResult(Intent.createChooser(intent, "Select File"), SELECT_FILE);
     }
 
     private void cameraIntent() {
@@ -306,10 +262,7 @@ public class EditprofileActivity extends AppCompatActivity {
                 Uri imageUri = data.getData();
                 imagePath = ImageFilePath.getPath(EditprofileActivity.this, data.getData());
                 getDriverProfilePic();
-
-
-            }
-            else if (requestCode == REQUEST_CAMERA) {
+            } else if (requestCode == REQUEST_CAMERA) {
                 onCaptureImageResult(data);
               /*  Uri uri = data.getData();
                 imagePath = ImageFilePath.getPath(EditprofileActivity.this,data.getData());
@@ -318,7 +271,8 @@ public class EditprofileActivity extends AppCompatActivity {
         }
     }
 
-    private void getDriverProfilePic() {
+    private void getDriverProfilePic()
+    {
         AsyncHttpClient client = new AsyncHttpClient();
         File file = new File(imagePath);
         RequestParams params = new RequestParams();
@@ -344,11 +298,12 @@ public class EditprofileActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response)
+            {
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "Pic~" + response);
                 EditUserProfileResponse dmodel = new Gson().fromJson(new String(String.valueOf(response)), EditUserProfileResponse.class);
-                if (dmodel.getStatus().equalsIgnoreCase("true")){
+                if (dmodel.getStatus().equalsIgnoreCase("true")) {
                     if (dmodel.getDate().getImage().isEmpty()) {
                         Picasso.with(EditprofileActivity.this).load(R.mipmap.ic_launch_starmaker);
                     } else {
@@ -365,7 +320,6 @@ public class EditprofileActivity extends AppCompatActivity {
                 Log.e(TAG, throwable.getMessage());
             }
         });
-
     }
 
     private void onCaptureImageResult(Intent data) {
@@ -393,7 +347,7 @@ public class EditprofileActivity extends AppCompatActivity {
     @SuppressWarnings("deprecation")
     private void onSelectFromGalleryResult(Intent data) {
 
-        Bitmap bm=null;
+        Bitmap bm = null;
         if (data != null) {
             try {
                 bm = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), data.getData());
@@ -402,5 +356,51 @@ public class EditprofileActivity extends AppCompatActivity {
             }
         }
         iv_uplodepic.setImageBitmap(bm);
+    }
+
+    public class SuggestedStageNameAdapter extends RecyclerView.Adapter<SuggestedStageNameAdapter.MyViewHolder> {
+
+        Context context;
+        private ArrayList<SuggestedName> suggestedNames;
+
+        public SuggestedStageNameAdapter(Context context, ArrayList<SuggestedName> suggestedNames) {
+            this.context = context;
+            this.suggestedNames = suggestedNames;
+        }
+
+        @Override
+        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View itemView = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_suggested_stagename, parent, false);
+
+            return new MyViewHolder(itemView);
+        }
+
+        @Override
+        public void onBindViewHolder(SuggestedStageNameAdapter.MyViewHolder holder, final int position) {
+            holder.txt_suggeted_name.setText(suggestedNames.get(position).getTest());
+
+            holder.txt_suggeted_name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    editTextEmail.setText(suggestedNames.get(position).getTest());
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return suggestedNames.size();
+        }
+
+        class MyViewHolder extends RecyclerView.ViewHolder {
+            private TextView txt_suggeted_name;
+
+            MyViewHolder(View view) {
+                super(view);
+                txt_suggeted_name = itemView.findViewById(R.id.txt_suggeted_name);
+
+            }
+        }
     }
 }

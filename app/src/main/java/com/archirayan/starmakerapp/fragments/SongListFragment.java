@@ -55,7 +55,8 @@ public class SongListFragment extends Fragment {
     }
 
     @Override
-    public boolean getUserVisibleHint() {
+    public boolean getUserVisibleHint()
+    {
 
         if (isVisible())
         {

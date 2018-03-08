@@ -101,7 +101,8 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void loginCallApi(String email, String password) {
+    private void loginCallApi(String email, String password)
+    {
         pd = new ProgressDialog(LoginActivity.this);
         pd.setMessage("Loading...");
         pd.setCancelable(false);

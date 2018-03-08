@@ -123,7 +123,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 //        pd.setMessage("Loading...");
 //        pd.setCancelable(true);
 //        pd.show();
-        RestClient.getMutualTransfer().SignUp(email, new Callback<Response>()
+        RestClient.getStarCreator().SignUp(email, new Callback<Response>()
         {
             @Override
             public void success(Response response, Response response2)
@@ -181,7 +181,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         pd.setCancelable(true);
         pd.show();
         try {
-            RestClient.getMutualTransfer().VerifiedEmail(str_Email, new Callback<Response>()
+            RestClient.getStarCreator().VerifiedEmail(str_Email, new Callback<Response>()
             {
 
                 @Override

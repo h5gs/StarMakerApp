@@ -11,6 +11,9 @@ public class Constant {
     public static final String SUGGESTEDNAME = "suggested";
     // Base Url
 
+    public static String AppNameSuper = "Star Creator";
+
+
     public static String URL = "http://web-medico.com/web1/StarCreator/APIs/";
 
     public static class SHRED_PR {

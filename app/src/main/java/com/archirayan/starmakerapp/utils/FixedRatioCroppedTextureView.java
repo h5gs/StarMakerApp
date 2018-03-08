@@ -1,4 +1,4 @@
-package com.archirayan.starmakerapp.util;
+package com.archirayan.starmakerapp.utils;
 
 import android.annotation.TargetApi;
 import android.content.Context;

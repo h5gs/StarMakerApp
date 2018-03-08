@@ -103,7 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-    <com.archirayan.starmakerapp.util.FixedRatioCroppedTextureView
+    <com.archirayan.starmakerapp.utils.FixedRatioCroppedTextureView
         android:id="@+id/video_recoder"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_280sdp"/>
@@ -205,11 +205,11 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:textSize="@dimen/_12sdp"/>
         </LinearLayout>
-        
+
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -233,14 +233,14 @@
                     android:textStyle="bold"
                     android:text="0"/>
             </RelativeLayout>
-            
+
         </FrameLayout>
         <ImageView
             android:id="@+id/main_start"
             android:layout_width="0dp"
             android:layout_weight="0.2"
             android:src="@drawable/start"
-            android:layout_height="@dimen/_55sdp" 
+            android:layout_height="@dimen/_55sdp"
             android:visibility="gone"/>
 
         <LinearLayout

@@ -2,13 +2,12 @@ package com.archirayan.starmakerapp.retrofit;
 
 
 
-import java.util.ArrayList;
+import java.io.File;
 
 import retrofit.Callback;
 import retrofit.client.Response;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
-import retrofit.http.GET;
 import retrofit.http.Multipart;
 import retrofit.http.POST;
 import retrofit.http.Part;
@@ -39,7 +38,6 @@ public interface ApiInterface
     void VerifiedEmail(
             @Field("email_address") String email_address,
             Callback<Response> user);
-
 
 }
 

@@ -87,7 +87,7 @@
 //        progress.setCancelable(false);
 //        progress.show();
 //        Log.e("MAIL()", "===== () ======" + Utils.ReadSharePrefrence(VerifyingEmailActivity.this, Constant.SIGNUP_PREF_EMAIL));
-//        RestClient.getMutualTransfer().VerifiedEmail(Utils.ReadSharePrefrence(VerifyingEmailActivity.this, Constant.SIGNUP_PREF_EMAIL), new Callback<Response>() {
+//        RestClient.getStarCreator().VerifiedEmail(Utils.ReadSharePrefrence(VerifyingEmailActivity.this, Constant.SIGNUP_PREF_EMAIL), new Callback<Response>() {
 //            @Override
 //            public void success(Response response, Response response2) {
 //                progress.dismiss();
@@ -215,7 +215,7 @@
 ////        progress.setCancelable(false);
 ////        progress.show();
 ////        Log.e("MAIL()", "===== () ======" + Utils.ReadSharePrefrence(VerifyingEmailActivity.this, Constant.SIGNUP_PREF_EMAIL));
-////        RestClient.getMutualTransfer().VerifiedEmail(Utils.ReadSharePrefrence(VerifyingEmailActivity.this, Constant.SIGNUP_PREF_EMAIL), new Callback<Response>() {
+////        RestClient.getStarCreator().VerifiedEmail(Utils.ReadSharePrefrence(VerifyingEmailActivity.this, Constant.SIGNUP_PREF_EMAIL), new Callback<Response>() {
 ////            @Override
 ////            public void success(Response response, Response response2) {
 ////                progress.dismiss();
@@ -255,8 +255,6 @@
 
 package com.archirayan.starmakerapp.activity;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -264,9 +262,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -360,7 +356,7 @@ public class VerifyingEmailActivity extends AppCompatActivity {
         progress.setMessage("Please wait...");
         progress.setCancelable(false);
         progress.show();
-        RestClient.getMutualTransfer().VerifiedEmail(Utils.ReadSharePrefrence(VerifyingEmailActivity.this, Constant.SIGNUP_PREF_EMAIL), new Callback<Response>()
+        RestClient.getStarCreator().VerifiedEmail(Utils.ReadSharePrefrence(VerifyingEmailActivity.this, Constant.SIGNUP_PREF_EMAIL), new Callback<Response>()
         {
             @Override
             public void success(Response response, Response response2)

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.archirayan.starmakerapp.util;
+package com.archirayan.starmakerapp.utils;
 
 import android.app.Activity;
 import android.hardware.Camera;

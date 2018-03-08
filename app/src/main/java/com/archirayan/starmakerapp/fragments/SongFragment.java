@@ -43,12 +43,15 @@ public class SongFragment extends Fragment
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
+    {
         super.onViewCreated(view, savedInstanceState);
         edit_searchsong = view.findViewById(R.id.edit_searchsong);
-        edit_searchsong.setOnClickListener(new View.OnClickListener() {
+        edit_searchsong.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 Utils.hideSoftKeyboard(getActivity());
             }
         });
