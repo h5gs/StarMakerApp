@@ -142,6 +142,10 @@
             android:windowSoftInputMode="adjustPan">
 
         </activity>
+        <activity
+            android:name=".activity.FAQWebviewActivity"
+            android:theme="@style/MyTheme" />
+        
     </application>
 
 </manifest>

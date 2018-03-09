@@ -269,7 +269,8 @@ public class ProfileFragment extends Fragment implements AppBarLayout.OnOffsetCh
     }
 
 
-    private void onCaptureImageResult(Intent data) {
+    private void onCaptureImageResult(Intent data)
+    {
         Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
