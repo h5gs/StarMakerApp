@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.archirayan.starmakerapp.activity.LoginActivity">
 
@@ -12,15 +12,14 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:elevation="0.5dp"
         android:background="@drawable/file_title_bg"
+        android:elevation="0.5dp"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ToolbarTheme"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:layout_alignParentLeft="true" />
-
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
 
     <LinearLayout
@@ -40,19 +39,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
-                android:textSize="@dimen/_11sdp"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/color_light_orange" />
+                android:textColor="@color/color_light_orange"
+                android:textSize="@dimen/_11sdp" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/layout_password"
-            app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/colorAccent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/layout_email"
-            android:textColorHint="@color/color_light_orange">
+            android:textColorHint="@color/color_light_orange"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorAccent">
 
             <EditText
                 android:id="@+id/edit_password"
@@ -60,21 +59,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="45dp"
                 android:hint="Password"
-                android:textSize="@dimen/_11sdp"
                 android:inputType="textPassword"
-                android:textColor="@color/color_light_orange" />
+                android:textColor="@color/color_light_orange"
+                android:textSize="@dimen/_11sdp" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
-            android:background="@color/light_pink_color"
-            android:text="Log in"
             android:layout_marginTop="@dimen/_25sdp"
-            android:textSize="@dimen/_13sdp"
+            android:background="@drawable/file_pink_corner"
+            android:text="Log in"
             android:textAllCaps="true"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_13sdp" />
 
 
         <LinearLayout

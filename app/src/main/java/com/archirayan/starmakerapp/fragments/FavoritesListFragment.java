@@ -72,7 +72,8 @@ public class FavoritesListFragment extends Fragment {
         params.put("flag", "favorites");
         Log.e(TAG, "URL:" + Constant.URL + "demo1.php?" + params);
         Log.e(TAG, params.toString());
-        client.post(getActivity(), Constant.URL + "demo1.php?", params, new JsonHttpResponseHandler() {
+        client.post(getActivity(), Constant.URL + "demo1.php?", params, new JsonHttpResponseHandler()
+        {
             @Override
             public void onStart() {
                 super.onStart();
@@ -84,7 +85,8 @@ public class FavoritesListFragment extends Fragment {
             }
 
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response)
+            {
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "RESPONSE-" + response);
                 FavoritesListResponse model = new Gson().fromJson(new String(String.valueOf(response)), FavoritesListResponse.class);
@@ -97,8 +99,6 @@ public class FavoritesListFragment extends Fragment {
                     favorites_recycler.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
                     favorites_recycler.setAdapter(favoriteListAdapter);
                     favoriteListAdapter.notifyDataSetChanged();
-                } else {
-                    Toast.makeText(getActivity(), R.string.data_not_found, Toast.LENGTH_SHORT).show();
                 }
             }
 

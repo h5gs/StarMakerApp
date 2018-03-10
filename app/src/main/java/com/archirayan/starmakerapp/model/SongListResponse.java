@@ -9,10 +9,11 @@ import java.util.ArrayList;
  */
 
 public class SongListResponse {
+
     @SerializedName("status")
     private String status;
 
-    @SerializedName("message")
+    @SerializedName("msg")
     private String message;
 
     @SerializedName("data")

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:gravity="center_vertical"
@@ -21,28 +21,23 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_pic"
-
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:src="@drawable/images" />
 
             <TextView
                 android:id="@+id/profile_name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/_8sdp"
-                android:layout_toRightOf="@id/profile_pic"
-                android:text="Nitin.k SKS.MM   "
+                android:layout_weight="1"
+                android:text="Nitin.k SKS.MM"
                 android:textSize="@dimen/_13sdp"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/_5sdp"
-                android:layout_toRightOf="@+id/profile_name"
                 android:background="@drawable/coloured_round_bg"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
@@ -63,31 +58,29 @@
                     android:layout_marginLeft="@dimen/_2sdp"
                     android:text="25"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
             <TextView
+                android:id="@+id/txt_follow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginRight="@dimen/_5sdp"
-                android:layout_toLeftOf="@+id/more"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:text="Follow"
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/more"
+                android:id="@+id/iv_action_menu"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
-                android:layout_alignParentRight="true"
-                android:layout_centerInParent="true"
                 android:src="@drawable/more" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/txt_tags"
@@ -102,13 +95,13 @@
         <FrameLayout
             android:id="@+id/fram_video"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <VideoView
                 android:id="@+id/iv_video"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/_150sdp"
-                android:layout_gravity="center" />
+                android:layout_gravity="center_horizontal" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -131,45 +124,18 @@
 
         </FrameLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_8sdp">
+            android:gravity="center_vertical"
+            android:padding="@dimen/_5sdp">
+
 
             <LinearLayout
-                android:id="@+id/llStar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:background="@drawable/round_et_bg"
-                android:orientation="horizontal"
-                android:paddingBottom="@dimen/_3sdp"
-                android:paddingLeft="@dimen/_7sdp"
-                android:paddingRight="@dimen/_7sdp"
-                android:paddingTop="@dimen/_3sdp">
-
-                <ImageView
-                    android:layout_width="@dimen/_18sdp"
-                    android:layout_height="@dimen/_18sdp"
-                    android:src="@drawable/red_heart" />
-
-                <TextView
-                    android:id="@+id/txt_likenum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_2sdp"
-                    android:text="25"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_50sdp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/_5sdp"
-                android:layout_toRightOf="@+id/llStar"
                 android:background="@drawable/round_et_bg"
                 android:orientation="horizontal"
                 android:paddingBottom="@dimen/_3sdp"
@@ -186,18 +152,52 @@
                     android:id="@+id/txt_starnum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/_2sdp"
                     android:text="25"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11sdp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/llStar"
+                android:layout_width="@dimen/_50sdp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:background="@drawable/round_et_bg"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/_3sdp"
+                android:paddingLeft="@dimen/_7sdp"
+                android:paddingRight="@dimen/_7sdp"
+                android:paddingTop="@dimen/_3sdp">
+
+                <ImageView
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:src="@drawable/red_heart" />
+
+                <TextView
+                    android:id="@+id/txt_likenum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:text="25"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
@@ -224,7 +224,7 @@
 
             </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
@@ -249,11 +249,14 @@
                     android:layout_marginRight="@dimen/_10sdp"
                     android:src="@drawable/gift" />
 
-                <ImageView
+                <CheckBox
+                    android:id="@+id/chk_like"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_marginRight="@dimen/_10sdp"
-                    android:src="@drawable/heart" />
+                    android:background="@drawable/heart"
+                    android:button="@null"
+                    android:checked="false" />
 
                 <ImageView
                     android:layout_width="@dimen/_20sdp"

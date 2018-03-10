@@ -68,7 +68,10 @@ public class FriendsRecommedAdapter extends RecyclerView.Adapter<FriendsRecommed
         holder.txt_profilename.setText(followLists.get(position).getUsername());
         holder.txt_comment.setText("hiii");
 
-        if (followLists.get(position).getImage().isEmpty()) {
+
+
+        if (followLists.get(position).getImage().isEmpty())
+        {
             Picasso.with(context).load(R.drawable.ic_back_round);
         } else {
             Picasso.with(context).load(followLists.get(position).getImage()).placeholder(R.drawable.ic_back_round).into(holder.iv_profile);
@@ -80,13 +83,17 @@ public class FriendsRecommedAdapter extends RecyclerView.Adapter<FriendsRecommed
             }
         });
 
-        holder.btn_follow.setOnClickListener(new View.OnClickListener() {
+        holder.btn_follow.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 follow_id = followLists.get(position).getId().toString();
                 if (follow_id.toString().isEmpty()){
                     Toast.makeText(context, "You not Successafully Follow", Toast.LENGTH_SHORT).show();
-                }else {
+                }
+                else
+                {
                     getfollow();
                 }
             }
@@ -104,7 +111,6 @@ public class FriendsRecommedAdapter extends RecyclerView.Adapter<FriendsRecommed
         RequestParams params = new RequestParams();
         params.put("user_id",Utils.ReadSharePrefrence(context.getApplicationContext(),Constant.USERID));
         params.put("follow_user_id",follow_id.toString());
-
         Log.e(TAG, "DriverURL:" + Constant.URL + "follow.php?" + params);
         Log.e(TAG, params.toString());
         client.post(getApplicationContext(), Constant.URL+"follow.php?",params, new JsonHttpResponseHandler()
@@ -127,9 +133,12 @@ public class FriendsRecommedAdapter extends RecyclerView.Adapter<FriendsRecommed
                 Log.e(TAG, "LOGIN DriverRESPONSE-" + response);
                 GetFollowResponse model = new Gson().fromJson(new String(String.valueOf(response)),GetFollowResponse.class);
                 pd.dismiss();
-                if (model.getStatus().equalsIgnoreCase("true")) {
+                if (model.getStatus().equalsIgnoreCase("true"))
+                {
                     Toast.makeText(context, model.getMsg().toString(), Toast.LENGTH_SHORT).show();
-                }else {
+                }
+                else
+                {
                     Toast.makeText(context, model.getMsg().toString(), Toast.LENGTH_SHORT).show();
                 }
             }

@@ -106,9 +106,7 @@ public class PostListFragment extends Fragment {
                     post_recycler.setAdapter(postListAdapter);
                     postListAdapter.notifyDataSetChanged();
                 }
-                else {
-                    Toast.makeText(getActivity(), R.string.data_not_found, Toast.LENGTH_SHORT).show();
-                }
+
             }
 
             @Override

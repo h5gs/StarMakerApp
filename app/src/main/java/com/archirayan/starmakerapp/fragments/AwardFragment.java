@@ -98,7 +98,7 @@ public class AwardFragment extends Fragment implements View.OnClickListener {
             public void run() {
                 handler.post(Update);
             }
-        }, 2500, 2500);
+        }, 5000, 5000);
 
         recycler_bestsolo = view.findViewById(R.id.recycler_bestsolo);
         recycler_bestsolo.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, true));

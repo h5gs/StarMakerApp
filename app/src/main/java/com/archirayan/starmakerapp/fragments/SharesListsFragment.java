@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.adapter.PlaysListAdapter;
+import com.archirayan.starmakerapp.adapter.SharesListAdapter;
 import com.archirayan.starmakerapp.model.MyPostsList;
 import com.archirayan.starmakerapp.model.PostListResponse;
 import com.archirayan.starmakerapp.utils.Constant;
@@ -34,43 +35,44 @@ import cz.msebera.android.httpclient.Header;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PlaysListFragment extends Fragment {
-    private static final String TAG = "PlaysListFragment";
-    public RecyclerView plays_recycler;
-    PlaysListAdapter playsListAdapter;
-    ProgressDialog pd;
-    ArrayList<MyPostsList> plays_arraylists;
+public class SharesListsFragment extends Fragment {
 
-    public PlaysListFragment() {
+    private static final String TAG = "SharesListsFragment";
+    public RecyclerView shares_recycler;
+    SharesListAdapter sharesListAdapter;
+    ProgressDialog pd;
+    ArrayList<MyPostsList> shares_arraylists;
+    public SharesListsFragment() {
         // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_plays_list, container, false);
+        return inflater.inflate(R.layout.fragment_shares, container, false);
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        plays_recycler = view.findViewById(R.id.plays_recycler);
-        getPlaysLists();
+        shares_recycler = view.findViewById(R.id.shares_recycler);
+        getSharesLists();
+
     }
 
-    private void getPlaysLists()
-    {
-        plays_arraylists = new ArrayList<>();
+    private void getSharesLists() {
+
+        shares_arraylists = new ArrayList<>();
         pd = new ProgressDialog(getActivity());
         pd.setCancelable(true);
         pd.show();
-       AsyncHttpClient client = new AsyncHttpClient();
+        AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
-        params.put("user_id", Utils.ReadSharePrefrence(getActivity(), Constant.USERID));
-        params.put("flag", "plays");
+        params.put("user_id",Utils.ReadSharePrefrence(getActivity(), Constant.USERID));
+        params.put("flag", "shares");
         Log.e(TAG, "URL:" + Constant.URL + "demo1.php?" + params);
         Log.e(TAG, params.toString());
         client.post(getActivity(), Constant.URL + "demo1.php?", params, new JsonHttpResponseHandler() {
@@ -85,21 +87,20 @@ public class PlaysListFragment extends Fragment {
             }
 
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response)
-            {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "RESPONSE-" + response);
                 PostListResponse model = new Gson().fromJson(new String(String.valueOf(response)), PostListResponse.class);
                 pd.dismiss();
                 if (model.getStatus().equals("true")
                         ) {
-                    plays_arraylists = model.getData();
+                    shares_arraylists = model.getData();
                     // Partiton The Recycler view By Columne ..
-                    Log.d("Arraylist_Size", "======= Size() ======= " + plays_arraylists.size());
-                    playsListAdapter = new PlaysListAdapter(getActivity(), plays_arraylists);
-                    plays_recycler.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-                    plays_recycler.setAdapter(playsListAdapter);
-                    playsListAdapter.notifyDataSetChanged();
+                    Log.d("Arraylist_Size", "======= Size() ======= " + shares_arraylists.size());
+                    sharesListAdapter = new SharesListAdapter(getActivity(), shares_arraylists);
+                    shares_recycler.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+                    shares_recycler.setAdapter(sharesListAdapter);
+                    sharesListAdapter.notifyDataSetChanged();
                 }
 
             }
@@ -110,5 +111,6 @@ public class PlaysListFragment extends Fragment {
                 Log.e(TAG, throwable.getMessage());
             }
         });
+
     }
 }

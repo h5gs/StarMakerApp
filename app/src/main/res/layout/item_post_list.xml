@@ -21,12 +21,12 @@
             android:orientation="vertical">
 
             <RelativeLayout
-                android:layout_width="@dimen/_120sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/_100sdp">
 
                 <ImageView
                     android:id="@+id/img_posts"
-                    android:layout_width="@dimen/_120sdp"
+                    android:layout_width="wrap_content"
                     android:layout_height="@dimen/_100sdp"
                     android:background="@drawable/images"
                     android:scaleType="fitXY" />

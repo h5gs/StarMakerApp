@@ -8,6 +8,7 @@ import com.archirayan.starmakerapp.fragments.FavoritesListFragment;
 import com.archirayan.starmakerapp.fragments.LikesFragment;
 import com.archirayan.starmakerapp.fragments.PlaysListFragment;
 import com.archirayan.starmakerapp.fragments.PostListFragment;
+import com.archirayan.starmakerapp.fragments.SharesListsFragment;
 import com.archirayan.starmakerapp.fragments.SongListFragment;
 
 /**
@@ -41,7 +42,7 @@ public class ProfilePagerAdapter extends FragmentPagerAdapter {
         } else if (position == 5) {
             fragment = new PlaysListFragment();
         } else if (position == 6) {
-            fragment = new SongListFragment();
+            fragment = new SharesListsFragment();
         } else if (position == 7) {
             fragment = new FavoritesListFragment();
         }
@@ -49,8 +50,8 @@ public class ProfilePagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public int getCount() {
-
+    public int getCount()
+    {
         return 8;
     }
 

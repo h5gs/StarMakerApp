@@ -12,6 +12,6 @@
     <string name="txt_sign_musicelover">"Sign with 50,0000,000+ music lover"</string>
     <string name="permissions_denied_exit">Permissions denied, exit.</string>
     <string name="initiating">Initiating…</string>
-    <string name="no_internet_fount">Please check the Internet Connection</string>
+    <string name="no_internet_fount">A network error occured. Please check the network</string>
     <string name="data_not_found">Data not found</string>
 </resources>
