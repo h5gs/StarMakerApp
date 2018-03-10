@@ -24,7 +24,7 @@
 
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
-                android:src="@drawable/men" />
+                android:src="@drawable/images" />
 
             <TextView
                 android:id="@+id/profile_name"

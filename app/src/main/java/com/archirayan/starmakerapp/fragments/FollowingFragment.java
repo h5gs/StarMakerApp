@@ -34,9 +34,9 @@ public class FollowingFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
+    {
         super.onViewCreated(view, savedInstanceState);
-
         rvList = view.findViewById(R.id.item_list);
 
         followingAdapter = new FollowingAdapter(getActivity());

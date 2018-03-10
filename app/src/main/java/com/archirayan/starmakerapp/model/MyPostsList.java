@@ -3,10 +3,10 @@ package com.archirayan.starmakerapp.model;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by archirayan on 7/3/18.
+ * Created by archirayan on 9/3/18.
  */
 
-public class MySongsList
+public class MyPostsList
 {
     @SerializedName("id")
     private String id;
@@ -17,14 +17,16 @@ public class MySongsList
     @SerializedName("imgae")
     private String imgae;
 
+    @SerializedName("video")
+    private String video;
+
     @SerializedName("type")
     private String type;
 
     @SerializedName("caption")
     private String caption;
-
-    @SerializedName("title")
-    private String title;
+    @SerializedName("plays")
+    private String plays;
 
     public String getId() {
         return id;
@@ -46,8 +48,17 @@ public class MySongsList
         return imgae;
     }
 
-    public void setImgae(String imgae) {
+    public void setImgae(String imgae)
+    {
         this.imgae = imgae;
+    }
+
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
     }
 
     public String getType() {
@@ -66,22 +77,12 @@ public class MySongsList
         this.caption = caption;
     }
 
-    public String getTitle() {
-        return title;
+    public String getPlays() {
+        return plays;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setPlays(String plays) {
+        this.plays = plays;
     }
 
-    public String getJoined() {
-        return joined;
-    }
-
-    public void setJoined(String joined) {
-        this.joined = joined;
-    }
-
-    @SerializedName("joined")
-    private String joined;
 }

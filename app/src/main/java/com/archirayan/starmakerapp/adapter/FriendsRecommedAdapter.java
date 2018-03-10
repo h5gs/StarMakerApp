@@ -55,7 +55,8 @@ public class FriendsRecommedAdapter extends RecyclerView.Adapter<FriendsRecommed
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.friendsrecommend_list, parent, false);
 
@@ -93,7 +94,8 @@ public class FriendsRecommedAdapter extends RecyclerView.Adapter<FriendsRecommed
 
     }
 
-    private void getfollow() {
+    private void getfollow()
+    {
         pd = new ProgressDialog(context);
         pd.setMessage("Loading...");
         pd.setCancelable(false);
@@ -141,7 +143,8 @@ public class FriendsRecommedAdapter extends RecyclerView.Adapter<FriendsRecommed
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return followLists.size();
     }
 

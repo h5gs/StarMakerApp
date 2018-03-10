@@ -117,11 +117,13 @@ public class SongListFragment extends Fragment {
                 super.onFinish();
             }
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response)
+            {
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "RESPONSE-" + response);
                 FollowingListResponse model = new Gson().fromJson(new String(String.valueOf(response)), FollowingListResponse.class);
-                if (model.getStatus().equals("true")){
+                if (model.getStatus().equals("true"))
+                {
                     followLists = model.getData();
                     friendsRecommedAdapter = new FriendsRecommedAdapter(getActivity(), followLists);
                     //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -141,7 +143,8 @@ public class SongListFragment extends Fragment {
         });
     }
 
-    private void getSongList() {
+    private void getSongList()
+    {
         pd = new ProgressDialog(getActivity());
         pd.setCancelable(true);
         pd.show();

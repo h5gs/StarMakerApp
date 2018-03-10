@@ -5,10 +5,10 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
 /**
- * Created by archirayan on 7/3/18.
+ * Created by archirayan on 9/3/18.
  */
 
-public class MySongsResponse
+public class PostListResponse
 {
     @SerializedName("status")
     private String status;
@@ -17,7 +17,7 @@ public class MySongsResponse
     private String msg;
 
     @SerializedName("data")
-    private ArrayList<MySongsList> data;
+    private ArrayList<MyPostsList> data;
 
     public String getStatus() {
         return status;
@@ -35,13 +35,12 @@ public class MySongsResponse
         this.msg = msg;
     }
 
-    public ArrayList<MySongsList> getData() {
+    public ArrayList<MyPostsList> getData() {
         return data;
     }
 
-    public void setData(ArrayList<MySongsList> data) {
+    public void setData(ArrayList<MyPostsList> data) {
         this.data = data;
     }
-
 
 }

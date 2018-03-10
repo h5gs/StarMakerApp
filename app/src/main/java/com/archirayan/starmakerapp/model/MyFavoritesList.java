@@ -3,13 +3,15 @@ package com.archirayan.starmakerapp.model;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by archirayan on 7/3/18.
+ * Created by archirayan on 9/3/18.
  */
 
-public class MySongsList
+public class MyFavoritesList
 {
+
     @SerializedName("id")
     private String id;
+
 
     @SerializedName("user_id")
     private String user_id;
@@ -17,14 +19,30 @@ public class MySongsList
     @SerializedName("imgae")
     private String imgae;
 
+    @SerializedName("video")
+    private String video;
+
     @SerializedName("type")
     private String type;
 
     @SerializedName("caption")
     private String caption;
 
-    @SerializedName("title")
-    private String title;
+    @SerializedName("plays")
+    private String plays;
+
+    @SerializedName("post_id")
+    private String post_id;
+
+    @SerializedName("date")
+    private String date;
+
+    @SerializedName("favorites_id")
+    private String favorites_id;
+
+
+
+
 
     public String getId() {
         return id;
@@ -50,6 +68,14 @@ public class MySongsList
         this.imgae = imgae;
     }
 
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
+    }
+
     public String getType() {
         return type;
     }
@@ -66,22 +92,36 @@ public class MySongsList
         this.caption = caption;
     }
 
-    public String getTitle() {
-        return title;
+    public String getPlays() {
+        return plays;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setPlays(String plays) {
+        this.plays = plays;
     }
 
-    public String getJoined() {
-        return joined;
+    public String getPost_id() {
+        return post_id;
     }
 
-    public void setJoined(String joined) {
-        this.joined = joined;
+    public void setPost_id(String post_id) {
+        this.post_id = post_id;
     }
 
-    @SerializedName("joined")
-    private String joined;
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getFavorites_id() {
+        return favorites_id;
+    }
+
+    public void setFavorites_id(String favorites_id) {
+        this.favorites_id = favorites_id;
+    }
+
 }

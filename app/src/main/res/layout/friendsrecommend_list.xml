@@ -45,7 +45,7 @@
                     android:layout_height="@dimen/_50sdp"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:src="@drawable/ic_back_round"
+                    android:src="@drawable/images"
                     app:border_width="@dimen/_1sdp"/>
 
                 <TextView

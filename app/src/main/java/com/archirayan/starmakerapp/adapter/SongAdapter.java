@@ -49,12 +49,16 @@ public class SongAdapter  extends RecyclerView.Adapter<SongAdapter.MyViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position)
+    {
         holder.profile_name.setText(getSongLists.get(position).getUsername());
-        if (getSongLists.get(position).getProfile_picture().isEmpty()) {
+        if (getSongLists.get(position).getProfile_picture().isEmpty())
+        {
             Picasso.with(context).load(R.drawable.men);
-        } else {
-            Picasso.with(context).load(getSongLists.get(position).getProfile_picture()).placeholder(R.drawable.men).into(holder.profile_pic);
+        }
+        else
+        {
+            Picasso.with(context).load(getSongLists.get(position).getProfile_picture()).placeholder(R.drawable.ic_placeholder).into(holder.profile_pic);
         }
         holder.txt_levels.setText(getSongLists.get(position).getCount());
         if (getSongLists.get(position).getHashtag().isEmpty()){
