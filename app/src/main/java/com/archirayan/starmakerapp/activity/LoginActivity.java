@@ -68,22 +68,18 @@ public class LoginActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void init()
-    {
+    private void init() {
         btn_login = findViewById(R.id.btn_login);
 
         edit_email = findViewById(R.id.edit_email);
         edit_password = findViewById(R.id.edit_password);
 
-        btn_login.setOnClickListener(new View.OnClickListener()
-        {
+        btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (edit_email.getText().toString().equals(""))
-                {
+                if (edit_email.getText().toString().equals("")) {
                     Toast.makeText(LoginActivity.this, "Please enter email address", Toast.LENGTH_SHORT).show();
-                }
-                else if (edit_password.getText().toString().equals("")) {
+                } else if (edit_password.getText().toString().equals("")) {
                     Toast.makeText(LoginActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
                 } else {
                     login(edit_email.getText().toString(), edit_password.getText().toString());
@@ -92,8 +88,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void login(String email, String password)
-    {
+    private void login(String email, String password) {
         if (Utils.isConnectingToInternet(LoginActivity.this)) {
             loginCallApi(email, password);
         } else {
@@ -101,46 +96,43 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void loginCallApi(String email, String password)
-    {
+    private void loginCallApi(String email, String password) {
         pd = new ProgressDialog(LoginActivity.this);
         pd.setMessage("Loading...");
         pd.setCancelable(false);
         pd.show();
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
-        params.put("email_address",edit_email.getText().toString());
-        params.put("password",edit_password.getText().toString());
+        params.put("email_address", edit_email.getText().toString());
+        params.put("password", edit_password.getText().toString());
 
         Log.e(TAG, "DriverURL:" + Constant.URL + "login.php?" + params);
         Log.e(TAG, params.toString());
-        client.post(this, Constant.URL+"login.php?",params, new JsonHttpResponseHandler()
-        {
+        client.post(this, Constant.URL + "login.php?", params, new JsonHttpResponseHandler() {
             @Override
-            public void onStart()
-            {
+            public void onStart() {
                 super.onStart();
             }
+
             @Override
-            public void onFinish()
-            {
+            public void onFinish() {
                 super.onFinish();
             }
 
             @Override
-            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
+            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response)
+            {
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "LOGIN DriverRESPONSE-" + response);
-                LoginResponse model = new Gson().fromJson(new String(String.valueOf(response)),LoginResponse.class);
+                LoginResponse model = new Gson().fromJson(new String(String.valueOf(response)), LoginResponse.class);
                 pd.dismiss();
-                if (model.getStatus().equalsIgnoreCase("true"))
-                {
-                    Utils.WriteSharePrefrence(LoginActivity.this, Constant.USERID,model.getData().getId());
-                    String Userid = Utils.ReadSharePrefrence(LoginActivity.this,Constant.USERID);
-                    Log.e(TAG,"READ SHARED==>"+Userid);
+                if (model.getStatus().equalsIgnoreCase("true")) {
+                    Utils.WriteSharePrefrence(LoginActivity.this, Constant.USERID, model.getData().getId());
+                    String Userid = Utils.ReadSharePrefrence(LoginActivity.this, Constant.USERID);
+                    Log.e(TAG, "READ SHARED==>" + Userid);
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
-                }else {
+                } else {
                     Toast.makeText(LoginActivity.this, model.getMsg().toString(), Toast.LENGTH_SHORT).show();
                 }
             }
