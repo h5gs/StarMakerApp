@@ -59,6 +59,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
 
         }
         return super.onOptionsItemSelected(item);
+
     }
 
 
