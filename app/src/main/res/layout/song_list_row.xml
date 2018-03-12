@@ -66,19 +66,28 @@
             <TextView
                 android:id="@+id/txt_follow"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
+                android:background="@drawable/file_bg_black_border"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
                 android:text="Follow"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10sdp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/iv_action_menu"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
-                android:src="@drawable/more" />
+                android:src="@drawable/more"
+                android:visibility="gone" />
+
+            <ImageView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@mipmap/ic_movie_bg" />
 
         </LinearLayout>
 
@@ -223,13 +232,14 @@
 
 
             </LinearLayout>
-
+            z
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/_1sdp"
-            android:background="#808080" />
+            android:layout_margin="@dimen/_2sdp"
+            android:background="@color/black" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -251,7 +261,7 @@
 
                 <CheckBox
                     android:id="@+id/chk_like"
-                    android:layout_width="@dimen/_20sdp"
+                    android:layout_width="38dp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_marginRight="@dimen/_10sdp"
                     android:background="@drawable/heart"
@@ -278,11 +288,18 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/_5sdp"
-                android:background="@drawable/file_pink_corner"
+                android:background="@drawable/file_bg_black_border"
                 android:text="Sing"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_11sdp"
                 android:textStyle="bold" />
         </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_margin="@dimen/_2sdp"
+            android:background="@color/black" />
     </LinearLayout>
 </LinearLayout>

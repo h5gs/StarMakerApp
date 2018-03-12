@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#292929</color>
+    <color name="colorPrimaryDark">#292929</color>
     <color name="colorAccent">#FF4081</color>
     <color name="facebook_color">#285CCB</color>
     <color name="light_pink_color">#f5568c</color>

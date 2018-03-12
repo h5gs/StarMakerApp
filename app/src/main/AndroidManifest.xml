@@ -20,7 +20,6 @@
 
     <uses-feature android:name="android.hardware.camera" />
 
-
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
@@ -30,7 +29,6 @@
         android:roundIcon="@mipmap/ic_starcreator"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".activity.MainActivity"
             android:theme="@style/MyTheme" />
@@ -51,8 +49,6 @@
             android:name=".activity.TopsStarsActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/MyTheme" />
-
-
         <activity
             android:name=".activity.LoginwithMobileActivity"
             android:theme="@style/MyTheme" />
@@ -68,11 +64,9 @@
         <activity
             android:name=".activity.VerifyingEmailActivity"
             android:theme="@style/MyTheme" />
-
         <activity
             android:name=".activity.BestCollabsActivity"
             android:theme="@style/MyTheme" />
-
         <activity
             android:name=".activity.DidnotgetOTPActivity"
             android:theme="@style/MyTheme" />
@@ -82,25 +76,18 @@
         <activity
             android:name=".activity.FindFriendActivity"
             android:theme="@style/MyTheme" />
-
         <activity
             android:name=".activity.VerifiedEmailOtpActivity"
             android:theme="@style/MyTheme" />
-
         <activity
             android:name=".activity.DailyCheckInActivity"
             android:theme="@style/MyTheme" />
-
-
         <activity
             android:name=".activity.MostSharedActivity"
             android:theme="@style/MyTheme" />
-
         <activity
             android:name=".activity.TopFriendsActivity"
             android:theme="@style/MyTheme" />
-
-
         <activity
             android:name=".activity.AboutusActivity"
             android:theme="@style/MyTheme" />
@@ -153,13 +140,13 @@
             android:name=".activity.RecordingSongs"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/MyTheme"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activity.FAQWebviewActivity"
             android:theme="@style/MyTheme" />
-
+        <activity android:name=".activity.newdesigning.CreateAccountActivity" />
+        <activity android:name=".activity.newdesigning.NewSignUpActivity" />
+        <activity android:name=".activity.newdesigning.NewLoginActivity"></activity>
     </application>
 
 </manifest>
