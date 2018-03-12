@@ -19,7 +19,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.archirayan.starmakerapp.R;
@@ -61,7 +63,8 @@ import java.util.Arrays;
 import cz.msebera.android.httpclient.Header;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class WelcomeActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+public class WelcomeActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener
+{
     private static final int RC_SIGN_IN = 007;
     public LoginButton loginButton;
     FullscreenVideoView videoLayout;
@@ -76,6 +79,11 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
     private String fbemail;
     private GoogleApiClient mGoogleApiClient;
     private String googleid, googlefirst_name, googlelast_name, googleemail;
+
+
+    //// TODO: 12/3/18   New Designing
+    private Button btn_createaccount;
+    private TextView txt_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -192,6 +200,35 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                 videoLayout.start();
             }
         });
+
+
+
+
+
+        //// TODO: 12/3/18  New Desigininig ...
+        btn_createaccount=findViewById(R.id.btn_createaccount);
+        btn_createaccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(WelcomeActivity.this, SignUpActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+        txt_login=findViewById(R.id.txt_login);
+        txt_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(WelcomeActivity.this, SignUpActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
 
