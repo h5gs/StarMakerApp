@@ -17,19 +17,16 @@
                 android:id="@+id/img_bestsolo"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_100sdp"
-                android:background="@drawable/images"/>
+                android:background="@drawable/ic_placeholder"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#f24040"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:background="@color/color_light_yellow"
                 android:textSize="@dimen/_13sdp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:text="1"
-                android:paddingLeft="@dimen/_5sdp"
-                android:paddingRight="@dimen/_5sdp"
-                android:gravity="center"
-                android:layout_margin="@dimen/_10sdp"/>
+                android:gravity="center" />
         </FrameLayout>
 
     </RelativeLayout>
