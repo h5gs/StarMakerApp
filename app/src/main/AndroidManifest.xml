@@ -144,9 +144,7 @@
         <activity
             android:name=".activity.FAQWebviewActivity"
             android:theme="@style/MyTheme" />
-        <activity android:name=".activity.newdesigning.CreateAccountActivity" />
         <activity android:name=".activity.newdesigning.NewSignUpActivity" />
-        <activity android:name=".activity.newdesigning.NewLoginActivity"></activity>
     </application>
 
 </manifest>

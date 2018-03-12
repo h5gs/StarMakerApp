@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import com.archirayan.starmakerapp.R;
-import com.archirayan.starmakerapp.activity.newdesigning.CreateAccountActivity;
 import com.archirayan.starmakerapp.utils.Constant;
 import com.archirayan.starmakerapp.utils.Utils;
 
@@ -32,7 +31,7 @@ public class SplashActivity extends AppCompatActivity
                     startActivity(in);
                     finish();
                 } else {
-                    Intent in = new Intent(SplashActivity.this, CreateAccountActivity.class);
+                    Intent in = new Intent(SplashActivity.this, WelcomeActivity.class);
                     in.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(in);
                     finish();
