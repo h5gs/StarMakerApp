@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/materialup.appbar"
         android:layout_width="match_parent"
@@ -14,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_300sdp"
             app:expandedTitleMarginEnd="64dp"
+
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|snap">
             ​
@@ -22,6 +24,7 @@
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:layout_alignParentTop="true" />
 
             <LinearLayout
@@ -334,6 +337,7 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs_layout"
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             android:background="@color/white"
             app:tabGravity="fill"
@@ -363,7 +367,7 @@
         android:layout_height="@dimen/_80sdp"
         android:layout_gravity="center_horizontal"
         android:elevation="8dp"
-        android:src="@mipmap/ic_starcreator"
+        android:src="@drawable/img_circler_bg"
         app:border_color="#FFF"
         app:border_width="2dp"
         app:layout_anchor="@id/materialup.title_container"

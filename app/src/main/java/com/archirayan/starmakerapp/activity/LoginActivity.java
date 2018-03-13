@@ -38,24 +38,16 @@ public class LoginActivity extends AppCompatActivity {
     Button btn_login;
     ImageView img_back_title_Dsignin;
     EditText edit_email, edit_password;
-    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        setTitleBar();
+
         init();
     }
 
-    //Toolbar title
-    public void setTitleBar() {
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Login");
-    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

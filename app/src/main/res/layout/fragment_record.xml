@@ -89,110 +89,104 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:background="@color/black"
+                        android:orientation="vertical"
                         android:paddingBottom="@dimen/_5sdp">
 
-                        <android.support.v7.widget.CardView
-                            android:id="@+id/card_live"
-                            android:layout_width="0dp"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="@dimen/_100sdp"
-                            android:layout_margin="@dimen/_5sdp"
-                            android:layout_weight="0.5"
-                            app:cardBackgroundColor="#000000"
-                            app:cardCornerRadius="@dimen/_5sdp">
+                            android:orientation="horizontal">
 
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                            <ImageView
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_100sdp"
+                                android:background="@drawable/img_songlive" />
 
-                                <ImageView
-                                    android:id="@+id/iv_backcard"
-                                    android:layout_width="@dimen/_100sdp"
-                                    android:layout_height="@dimen/_90sdp"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/file_card_bg_animation" />
-
-                                <ImageView
-                                    android:layout_width="@dimen/_45sdp"
-                                    android:layout_height="@dimen/_15sdp"
-                                    android:layout_marginLeft="@dimen/_5sdp"
-                                    android:layout_marginTop="@dimen/_5sdp"
-                                    android:src="@drawable/livetv" />
-
-                                <de.hdodenhof.circleimageview.CircleImageView
-                                    android:id="@+id/iv_liveprofile"
-                                    android:layout_width="@dimen/_35sdp"
-                                    android:layout_height="@dimen/_35sdp"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginTop="@dimen/_20sdp"
-                                    android:src="@drawable/add_user"
-                                    app:border_color="@color/white"
-                                    app:border_width="@dimen/_2sdp" />
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginTop="@dimen/_60sdp"
-                                    android:text="Live"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/_12sdp"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:text="Sing Live"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/light_dark_color"
+                                    android:textSize="@dimen/_20sdp"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginTop="@dimen/_75sdp"
-                                    android:text="Follow me"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/_12sdp" />
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:text="25564 Online"
+                                    android:textColor="@color/light_dark_color"
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
 
-                            </FrameLayout>
+                            </LinearLayout>
+                        </LinearLayout>
 
-                        </android.support.v7.widget.CardView>
-
-                        <android.support.v7.widget.CardView
-                            android:id="@+id/crad_parties"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/_100sdp"
-                            android:layout_margin="@dimen/_5sdp"
-                            android:layout_weight="0.5"
-                            app:cardBackgroundColor="@color/navyBlue"
-                            app:cardCornerRadius="@dimen/_5sdp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <ImageView
-                                android:layout_width="@dimen/_30sdp"
-                                android:layout_height="@dimen/_30sdp"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="@dimen/_20sdp"
-                                android:src="@drawable/giftcart" />
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_100sdp"
+                                android:background="@drawable/img_songlive" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="@dimen/_55sdp"
-                                android:text="Parties"
-                                android:textColor="#ffffff"
-                                android:textSize="@dimen/_12sdp"
-                                android:textStyle="bold" />
-                        </android.support.v7.widget.CardView>
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
 
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:text="Sing Live"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/light_dark_color"
+                                    android:textSize="@dimen/_20sdp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:text="25564 Online"
+                                    android:textColor="@color/light_dark_color"
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                        </LinearLayout>
                     </LinearLayout>
-
                 </LinearLayout>
                 ​
             </android.support.design.widget.CollapsingToolbarLayout>
 
+
             <android.support.design.widget.TabLayout
                 android:id="@+id/record_tabs"
+                style="@style/Base.Widget.Design.TabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/white"
                 app:tabGravity="fill"
-                app:tabMode="fixed"
-                style="@style/Base.Widget.Design.TabLayout"/>
+                app:tabMode="fixed" />
         </android.support.design.widget.AppBarLayout>
         ​
 

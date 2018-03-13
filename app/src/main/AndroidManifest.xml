@@ -31,7 +31,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.MainActivity"
-            android:theme="@style/MyTheme" />
+            android:theme="@style/MyTheme" >
+
+        </activity>
         <activity
             android:name=".activity.SplashActivity"
             android:theme="@style/MyTheme">

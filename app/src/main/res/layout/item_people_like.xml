@@ -33,12 +33,15 @@
 
     <Button
         android:id="@+id/you_tvFollow"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/_60sdp"
         android:layout_height="@dimen/_30sdp"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="@dimen/_15sdp"
+        android:background="@drawable/ic_button_bg"
         android:gravity="center"
-        android:textSize="@dimen/_12sdp"
         android:text="Add"
-        android:textColor="@color/black" />
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_13sdp"
+        android:textStyle="bold" />
 </LinearLayout>

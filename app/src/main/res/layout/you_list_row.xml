@@ -73,6 +73,7 @@
         android:textSize="@dimen/_12sdp"
         android:textStyle="bold"
         android:gravity="center"
+        android:text="Song"
         android:paddingTop="@dimen/_2sdp"
         android:paddingBottom="@dimen/_2sdp"
         android:layout_gravity="center_vertical"
