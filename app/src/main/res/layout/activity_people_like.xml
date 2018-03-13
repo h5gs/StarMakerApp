@@ -29,7 +29,7 @@
                 android:gravity="center"
                 android:text="People You May Like"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_17sdp" />
+                android:textSize="@dimen/_15sdp" />
 
             <TextView
                 android:id="@+id/txt_next_homepage"
@@ -40,12 +40,13 @@
                 android:text="Next"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_17sdp" />
+                android:textSize="@dimen/_15sdp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_75sdp"
             android:orientation="vertical">
 
             <android.support.v7.widget.RecyclerView
@@ -54,7 +55,6 @@
                 android:layout_height="0dp"
                 android:layout_above="@+id/main_bottom"
                 android:layout_below="@+id/main_header"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_weight="1" />
 
             <TextView
@@ -63,7 +63,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="Skip"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"
+                android:textSize="@dimen/_15sdp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

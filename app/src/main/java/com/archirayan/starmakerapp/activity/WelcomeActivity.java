@@ -179,25 +179,26 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
             }
         });
 
-        // // TODO: 22/2/18 Play The Video ...
-        String path = "android.resource://" + getPackageName() + "/" + R.raw.splash_video;
-        try {
-            videoLayout.setVideoURI(Uri.parse(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        videoLayout.start();
-        videoLayout.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                videoLayout.start();
-            }
-        });
+//        // // TODO: 22/2/18 Play The Video ...
+//        String path = "android.resource://" + getPackageName() + "/" + R.raw.splash_video;
+//        try {
+//            videoLayout.setVideoURI(Uri.parse(path));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        videoLayout.start();
+//        videoLayout.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+//            @Override
+//            public void onCompletion(MediaPlayer mp) {
+//                videoLayout.start();
+//            }
+//        });
 
 
         //// TODO: 12/3/18  New Desigininig ...
         btn_createaccount = findViewById(R.id.btn_createaccount);
-        btn_createaccount.setOnClickListener(new View.OnClickListener() {
+        btn_createaccount.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(WelcomeActivity.this, SignUpActivity.class);

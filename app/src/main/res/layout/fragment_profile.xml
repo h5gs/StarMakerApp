@@ -2,20 +2,22 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_fullscreen_goldbg">
 
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/materialup.appbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="245dp"
+        android:background="@android:color/transparent">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_300sdp"
+            android:layout_height="@dimen/_200sdp"
+            android:background="@android:color/transparent"
             app:expandedTitleMarginEnd="64dp"
-
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|snap">
             ​
@@ -24,8 +26,8 @@
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:layout_alignParentTop="true" />
+                android:layout_alignParentTop="true"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -80,7 +82,6 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp"
                     android:gravity="center_horizontal|bottom"
                     android:orientation="horizontal">
 
@@ -92,142 +93,21 @@
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_15sdp" />
                     ​
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:background="@drawable/file_light_dark"
-                        android:padding="@dimen/_4sdp"
-                        android:text="Get Vip"
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/_9sdp" />
-
-                    <Button
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:background="@drawable/file_light_green"
-                        android:drawableLeft="@drawable/ic_arrow_drop_down_black_24dp"
-                        android:text="1"
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/_9sdp" />
-
-
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:gravity="center_horizontal">
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:background="@drawable/file_pink_bluelight_bg"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal"
-                        android:padding="@dimen/_3sdp">
-
-                        <ImageView
-                            android:id="@+id/img_back6_t546it7le_Dsignin"
-                            android:layout_width="@dimen/_15sdp"
-                            android:layout_height="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:src="@drawable/ic_star" />
-
-                        <LinearLayout
-                            android:layout_width="@dimen/_50sdp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/_5sdp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="0"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
-                                android:textColor="@android:color/white"
-                                android:textSize="@dimen/_10sdp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Received"
-                                android:textColor="@android:color/white"
-                                android:textSize="@dimen/_11sdp" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/_20sdp"
-                        android:background="@drawable/file_yellow_red_bg"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal"
-                        android:padding="@dimen/_3sdp">
-
-                        <ImageView
-                            android:id="@+id/img_ba4ck6_t546it7le_Dsignin"
-                            android:layout_width="@dimen/_15sdp"
-                            android:layout_height="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:src="@drawable/ic_copy_rupees" />
-
-                        <LinearLayout
-                            android:layout_width="@dimen/_50sdp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/_5sdp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="0"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
-                                android:textColor="@android:color/white"
-                                android:textSize="@dimen/_10sdp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Sent"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
-                                android:textColor="@android:color/white"
-                                android:textSize="@dimen/_10sdp" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
                     android:gravity="center_horizontal|center_vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
-                        android:layout_marginTop="4dp"
                         android:text="Welcome to my stag"
                         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_10sdp" />
 
-                    <ImageView
-                        android:id="@+id/img_back_t546itle_Dsignin"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:layout_marginLeft="@dimen/_15sdp"
-                        android:src="@drawable/ic_mick" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -337,9 +217,7 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs_layout"
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
-            android:background="@color/white"
             app:tabGravity="fill"
             app:tabMode="scrollable" />
 

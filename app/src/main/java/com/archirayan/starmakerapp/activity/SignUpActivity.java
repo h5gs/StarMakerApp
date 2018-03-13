@@ -104,14 +104,17 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    private void signupCallApi(String email) {
+    private void signupCallApi(String email)
+    {
         pd = new ProgressDialog(SignUpActivity.this);
         pd.setMessage("Loading...");
         pd.setCancelable(true);
         pd.show();
-        RestClient.getStarCreator().SignUp(email, new Callback<Response>() {
+        RestClient.getStarCreator().SignUp(email, new Callback<Response>()
+        {
             @Override
-            public void success(Response response, Response response2) {
+            public void success(Response response, Response response2)
+            {
                 pd.dismiss();
                 try {
                     JSONObject jsonObject = new JSONObject(Util.getString(response.getBody().in()));
@@ -171,7 +174,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                             Intent intent = new Intent(SignUpActivity.this, VerifiedEmailOtpActivity.class);
                             intent.putExtra("otp", jsonObject.getString("OTP"));
                             // Utils.WriteSharePrefrence(SignUpActivity.this, Constant.SIGNUP_PREF_OTP, jsonObject.getString("OTP"));
-                            Utils.WriteSharePrefrence(SignUpActivity.this, Constant.SIGNUP_PREF_USERID, array.getString("id"));
+                            Utils.WriteSharePrefrence(SignUpActivity.this, Constant.USERID, array.getString("id"));
                             Utils.WriteSharePrefrence(SignUpActivity.this, Constant.SIGNUP_PREF_EMAIL, array.getString("email_address"));
                             startActivity(intent);
                             finish();

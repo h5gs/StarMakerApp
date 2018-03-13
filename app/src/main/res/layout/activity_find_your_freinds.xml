@@ -31,7 +31,7 @@
                 android:gravity="center"
                 android:text="Friends on Facebook"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_17sdp" />
+                android:textSize="@dimen/_15sdp" />
 
             <TextView
                 android:id="@+id/txt_next"
@@ -42,13 +42,14 @@
                 android:text="Next"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_17sdp" />
+                android:textSize="@dimen/_15sdp" />
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
+            android:layout_marginTop="@dimen/_75sdp"
             android:orientation="vertical"
             android:padding="@dimen/_10sdp">
 
@@ -72,8 +73,8 @@ ft="@dimen/_10sdp"-->
                 android:id="@+id/item_findyourfreinds_list"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:layout_weight="1"
                 android:scrollbars="none" />
 
             <TextView
@@ -82,7 +83,7 @@ ft="@dimen/_10sdp"-->
                 android:layout_gravity="center_horizontal"
                 android:text="Skip"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"
+                android:textSize="@dimen/_15sdp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

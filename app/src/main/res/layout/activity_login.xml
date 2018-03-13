@@ -54,11 +54,10 @@
                         android:textStyle="bold" />
 
 
-                    <Button
-                        android:id="@+id/btn_log"
+                    <RelativeLayout
+                        android:id="@+id/linear_fblogin"
                         android:layout_width="@dimen/_260sdp"
                         android:layout_height="@dimen/_40sdp"
-                        android:layout_marginBottom="@dimen/_15sdp"
                         android:background="@drawable/img_newfacebook"
                         android:paddingLeft="@dimen/_20sdp"
                         android:paddingRight="@dimen/_20sdp"
@@ -66,6 +65,20 @@
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_15sdp"
                         android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <com.facebook.login.widget.LoginButton
+                            android:id="@+id/login_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:visibility="gone" />
+                    </LinearLayout>
 
 
                     <TextView
@@ -93,7 +106,7 @@
                             <EditText
                                 android:id="@+id/edit_email"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="@dimen/_40sdp"
                                 android:hint="Email"
                                 android:inputType="textEmailAddress"
                                 android:textColor="@color/color_light_orange"
@@ -112,8 +125,7 @@
                             <EditText
                                 android:id="@+id/edit_password"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="45dp"
+                                android:layout_height="@dimen/_40sdp"
                                 android:hint="Password"
                                 android:inputType="textPassword"
                                 android:textColor="@color/color_light_orange"
@@ -124,7 +136,7 @@
                             android:id="@+id/btn_login"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_40sdp"
-                            android:layout_marginTop="@dimen/_25sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
                             android:background="@drawable/file_button_gold_bg"
                             android:text="Log in"
                             android:textAllCaps="true"

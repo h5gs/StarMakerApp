@@ -31,9 +31,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.MainActivity"
-            android:theme="@style/MyTheme" >
-
-        </activity>
+            android:theme="@style/MyTheme" />
         <activity
             android:name=".activity.SplashActivity"
             android:theme="@style/MyTheme">
@@ -147,6 +145,8 @@
             android:name=".activity.FAQWebviewActivity"
             android:theme="@style/MyTheme" />
         <activity android:name=".activity.newdesigning.NewSignUpActivity" />
+        <activity android:name=".activity.FindContactsActivity" />
+        <activity android:name=".activity.FindContactsListActivity"></activity>
     </application>
 
 </manifest>
