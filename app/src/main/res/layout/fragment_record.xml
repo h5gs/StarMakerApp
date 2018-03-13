@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/black"
     android:orientation="vertical"
     tools:context="com.archirayan.starmakerapp.fragments.SongFragment">
 
@@ -12,7 +12,6 @@
         android:id="@+id/main_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/pink"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="@dimen/_8sdp">
@@ -24,28 +23,29 @@
 
         <EditText
             android:layout_width="0dp"
-            android:layout_height="@dimen/_28sdp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_marginLeft="@dimen/_5sdp"
             android:layout_weight="1"
-            android:background="@drawable/round_et_bg"
+            android:background="@drawable/edit_border"
             android:drawablePadding="@dimen/_5sdp"
-            android:hint="Search by Artists, Songs or Stagenames"
-            android:padding="@dimen/_3sdp"
-            android:textSize="@dimen/_12sdp" />
+            android:hint="Search"
+            android:paddingLeft="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="@dimen/_15sdp" />
 
     </LinearLayout>
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/gray">
+        android:layout_height="match_parent">
         ​
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/materialup.appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gray">
+            android:background="@drawable/ic_fullscreen_goldbg">
 
             <android.support.design.widget.CollapsingToolbarLayout
                 android:id="@+id/main.collapsing"
@@ -64,7 +64,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_110sdp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -86,113 +87,112 @@
 
                     </LinearLayout>
 
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="@dimen/_110sdp"
+                        android:layout_weight="1"
+                        android:background="@color/black"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
                         android:paddingBottom="@dimen/_5sdp">
 
-                        <android.support.v7.widget.CardView
-                            android:id="@+id/card_live"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/_100sdp"
-                            android:layout_margin="@dimen/_5sdp"
-                            android:layout_weight="0.5"
-                            app:cardBackgroundColor="#000000"
-                            app:cardCornerRadius="@dimen/_5sdp">
+                        <LinearLayout
+                            android:layout_width="@dimen/_250sdp"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_5sdp">
 
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                            <ImageView
+                                android:layout_width="@dimen/_80sdp"
+                                android:layout_height="@dimen/_80sdp"
+                                android:background="@drawable/img_songlive" />
 
-                                <ImageView
-                                    android:id="@+id/iv_backcard"
-                                    android:layout_width="@dimen/_100sdp"
-                                    android:layout_height="@dimen/_90sdp"
-                                    android:layout_gravity="center"
-                                    android:src="@drawable/file_card_bg_animation" />
-
-                                <ImageView
-                                    android:layout_width="@dimen/_45sdp"
-                                    android:layout_height="@dimen/_15sdp"
-                                    android:layout_marginLeft="@dimen/_5sdp"
-                                    android:layout_marginTop="@dimen/_5sdp"
-                                    android:src="@drawable/livetv" />
-
-                                <de.hdodenhof.circleimageview.CircleImageView
-                                    android:id="@+id/iv_liveprofile"
-                                    android:layout_width="@dimen/_35sdp"
-                                    android:layout_height="@dimen/_35sdp"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginTop="@dimen/_20sdp"
-                                    android:src="@drawable/add_user"
-                                    app:border_color="@color/white"
-                                    app:border_width="@dimen/_2sdp" />
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginTop="@dimen/_60sdp"
-                                    android:text="Live"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/_12sdp"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:text="Sing Live"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/light_dark_color"
+                                    android:textSize="@dimen/_15sdp"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginTop="@dimen/_75sdp"
-                                    android:text="Follow me"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/_12sdp" />
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:text="25564 Online"
+                                    android:textColor="@color/light_dark_color"
+                                    android:textSize="@dimen/_12sdp"
+                                    android:textStyle="bold" />
 
-                            </FrameLayout>
+                            </LinearLayout>
+                        </LinearLayout>
 
-                        </android.support.v7.widget.CardView>
-
-                        <android.support.v7.widget.CardView
-                            android:id="@+id/crad_parties"
-                            android:layout_width="0dp"
-                            android:layout_height="@dimen/_100sdp"
-                            android:layout_margin="@dimen/_5sdp"
-                            android:layout_weight="0.5"
-                            app:cardBackgroundColor="@color/navyBlue"
-                            app:cardCornerRadius="@dimen/_5sdp">
+                        <LinearLayout
+                            android:layout_width="@dimen/_250sdp"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_5sdp">
 
                             <ImageView
-                                android:layout_width="@dimen/_30sdp"
-                                android:layout_height="@dimen/_30sdp"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="@dimen/_20sdp"
-                                android:src="@drawable/giftcart" />
+                                android:layout_width="@dimen/_80sdp"
+                                android:layout_height="@dimen/_80sdp"
+                                android:background="@drawable/img_songlive" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="@dimen/_55sdp"
-                                android:text="Parties"
-                                android:textColor="#ffffff"
-                                android:textSize="@dimen/_12sdp"
-                                android:textStyle="bold" />
-                        </android.support.v7.widget.CardView>
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
 
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:text="Party Rooms"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/light_dark_color"
+                                    android:textSize="@dimen/_15sdp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:text="326656 us Sining Online"
+                                    android:textColor="@color/light_dark_color"
+                                    android:textSize="@dimen/_12sdp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                        </LinearLayout>
                     </LinearLayout>
-
                 </LinearLayout>
                 ​
             </android.support.design.widget.CollapsingToolbarLayout>
 
+
             <android.support.design.widget.TabLayout
                 android:id="@+id/record_tabs"
+                style="@style/Base.Widget.Design.TabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/white"
                 app:tabGravity="fill"
-                app:tabMode="fixed"
-                style="@style/Base.Widget.Design.TabLayout"/>
+                app:tabMode="fixed" />
         </android.support.design.widget.AppBarLayout>
         ​
 

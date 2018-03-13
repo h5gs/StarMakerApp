@@ -2,26 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/_5sdp"
     android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginBottom="@dimen/_1sdp"
-        android:background="@drawable/edit_border"
-        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/_10sdp"
-            android:gravity="center"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/ic_button_bg"
             android:text="1. #lakhmarker"
-            android:textColor="@color/black"
+            android:gravity="center"
+            android:textColor="@color/white"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold" />
     </LinearLayout>
-
-</LinearLayout>

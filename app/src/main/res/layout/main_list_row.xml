@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/_5sdp"
-    android:background="@color/white"
+    android:background="@android:color/transparent"
     android:orientation="vertical">
 
     <LinearLayout
@@ -52,7 +52,7 @@
                     android:layout_width="@dimen/_15sdp"
                     android:layout_height="@dimen/_15sdp"
                     android:src="@drawable/stars"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/txt_joined"
@@ -73,7 +73,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/_2sdp"
             android:layout_marginRight="@dimen/_5sdp"
-            android:background="@drawable/file_pink_corner"
+            android:background="@drawable/file_bg_black_border"
             android:gravity="center"
             android:paddingBottom="@dimen/_5sdp"
             android:paddingLeft="@dimen/_15sdp"
@@ -104,7 +104,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_10sdp"
             android:textStyle="bold"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
     </LinearLayout>
 </LinearLayout>

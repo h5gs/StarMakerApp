@@ -25,18 +25,16 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class SignUpActivity extends AppCompatActivity implements View.OnClickListener
-{
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     Button btn_emaillogin;
     CountryCodePicker ccp;
     EditText edit_emailaddress;
-    LinearLayout ll_emailaddress, ll_verify_progress, ll_verify_otp_sent;
+    LinearLayout ll_emailaddress;
     private ProgressDialog pd;
     private ProgressDialog progress;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         FindviewById();
@@ -44,8 +42,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
     // // TODO: 22/2/18 Initialize the Variable ...
 
-    private void Init()
-    {
+    private void Init() {
         ll_emailaddress.setVisibility(View.VISIBLE);
         btn_emaillogin.setOnClickListener(this);
 
@@ -57,22 +54,16 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         btn_emaillogin = findViewById(R.id.btn_emaillogin);
         edit_emailaddress = findViewById(R.id.edit_emailaddress);
         ll_emailaddress = findViewById(R.id.ll_emailaddress);
-        ll_verify_progress = findViewById(R.id.ll_verify_progress);
-        ll_verify_otp_sent = findViewById(R.id.ll_verify_otp_sent);
 
     }
 
     @Override
-    public void onClick(View view)
-    {
-        switch (view.getId())
-        {
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.btn_emaillogin:
                 if (edit_emailaddress.getText().toString().isEmpty()) {
                     edit_emailaddress.setError("Please enter email id");
                 } else {
-                    ll_emailaddress.setVisibility(View.GONE);
-                    ll_verify_progress.setVisibility(View.VISIBLE);
                     SignUp(edit_emailaddress.getText().toString());
 //
 //                    Handler handler = new Handler();
@@ -105,101 +96,85 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    private void SignUp(String email)
-    {
-        if (Utils.isConnectingToInternet(SignUpActivity.this))
-        {
+    private void SignUp(String email) {
+        if (Utils.isConnectingToInternet(SignUpActivity.this)) {
             signupCallApi(email);
-        }
-        else
-        {
+        } else {
             Toast.makeText(SignUpActivity.this, "Please Check the Internet Connection? Try Again.", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void signupCallApi(String email)
     {
-//        pd = new ProgressDialog(SignUpActivity.this);
-//        pd.setMessage("Loading...");
-//        pd.setCancelable(true);
-//        pd.show();
+        pd = new ProgressDialog(SignUpActivity.this);
+        pd.setMessage("Loading...");
+        pd.setCancelable(true);
+        pd.show();
         RestClient.getStarCreator().SignUp(email, new Callback<Response>()
         {
             @Override
             public void success(Response response, Response response2)
             {
-                //pd.dismiss();
-                ll_verify_progress.setVisibility(View.GONE);
-                ll_verify_otp_sent.setVisibility(View.VISIBLE);
+                pd.dismiss();
                 try {
                     JSONObject jsonObject = new JSONObject(Util.getString(response.getBody().in()));
                     Log.v("", "===== Json =====: " + jsonObject.toString());
-                    if (jsonObject.getString("status").toString().equals("true"))
-                    {
+                    if (jsonObject.getString("status").toString().equals("true")) {
                         Toast.makeText(SignUpActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
-                        //pd.dismiss();
+                        pd.dismiss();
                         Intent intent = new Intent(SignUpActivity.this, VerifyingEmailActivity.class);
-                        Utils.WriteSharePrefrence(SignUpActivity.this, Constant.SIGNUP_PREF_EMAIL,edit_emailaddress.getText().toString());
+                        Utils.WriteSharePrefrence(SignUpActivity.this, Constant.SIGNUP_PREF_EMAIL, edit_emailaddress.getText().toString());
                         startActivity(intent);
                         finish();
-                    }
-                    else
-                    {
-                        // pd.dismiss();
+                    } else {
+                        pd.dismiss();
                         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                         Toast.makeText(SignUpActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
-                      //  emailVerificayion(edit_emailaddress.getText().toString());
+                        //  emailVerificayion(edit_emailaddress.getText().toString());
                     }
-                } catch (Exception e)
-                {
-                    // pd.dismiss();
+                } catch (Exception e) {
+                    pd.dismiss();
                     e.printStackTrace();
                 }
             }
 
             @Override
-            public void failure(RetrofitError error)
-            {
-                // pd.dismiss();
+            public void failure(RetrofitError error) {
+                pd.dismiss();
                 Toast.makeText(SignUpActivity.this, "Something went wrong, please try again.", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         super.onBackPressed();
         startActivity(new Intent(SignUpActivity.this, WelcomeActivity.class));
         overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
     }
 
-    private void emailVerificayion(String str_Email)
-    {
+    private void emailVerificayion(String str_Email) {
         pd = new ProgressDialog(SignUpActivity.this);
         pd.setMessage("Loading...");
-        pd.setCancelable(true);
+        pd.setCancelable(false);
         pd.show();
         try {
-            RestClient.getStarCreator().VerifiedEmail(str_Email, new Callback<Response>()
-            {
+            RestClient.getStarCreator().VerifiedEmail(str_Email, new Callback<Response>() {
 
                 @Override
-                public void success(Response response, Response response2)
-                {
+                public void success(Response response, Response response2) {
                     pd.dismiss();
                     try {
                         JSONObject jsonObject = new JSONObject(Util.getString(response.getBody().in()));
                         Log.v("", "===== Json =====: " + jsonObject.toString());
-                        if (jsonObject.getString("status").toString().equals("true"))
-                        {
+                        if (jsonObject.getString("status").toString().equals("true")) {
                             JSONObject array = jsonObject.getJSONObject("data");
                             Toast.makeText(SignUpActivity.this, jsonObject.getString("msg"), Toast.LENGTH_SHORT).show();
                             pd.dismiss();
                             Intent intent = new Intent(SignUpActivity.this, VerifiedEmailOtpActivity.class);
-                            intent.putExtra("otp",jsonObject.getString("OTP"));
-                           // Utils.WriteSharePrefrence(SignUpActivity.this, Constant.SIGNUP_PREF_OTP, jsonObject.getString("OTP"));
-                            Utils.WriteSharePrefrence(SignUpActivity.this, Constant.SIGNUP_PREF_USERID, array.getString("id"));
+                            intent.putExtra("otp", jsonObject.getString("OTP"));
+                            // Utils.WriteSharePrefrence(SignUpActivity.this, Constant.SIGNUP_PREF_OTP, jsonObject.getString("OTP"));
+                            Utils.WriteSharePrefrence(SignUpActivity.this, Constant.USERID, array.getString("id"));
                             Utils.WriteSharePrefrence(SignUpActivity.this, Constant.SIGNUP_PREF_EMAIL, array.getString("email_address"));
                             startActivity(intent);
                             finish();

@@ -37,7 +37,8 @@ import cz.msebera.android.httpclient.Header;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SongListFragment extends Fragment {
+public class SongListFragment extends Fragment
+{
 
     private static final String TAG = "SongListFragment";
     RecyclerView rvList, recycler_friendfollowing;
@@ -146,6 +147,8 @@ public class SongListFragment extends Fragment {
     private void getSongList()
     {
         pd = new ProgressDialog(getActivity());
+
+
         pd.setCancelable(true);
         pd.show();
         getSongList = new ArrayList<>();

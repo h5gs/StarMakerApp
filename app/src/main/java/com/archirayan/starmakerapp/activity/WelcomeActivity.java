@@ -9,7 +9,6 @@ import android.content.pm.Signature;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.service.carrier.CarrierMessagingService;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -48,7 +47,6 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
-import com.google.android.gms.common.api.ResultCallback;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -63,8 +61,7 @@ import java.util.Arrays;
 import cz.msebera.android.httpclient.Header;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class WelcomeActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener
-{
+public class WelcomeActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     private static final int RC_SIGN_IN = 007;
     public LoginButton loginButton;
     FullscreenVideoView videoLayout;
@@ -86,8 +83,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
     private TextView txt_login;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -119,9 +115,6 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
-
-
-
 
 
         //// TODO: 26/2/18 Facebook...
@@ -186,31 +179,28 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
             }
         });
 
-        // // TODO: 22/2/18 Play The Video ...
-        String path = "android.resource://" + getPackageName() + "/" + R.raw.splash_video;
-        try {
-            videoLayout.setVideoURI(Uri.parse(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        videoLayout.start();
-        videoLayout.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                videoLayout.start();
-            }
-        });
-
-
-
+//        // // TODO: 22/2/18 Play The Video ...
+//        String path = "android.resource://" + getPackageName() + "/" + R.raw.splash_video;
+//        try {
+//            videoLayout.setVideoURI(Uri.parse(path));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        videoLayout.start();
+//        videoLayout.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+//            @Override
+//            public void onCompletion(MediaPlayer mp) {
+//                videoLayout.start();
+//            }
+//        });
 
 
         //// TODO: 12/3/18  New Desigininig ...
-        btn_createaccount=findViewById(R.id.btn_createaccount);
-        btn_createaccount.setOnClickListener(new View.OnClickListener() {
+        btn_createaccount = findViewById(R.id.btn_createaccount);
+        btn_createaccount.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 Intent intent = new Intent(WelcomeActivity.this, SignUpActivity.class);
                 startActivity(intent);
                 finish();
@@ -218,12 +208,13 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
         });
 
 
-        txt_login=findViewById(R.id.txt_login);
-        txt_login.setOnClickListener(new View.OnClickListener() {
+        txt_login = findViewById(R.id.txt_login);
+        txt_login.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(WelcomeActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -280,8 +271,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
     }
 
 
-    private void printHashKey(WelcomeActivity welcomeActivity)
-    {
+    private void printHashKey(WelcomeActivity welcomeActivity) {
         try {
             PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
@@ -290,8 +280,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                 String hashKey = new String(Base64.encode(md.digest(), 0));
                 Log.e(TAG, "printHashKey() Hash Key: " + hashKey);
             }
-        } catch (NoSuchAlgorithmException e)
-        {
+        } catch (NoSuchAlgorithmException e) {
             Log.e(TAG, "printHashKey()", e);
         } catch (Exception e) {
             Log.e(TAG, "printHashKey()", e);
@@ -362,8 +351,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "Login RESPONSE-" + response);
 
-                if (!response.equals(""))
-                {
+                if (!response.equals("")) {
                     Login login = new Gson().fromJson(new String(String.valueOf(response)), Login.class);
                     if (login.status.equals("true")) {
                         Utils.WriteSharePrefrence(WelcomeActivity.this, Constant.USERID, login.data.user_id);
@@ -466,6 +454,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
+
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 

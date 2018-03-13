@@ -3,57 +3,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/black"
     android:orientation="vertical"
     tools:context="com.archirayan.starmakerapp.activity.FindYourFreindsActivity">
 
     <LinearLayout
-        android:id="@+id/linear_title_Dsignin"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
-        android:background="@drawable/file_title_bg"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-
-        <TextView
-            android:id="@+id/txt_title_Dsignin"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_weight="1"
-            android:text="Find Yours Friends"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_17sdp" />
-
-        <TextView
-            android:id="@+id/txt_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:text="Next"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_17sdp" />
-    </LinearLayout>
-
-
-    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none">
+
+        android:background="@drawable/img_bg_yellow"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linear_title_Dsignin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/txt_title_Dsignin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_50sdp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Friends on Facebook"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/txt_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:text="Next"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:padding="@dimen/_10sdp"
             android:layout_height="fill_parent"
-            android:orientation="vertical">
+            android:layout_marginTop="@dimen/_75sdp"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
 
             <!--<TextView-->
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="@dimen/_10sdp"-->
+            <!--android:layout_marginLe            android:background="@drawable/img_bg_yellow"
+ft="@dimen/_10sdp"-->
             <!--android:text="Freinds on Star Creator "-->
             <!--android:textSize="@dimen/_13sdp" />-->
 
@@ -64,18 +68,24 @@
             <!--android:layout_above="@+id/main_bottom"-->
             <!--android:layout_below="@+id/main_header" />-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text="People You Should Invite"
-                android:textSize="@dimen/_13sdp" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/item_findyourfreinds_list"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_weight="1"
                 android:scrollbars="none" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Skip"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 </LinearLayout>
+

@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/_5sdp"
-    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
@@ -21,9 +20,9 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_pic"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
-                android:src="@drawable/images" />
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/ic_girlsface" />
 
             <TextView
                 android:id="@+id/profile_name"
@@ -85,9 +84,9 @@
                 android:visibility="gone" />
 
             <ImageView
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:background="@mipmap/ic_movie_bg" />
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_21sdp"
+                android:background="@drawable/ic_video_black" />
 
         </LinearLayout>
 
@@ -251,40 +250,41 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_marginRight="@dimen/_10sdp"
-                    android:src="@drawable/gift" />
+                    android:background="@drawable/ic_dailygifts" />
 
                 <CheckBox
                     android:id="@+id/chk_like"
-                    android:layout_width="38dp"
-                    android:layout_height="@dimen/_20sdp"
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
                     android:layout_marginRight="@dimen/_10sdp"
-                    android:background="@drawable/heart"
+                    android:background="@drawable/ic_unlike_black"
                     android:button="@null"
                     android:checked="false" />
 
                 <ImageView
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_marginRight="@dimen/_10sdp"
-                    android:src="@drawable/chat" />
+                    android:background="@drawable/ic_comment_black" />
 
                 <ImageView
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_marginRight="@dimen/_10sdp"
-                    android:src="@drawable/forward" />
+                    android:src="@drawable/ic_forword_black" />
 
             </LinearLayout>
 
             <Button
                 android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_22sdp"
+                android:layout_height="@dimen/_25sdp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/_5sdp"

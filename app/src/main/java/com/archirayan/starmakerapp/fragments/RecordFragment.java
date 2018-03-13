@@ -100,27 +100,27 @@ public class RecordFragment extends Fragment {
         tabLayout.setupWithViewPager(viewPager);
 
 
-        iv_backcard = view.findViewById(R.id.iv_backcard);
+//        iv_backcard = view.findViewById(R.id.iv_backcard);
+//
+//        iv_backcard.setAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.blink_in));
+//
+//        iv_liveprofile = view.findViewById(R.id.iv_liveprofile);
+//
+//        card_live = view.findViewById(R.id.card_live);
+//        crad_parties = view.findViewById(R.id.crad_parties);
 
-        iv_backcard.setAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.blink_in));
-
-        iv_liveprofile = view.findViewById(R.id.iv_liveprofile);
-
-        card_live = view.findViewById(R.id.card_live);
-        crad_parties = view.findViewById(R.id.crad_parties);
-
-        card_live.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), LiveActivity.class));
-            }
-        });
-        crad_parties.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), PartiesActivity.class));
-            }
-        });
+//        card_live.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getActivity(), LiveActivity.class));
+//            }
+//        });
+//        crad_parties.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getActivity(), PartiesActivity.class));
+//            }
+//        });
 
 
 //        viewPager.setOnTouchListener(new View.OnTouchListener() {

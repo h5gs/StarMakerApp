@@ -4,14 +4,13 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/_1sdp"
     android:layout_marginTop="@dimen/_1sdp"
-    android:background="@color/white"
     android:orientation="horizontal"
     android:padding="@dimen/_7sdp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="@dimen/_45sdp"
         android:layout_height="@dimen/_45sdp"
-        android:src="@drawable/images" />
+        android:src="@drawable/ic_topcollab_man" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -52,13 +51,15 @@
 
         <Button
             android:id="@+id/btn_invite"
-            android:padding="@dimen/_5sdp"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_25sdp"
-            android:background="@drawable/file_pink_corner"
-            android:text="Invite"
+            android:textStyle="bold"
+            android:background="@drawable/file_button_gold_bg"
+            android:padding="@dimen/_5sdp"
+            android:text="Add"
             android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_10sdp" />
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
     </LinearLayout>
 </LinearLayout>

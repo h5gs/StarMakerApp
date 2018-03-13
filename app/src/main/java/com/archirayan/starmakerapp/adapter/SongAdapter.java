@@ -99,7 +99,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
         if (getSongLists.get(position).getLikes().equals("1")) {
             holder.chk_like.setBackgroundResource(R.drawable.ic_like);
         } else {
-            holder.chk_like.setBackgroundResource(R.drawable.heart);
+            holder.chk_like.setBackgroundResource(R.drawable.ic_unlike_black);
         }
 
         //  holder.txt_levels.setText(getSongLists.get(position).get());
@@ -150,7 +150,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
                     holder.chk_like.setBackgroundResource(R.drawable.ic_like);
                     AddRemoveLikesApi();
                 } else {
-                    holder.chk_like.setBackgroundResource(R.drawable.heart);
+                    holder.chk_like.setBackgroundResource(R.drawable.ic_unlike_black);
                     AddRemoveLikesApi();
                 }
             }
