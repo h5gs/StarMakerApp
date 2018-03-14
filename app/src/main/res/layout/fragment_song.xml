@@ -25,7 +25,6 @@
             android:id="@+id/edit_searchsong"
             android:layout_width="0dp"
             android:layout_height="@dimen/_35sdp"
-            android:layout_marginLeft="@dimen/_5sdp"
             android:layout_weight="0.9"
             android:background="@drawable/edit_border"
             android:drawableLeft="@drawable/ic_search_black"
@@ -44,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabGravity="fill"
-        app:tabIndicatorColor="@color/color_light_orange"
+        app:tabIndicatorColor="#EDDD85"
         app:tabMode="fixed"
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="@color/white" />

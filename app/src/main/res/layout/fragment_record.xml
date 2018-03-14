@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     android:orientation="vertical"
     tools:context="com.archirayan.starmakerapp.fragments.SongFragment">
 
@@ -12,33 +11,28 @@
         android:id="@+id/main_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/black"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="@dimen/_8sdp">
 
-        <ImageView
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:src="@drawable/search" />
-
         <EditText
+            android:id="@+id/edit_searchsong"
             android:layout_width="0dp"
             android:layout_height="@dimen/_35sdp"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:layout_weight="1"
+            android:layout_weight="0.9"
             android:background="@drawable/edit_border"
+            android:drawableLeft="@drawable/ic_search_black"
             android:drawablePadding="@dimen/_5sdp"
             android:hint="Search"
             android:paddingLeft="@dimen/_10sdp"
-            android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:textSize="@dimen/_15sdp" />
-
+            android:textSize="@dimen/_16sdp" />
     </LinearLayout>
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="@dimen/_300sdp">
         ​
 
         <android.support.design.widget.AppBarLayout
@@ -50,7 +44,8 @@
             <android.support.design.widget.CollapsingToolbarLayout
                 android:id="@+id/main.collapsing"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_200sdp"
+                android:layout_marginBottom="@dimen/_60sdp"
                 app:expandedTitleMarginEnd="60dp"
                 app:expandedTitleMarginStart="48dp"
                 app:layout_scrollFlags="scroll|snap">
@@ -183,25 +178,24 @@
                 ​
             </android.support.design.widget.CollapsingToolbarLayout>
 
+            <android.support.design.widget.TabLayout
+                android:id="@+id/record_tabs"
+                style="@style/Base.Widget.Design.TabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabGravity="fill"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextColor="@color/white" />
 
         </android.support.design.widget.AppBarLayout>
         ​
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/record_tabs"
-            style="@style/Base.Widget.Design.TabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabGravity="fill"
-            app:tabIndicatorColor="@color/color_light_orange"
-            app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/white" />
-
         <android.support.v4.view.ViewPager
             android:id="@+id/record_viewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:layout_height="wrap_content"
             android:background="@drawable/img_gold_bottom_bg"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 

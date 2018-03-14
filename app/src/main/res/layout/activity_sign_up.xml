@@ -105,6 +105,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:text="Quick sign up with"
                             android:textColor="@color/light_dark_color"
                             android:textSize="@dimen/_14sdp"
@@ -179,7 +180,7 @@
                                         android:layout_height="@dimen/_40sdp"
                                         android:background="@drawable/file_button_gold_bg"
                                         android:text="Next"
-
+                        android:textStyle="bold"
                                         android:textAllCaps="false"
                                         android:textColor="@android:color/holo_red_dark"
                                         android:textSize="@dimen/_13sdp" />

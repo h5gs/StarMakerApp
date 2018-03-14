@@ -332,7 +332,7 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:background="@drawable/img_gold_bottom_bg"
         android:scrollbars="none"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />

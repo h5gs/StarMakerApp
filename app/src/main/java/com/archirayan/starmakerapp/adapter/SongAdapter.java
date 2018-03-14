@@ -341,7 +341,8 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
                 Log.e(TAG, "RESPONSE-" + response);
                 SongListResponse model = new Gson().fromJson(new String(String.valueOf(response)), SongListResponse.class);
                 pd.dismiss();
-                if (model.getStatus().equals("true")) {
+                if (model.getStatus().equals("true"))
+                {
                     Toast.makeText(context, model.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
