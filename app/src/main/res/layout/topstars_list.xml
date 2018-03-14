@@ -3,21 +3,19 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="@dimen/_7sdp">
+ >
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="@dimen/_70sdp"
-        android:layout_height="@dimen/_70sdp"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
         android:src="@drawable/images" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_5sdp"
         android:gravity="center"
         android:text="1. name"
         android:textColor="@color/black"
         android:textSize="@dimen/_12sdp" />
-
 </LinearLayout>

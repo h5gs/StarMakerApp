@@ -22,6 +22,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:orientation="horizontal">
@@ -47,8 +48,9 @@
                             android:layout_alignParentRight="true"
                             android:layout_marginEnd="@dimen/_10sdp"
                             android:layout_marginRight="@dimen/_10sdp"
-                            android:text="SEE ALL"
-                            android:textColor="@color/colorAccent"
+                            android:text="See All"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_13sdp"
                             android:textStyle="bold" />
                     </RelativeLayout>
@@ -58,6 +60,7 @@
                     android:id="@+id/recycler_friendfollowing"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_180sdp"
+                    android:visibility="gone"
                     android:orientation="horizontal"
                     android:scrollbars="none" />
 

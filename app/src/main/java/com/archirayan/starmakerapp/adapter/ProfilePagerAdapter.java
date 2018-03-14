@@ -15,21 +15,21 @@ import com.archirayan.starmakerapp.fragments.SongListFragment;
  * Created by archirayan on 23/2/18.
  */
 
-public class ProfilePagerAdapter extends FragmentPagerAdapter {
-
+public class ProfilePagerAdapter extends FragmentPagerAdapter
+{
     String come;
-
-    public ProfilePagerAdapter(FragmentManager fm, String come) {
+    public ProfilePagerAdapter(FragmentManager fm, String come)
+    {
         super(fm);
-
         this.come = come;
     }
 
     @Override
-    public Fragment getItem(int position) {
-
+    public Fragment getItem(int position)
+    {
         Fragment fragment = null;
-        if (position == 0) {
+        if (position == 0)
+        {
             fragment = new PostListFragment();
         } else if (position == 1) {
             fragment = new SongListFragment();
