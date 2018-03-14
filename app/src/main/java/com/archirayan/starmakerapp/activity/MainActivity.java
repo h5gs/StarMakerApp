@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageView ivSong,ivAward,ivRecord,ivNotification,ivProfile;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ivSong = findViewById(R.id.main_song);
@@ -29,13 +30,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ivRecord = findViewById(R.id.main_record);
         ivNotification = findViewById(R.id.main_notification);
         ivProfile = findViewById(R.id.main_profile);
-
         ivSong.setOnClickListener(this);
         ivAward.setOnClickListener(this);
         ivRecord.setOnClickListener(this);
         ivNotification.setOnClickListener(this);
         ivProfile.setOnClickListener(this);
-
         getSupportFragmentManager().beginTransaction().add(R.id.main_container, new RecordFragment()).commit();
     }
 

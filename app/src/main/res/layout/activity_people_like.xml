@@ -26,8 +26,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_50sdp"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:gravity="center"
-                android:text="People You May Like"
+                android:text="People You Know"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp" />
 
@@ -37,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_marginRight="@dimen/_10sdp"
+                android:textStyle="bold"
                 android:text="Next"
                 android:textAllCaps="true"
                 android:textColor="@color/white"

@@ -26,6 +26,11 @@ public class Constant {
     public static final String SIGNUP_PREF_OTP = "share_pref_otp";
 
 
+    public static final String LoginWith_MobileNO = "login_with_mobileno";
+
+
+
+
     public static final String SIGNUP_PREF_CHECK_EMAIL= "share_pref_check_email";
 
 }

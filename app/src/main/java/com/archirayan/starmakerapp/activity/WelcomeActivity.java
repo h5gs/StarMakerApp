@@ -141,9 +141,11 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
         });
 
 
-        iv_loginwithmobile.setOnClickListener(new View.OnClickListener() {
+        iv_loginwithmobile.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 startActivity(new Intent(WelcomeActivity.this, LoginwithMobileActivity.class));
                 finish();
             }
@@ -151,7 +153,8 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
 
         iv_loginwithgoogle.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 signIn();
 //                SpinKitView progressBar = (SpinKitView) findViewById(R.id.spin_kit);
 //                DoubleBounce doubleBounce = new DoubleBounce();
@@ -316,8 +319,8 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
         videoLayout = findViewById(R.id.videoview);
         linear_fblogin = findViewById(R.id.linear_fblogin);
         iv_loginwithmobile = findViewById(R.id.iv_loginwithmobile);
-        iv_loginwithgoogle = findViewById(R.id.iv_loginwithgoogle);
         iv_loginandsignup = findViewById(R.id.iv_loginandsignup);
+        iv_loginwithgoogle = findViewById(R.id.iv_loginwithgoogle);
 
         iv_logoutwithgoogle = findViewById(R.id.iv_logoutwithgoogle);
     }

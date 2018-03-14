@@ -96,7 +96,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    private void SignUp(String email) {
+    private void SignUp(String email)
+    {
         if (Utils.isConnectingToInternet(SignUpActivity.this)) {
             signupCallApi(email);
         } else {

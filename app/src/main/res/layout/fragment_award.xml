@@ -2,39 +2,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:orientation="vertical"
     tools:context="com.archirayan.starmakerapp.fragments.AwardFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <RelativeLayout
-        android:id="@+id/main_header"
+    <EditText
+        android:id="@+id/edit_searchsong"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="@color/pink"
-        android:gravity="center"
-        android:padding="@dimen/_8sdp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:gravity="center"
-            android:text="Discover"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_14sdp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:src="@drawable/add_user" />
-
-        <ImageView
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/search" />
-    </RelativeLayout>
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:background="@drawable/edit_border"
+        android:drawableLeft="@drawable/ic_search_black"
+        android:drawablePadding="@dimen/_5sdp"
+        android:hint="Search"
+        android:paddingLeft="@dimen/_10sdp"
+        android:textColorHint="@color/black"
+        android:textSize="@dimen/_16sdp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -42,13 +25,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+                android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_110sdp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -76,7 +60,8 @@
                 android:layout_gravity="center_horizontal"
                 android:background="@color/white"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:id="@+id/linear_events"

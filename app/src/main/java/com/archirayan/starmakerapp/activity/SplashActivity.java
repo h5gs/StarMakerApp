@@ -25,7 +25,6 @@ public class SplashActivity extends AppCompatActivity
             public void run() {
                 if (!Utils.ReadSharePrefrence(SplashActivity.this, Constant.USERID).equals(""))
                 {
-
                     Intent in = new Intent(SplashActivity.this, MainActivity.class);
                     in.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(in);

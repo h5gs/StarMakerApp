@@ -2,6 +2,7 @@ package com.archirayan.starmakerapp.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -22,18 +23,23 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.model.EditUserProfileResponse;
 import com.archirayan.starmakerapp.model.SuggestedName;
 import com.archirayan.starmakerapp.model.SuggestedResponse;
+import com.archirayan.starmakerapp.retrofit.RestClient;
 import com.archirayan.starmakerapp.utils.Constant;
 import com.archirayan.starmakerapp.utils.ImageFilePath;
+import com.archirayan.starmakerapp.utils.Util;
 import com.archirayan.starmakerapp.utils.Utility;
+import com.archirayan.starmakerapp.utils.Utils;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -51,6 +57,9 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class EditprofileActivity extends AppCompatActivity {
 
@@ -67,6 +76,8 @@ public class EditprofileActivity extends AppCompatActivity {
     private CircleImageView iv_uplodepic;
     private String imagePath;
     private Toolbar toolbar;
+    private ProgressDialog pd;
+    private String user_id="1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +87,6 @@ public class EditprofileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         setTitleBar();
         init();
-
 
     }
 
@@ -89,12 +99,12 @@ public class EditprofileActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if (item.getItemId() == android.R.id.home)
+        {
             onBackPressed();
             overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
-
         }
         return super.onOptionsItemSelected(item);
     }
@@ -115,9 +125,17 @@ public class EditprofileActivity extends AppCompatActivity {
         btn_profile_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(EditprofileActivity.this, FindContactsActivity.class));
-                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
-                finish();
+//                startActivity(new Intent(EditprofileActivity.this, FindContactsActivity.class));
+//                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+//                finish();
+
+
+                if (editTextEmail.getText().toString().isEmpty()) {
+                    editTextEmail.setError("Please enter phone no.");
+                } else {
+                    Utils.hideSoftKeyboard(EditprofileActivity.this);
+                    setUserProfile(user_id,editTextEmail.getText().toString());
+                }
             }
         });
         recycler_suggestion = findViewById(R.id.recycler_suggestion);
@@ -143,6 +161,58 @@ public class EditprofileActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 getSuggetion();
 
+            }
+        });
+    }
+
+    private void setUserProfile(String user_id, String username) {
+        if (Utils.isConnectingToInternet(EditprofileActivity.this))
+        {
+            set_Profile(user_id,username);
+        }
+        else
+        {
+            Toast.makeText(EditprofileActivity.this, "Please Check the Internet Connection? Try Again.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void set_Profile(String user_id, String username)
+    {
+        pd = new ProgressDialog(EditprofileActivity.this);
+        pd.setMessage("Loading...");
+        pd.setCancelable(false);
+        pd.show();
+        RestClient.getStarCreator().setUserProfile(user_id, username, new Callback<Response>()
+        {
+            @Override
+            public void success(Response response, Response response2)
+            {
+                pd.dismiss();
+                try {
+                    JSONObject jsonObject = new JSONObject(Util.getString(response.getBody().in()));
+                    Log.v("", "===== Json =====: " + jsonObject.toString());
+                    if (jsonObject.getString("status").toString().equals("true"))
+                    {
+                        Toast.makeText(EditprofileActivity.this, jsonObject.getString("msg"), Toast.LENGTH_SHORT).show();
+                        pd.dismiss();
+                        startActivity(new Intent(EditprofileActivity.this, VerifyingOTPActivity.class));
+                        finish();
+                    }
+                    else
+                    {
+                        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                        Toast.makeText(EditprofileActivity.this, jsonObject.getString("msg"), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    pd.dismiss();
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                pd.dismiss();
+                Toast.makeText(EditprofileActivity.this, "Something went wrong, please try again.", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -271,8 +341,7 @@ public class EditprofileActivity extends AppCompatActivity {
         }
     }
 
-    private void getDriverProfilePic()
-    {
+    private void getDriverProfilePic() {
         AsyncHttpClient client = new AsyncHttpClient();
         File file = new File(imagePath);
         RequestParams params = new RequestParams();
@@ -298,8 +367,7 @@ public class EditprofileActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response)
-            {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "Pic~" + response);
                 EditUserProfileResponse dmodel = new Gson().fromJson(new String(String.valueOf(response)), EditUserProfileResponse.class);

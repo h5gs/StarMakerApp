@@ -39,5 +39,26 @@ public interface ApiInterface
             @Field("email_address") String email_address,
             Callback<Response> user);
 
+
+    @FormUrlEncoded
+    @POST("/sms.php")
+    void MobileSmsOtp(
+            @Field("phone_number") String phone_number,
+            Callback<Response> user);
+
+
+    @FormUrlEncoded
+    @POST("/otp_match.php   ")
+    void OtpMatch(
+            @Field("otp") String otp,
+            Callback<Response> user);
+
+
+    @FormUrlEncoded
+    @POST("/set_username.php")
+    void setUserProfile(
+            @Field("user_id") String user_id,
+            @Field("username") String username,
+            Callback<Response> user);
 }
 

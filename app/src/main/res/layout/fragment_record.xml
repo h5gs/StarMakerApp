@@ -44,8 +44,8 @@
         <android.support.design.widget.AppBarLayout
             android:id="@+id/materialup.appbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_fullscreen_goldbg">
+            android:layout_height="@dimen/_300sdp"
+            android:background="@drawable/img_gold_toptotab_">
 
             <android.support.design.widget.CollapsingToolbarLayout
                 android:id="@+id/main.collapsing"
@@ -90,9 +90,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginBottom="@dimen/_110sdp"
-                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
                         android:background="@color/black"
                         android:gravity="center_horizontal"
                         android:orientation="vertical"
@@ -186,20 +184,25 @@
             </android.support.design.widget.CollapsingToolbarLayout>
 
 
-            <android.support.design.widget.TabLayout
-                android:id="@+id/record_tabs"
-                style="@style/Base.Widget.Design.TabLayout"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:tabGravity="fill"
-                app:tabMode="fixed" />
         </android.support.design.widget.AppBarLayout>
         ​
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/record_tabs"
+            style="@style/Base.Widget.Design.TabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/color_light_orange"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/white" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/record_viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/img_gold_bottom_bg"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </android.support.design.widget.CoordinatorLayout>

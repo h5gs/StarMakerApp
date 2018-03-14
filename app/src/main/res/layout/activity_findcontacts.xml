@@ -66,13 +66,15 @@
                     android:textSize="@dimen/_15sdp" />
 
                 <TextView
-                    android:id="@+id/txt_login"
+                    android:id="@+id/txt_skipnext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginBottom="@dimen/_20sdp"
                     android:text="Skip"
+                    android:textStyle="bold"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/_14sdp" />
+                    android:textSize="@dimen/_15sdp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

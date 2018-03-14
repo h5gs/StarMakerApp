@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#a46e1d</color>
+    <color name="colorPrimaryDark">#101010</color>
     <color name="colorAccent">#FF4081</color>
     <color name="facebook_color">#285CCB</color>
     <color name="light_pink_color">#f5568c</color>
@@ -11,7 +11,7 @@
     <color name="light_white_color">#f7eef1f2</color>
 
     <color name="dark_color">#f76f6f70</color>
-    <color name="color_light_orange">#d2f27f27</color>
+    <color name="color_light_orange">#f8b500</color>
     <color name="color_light_yellow">#ebcfbb23</color>
 
     <color name="color_purpal">#ceab119b</color>

@@ -24,12 +24,12 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/txt_mobileno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/_10sdp"
             android:fontFamily="casual"
-            android:text="132456789"
             android:textSize="@dimen/_13sdp"
             android:textStyle="bold" />
 
@@ -49,7 +49,7 @@
             android:textSize="18sp"
             app:cursorColor="@color/light_dark_color"
             app:cursorWidth="2dp"
-            app:itemCount="5"
+            app:itemCount="6"
             app:itemHeight="@dimen/_40sdp"
             app:itemRadius="@dimen/_2sdp"
             app:itemSpacing="0dp"

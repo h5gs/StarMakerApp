@@ -31,7 +31,8 @@
                 android:gravity="center"
                 android:text="Friends on Facebook"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_next"
@@ -42,7 +43,8 @@
                 android:text="Next"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
         </LinearLayout>
 
 

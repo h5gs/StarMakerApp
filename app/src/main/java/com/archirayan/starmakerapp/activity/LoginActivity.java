@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
@@ -33,7 +34,14 @@ import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.github.rtoshiro.view.video.FullscreenVideoView;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -49,14 +57,13 @@ import java.util.Arrays;
 import cz.msebera.android.httpclient.Header;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = "LoginActivity";
+    private static final int RC_SIGN_IN = 007;
     public ProgressDialog pd;
     public LoginButton loginButton;
     Button btn_login;
     ImageView img_back_title_Dsignin;
-
-
     // TODO: 13/3/18  Facebook
     EditText edit_email, edit_password;
     RelativeLayout linear_fblogin;
@@ -70,12 +77,9 @@ public class LoginActivity extends AppCompatActivity {
     private String fbemail;
     private GoogleApiClient mGoogleApiClient;
     private String googleid, googlefirst_name, googlelast_name, googleemail;
-
-
     //// TODO: 12/3/18   New Designing
     private Button btn_createaccount;
     private TextView txt_login;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +93,22 @@ public class LoginActivity extends AppCompatActivity {
         printHashKey(LoginActivity.this);
         callbackManager = CallbackManager.Factory.create();
 
+
+        //// TODO: 26/2/18 Google Integration ...
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
         loginButton = findViewById(R.id.login_button);
 
-        linear_fblogin.setOnClickListener(new View.OnClickListener() {
+        linear_fblogin.setOnClickListener(new View.OnClickListener()
+            {
             @Override
             public void onClick(View view) {
                 loginButton.performClick();
@@ -122,6 +139,21 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        iv_loginwithmobile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, LoginwithMobileActivity.class));
+                finish();
+            }
+        });
+
+        iv_loginwithgoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
+
+            }
+        });
     }
 
 
@@ -139,7 +171,11 @@ public class LoginActivity extends AppCompatActivity {
     private void init() {
         btn_login = findViewById(R.id.btn_login);
         linear_fblogin = findViewById(R.id.linear_fblogin);
+        iv_loginwithmobile = findViewById(R.id.iv_loginwithmobile);
 
+        iv_loginwithgoogle = findViewById(R.id.iv_loginwithgoogle);
+
+        iv_logoutwithgoogle = findViewById(R.id.iv_logoutwithgoogle);
 
         edit_email = findViewById(R.id.edit_email);
         edit_password = findViewById(R.id.edit_password);
@@ -190,8 +226,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response)
-            {
+            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "LOGIN DriverRESPONSE-" + response);
                 LoginResponse model = new Gson().fromJson(new String(String.valueOf(response)), LoginResponse.class);
@@ -260,7 +295,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         // Call callbackManager.onActivityResult to pass login result to the LoginManager via callbackManager.
         callbackManager.onActivityResult(requestCode, resultCode, data);
-
+        if (requestCode == RC_SIGN_IN) {
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            handleSignInResult(result);
+        }
     }
 
 
@@ -358,5 +396,74 @@ public class LoginActivity extends AppCompatActivity {
         super.onBackPressed();
         startActivity(new Intent(LoginActivity.this, WelcomeActivity.class));
         overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+    }
+
+
+    // TODO: 14/3/18 Googhle Signing and Signout
+
+
+    private void signOut() {
+        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        updateUI(false);
+                        signIn();
+                    }
+                });
+    }
+
+
+    private void handleSignInResult(GoogleSignInResult result) {
+        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
+        if (result.isSuccess()) {
+            // Signed in successfully, show authenticated UI.
+            GoogleSignInAccount acct = result.getSignInAccount();
+
+            Log.e(TAG, "display name: " + acct.getDisplayName());
+
+            String personFirstName = acct.getGivenName();
+            String personLastName = acct.getFamilyName();
+            String email = acct.getEmail();
+            String id = acct.getId();
+
+            Log.e(TAG, "FirstName: " + personFirstName + ", email: " + email
+                    + ", LastName: " + personLastName + ", id: " + id);
+
+            googleid = acct.getId();
+            googlefirst_name = acct.getGivenName();
+            googlelast_name = acct.getFamilyName();
+            googleemail = acct.getEmail();
+
+            updateUI(true);
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+        } else {
+            // Signed out, show unauthenticated UI.
+            updateUI(false);
+        }
+
+    }
+
+    private void updateUI(boolean isSignedIn) {
+        if (isSignedIn) {
+            iv_loginwithgoogle.setVisibility(View.GONE);
+            iv_logoutwithgoogle.setVisibility(View.VISIBLE);
+        } else {
+            iv_loginwithgoogle.setVisibility(View.VISIBLE);
+            iv_logoutwithgoogle.setVisibility(View.GONE);
+        }
+
+    }
+
+
+    private void signIn() {
+        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
     }
 }

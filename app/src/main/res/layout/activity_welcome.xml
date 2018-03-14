@@ -239,9 +239,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/_20sdp"
+                android:padding="@dimen/_3sdp"
                 android:text="Already have an account ?Log In"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/_14sdp" />
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </LinearLayout>

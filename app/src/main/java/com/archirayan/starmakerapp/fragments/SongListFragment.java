@@ -147,8 +147,6 @@ public class SongListFragment extends Fragment
     private void getSongList()
     {
         pd = new ProgressDialog(getActivity());
-
-
         pd.setCancelable(true);
         pd.show();
         getSongList = new ArrayList<>();

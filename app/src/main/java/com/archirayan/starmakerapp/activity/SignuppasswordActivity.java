@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.model.Password;
+import com.archirayan.starmakerapp.utils.Constant;
+import com.archirayan.starmakerapp.utils.Utils;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -89,14 +91,13 @@ public class SignuppasswordActivity extends AppCompatActivity {
 
             @Override
 
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response)
-            {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 Log.d("Login()", "Login RESPONSE-" + response.toString());
-                if (!response.equals(""))
-                {
+                if (!response.equals("")) {
                     Password password = new Gson().fromJson(new String(String.valueOf(response)), Password.class);
                     if (password.status.equals("true")) {
+                        Utils.WriteSharePrefrence(SignuppasswordActivity.this, Constant.USERID, str_Id);
                         Toast.makeText(SignuppasswordActivity.this, password.msg, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SignuppasswordActivity.this, EditprofileActivity.class);
                         startActivity(intent);

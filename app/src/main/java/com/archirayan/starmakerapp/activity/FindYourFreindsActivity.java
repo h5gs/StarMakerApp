@@ -54,6 +54,7 @@ public class FindYourFreindsActivity extends AppCompatActivity implements Loader
                 finish();
             }
         });
+
         myDB = new database(this);
         exist = myDB.tableExists();
 
