@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:padding="@dimen/_7sdp"
-    android:background="@color/white"
-    android:layout_marginTop="@dimen/_1sdp"
+    android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/_1sdp"
-    android:layout_height="wrap_content">
+    android:layout_marginTop="@dimen/_1sdp"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:padding="@dimen/_7sdp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="0dp"
-        android:layout_weight="0.15"
-        android:layout_gravity="center_vertical"
         android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="0.15"
         android:src="@drawable/images" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_gravity="center_vertical"
-        android:layout_weight="0.65">
+        android:layout_weight="0.65"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/_8sdp"
             android:layout_marginRight="@dimen/_8sdp"
-            android:layout_gravity="center_vertical"
+            android:text="archirayan"
+            android:textColor="@color/black"
             android:textSize="@dimen/_12sdp"
-            android:textStyle="bold"
-            android:text="archirayan"/>
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/_8sdp"
             android:layout_marginRight="@dimen/_8sdp"
-            android:layout_gravity="center_vertical"
-            android:textSize="@dimen/_12sdp"
-            android:text="invites you to join the party room!!"/>
+            android:text="invites you to join the party room!!"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
 
         <TextView
             android:id="@+id/you_tvInvitation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/navyBlue"
-            android:text="Party"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/navyBlue"
+            android:gravity="center"
+            android:paddingBottom="@dimen/_2sdp"
             android:paddingLeft="@dimen/_5sdp"
             android:paddingRight="@dimen/_5sdp"
-            android:layout_marginLeft="@dimen/_8sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:text="Party"
+            android:textColor="@color/white"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold"
-            android:gravity="center"
-            android:visibility="gone"
-            android:paddingTop="@dimen/_2sdp"
-            android:paddingBottom="@dimen/_2sdp"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/white" />
+            android:visibility="gone" />
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/you_tvFollow"
         android:layout_width="0dp"
-        android:layout_weight="0.2"
-        android:layout_height="wrap_content"
-        android:background="@drawable/file_pink_corner"
-        android:textSize="@dimen/_12sdp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:text="Song"
-        android:paddingTop="@dimen/_2sdp"
-        android:paddingBottom="@dimen/_2sdp"
+        android:layout_height="@dimen/_25sdp"
         android:layout_gravity="center_vertical"
-        android:textColor="@color/white" />
+        android:layout_weight="0.2"
+        android:background="@drawable/file_bg_black_border"
+        android:gravity="center"
+        android:paddingBottom="@dimen/_2sdp"
+        android:paddingTop="@dimen/_2sdp"
+        android:text="Song"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold" />
 
 </LinearLayout>

@@ -47,7 +47,7 @@
         <Button
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_25sdp"
-            android:background="@drawable/file_pink_corner"
+            android:background="@drawable/file_bg_black_border"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:orientation="vertical"
     tools:context="com.archirayan.starmakerapp.fragments.AwardFragment">
 
@@ -13,7 +14,6 @@
         android:background="@drawable/edit_border"
         android:drawableLeft="@drawable/ic_search_black"
         android:drawablePadding="@dimen/_5sdp"
-
         android:hint="Search"
         android:paddingLeft="@dimen/_10sdp"
         android:textColorHint="@color/black"
@@ -165,13 +165,13 @@
                         android:textSize="@dimen/_13sdp" />
 
                     <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="@dimen/_28sdp"
                         android:background="@drawable/ic_button_bg"
                         android:padding="@dimen/_5sdp"
                         android:text="#grammy2018"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_13sdp"
-                        android:layout_width="wrap_content" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -234,8 +234,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:background="@drawable/img_goldtabimage"
                     android:layout_height="@dimen/_100sdp"
+                    android:background="@drawable/img_goldtabimage"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -287,7 +287,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_7sdp"
+                    android:background="@drawable/img_gold_bottom_bg"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -341,7 +341,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_7sdp"
+                    android:background="@drawable/img_gold_bottom_bg"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -391,7 +391,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_7sdp"
+                    android:background="@drawable/img_gold_bottom_bg"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -441,7 +441,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_7sdp"
+                    android:background="@drawable/img_gold_bottom_bg"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -482,6 +482,7 @@
 
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/recycler_topfriends"
+
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_100sdp"
                             android:orientation="horizontal" />

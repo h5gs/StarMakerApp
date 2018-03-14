@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:orientation="vertical"
     tools:context="com.archirayan.starmakerapp.fragments.SongFragment">
 
@@ -38,7 +39,7 @@
         <android.support.design.widget.AppBarLayout
             android:id="@+id/materialup.appbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_300sdp"
+            android:layout_height="@dimen/_290sdp"
             android:background="@drawable/img_gold_toptotab_">
 
             <android.support.design.widget.CollapsingToolbarLayout
@@ -189,16 +190,21 @@
                 style="@style/Base.Widget.Design.TabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
                 app:tabGravity="fill"
+                app:tabIndicatorColor="@color/color_light_orange"
                 app:tabMode="fixed"
                 app:tabSelectedTextColor="@color/white"
                 app:tabTextColor="@color/white" />
+
         </android.support.design.widget.AppBarLayout>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/record_viewPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+
             android:background="@drawable/img_gold_bottom_bg"
             android:scrollbars="none"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />

@@ -52,7 +52,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
-            android:background="@drawable/file_pink_corner"
+            android:background="@drawable/file_bg_black_border"
             android:text="join"
             android:textColor="@color/white"
             android:textSize="@dimen/_12sdp" />

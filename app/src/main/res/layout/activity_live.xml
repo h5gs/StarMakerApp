@@ -18,7 +18,7 @@
             android:layout_height="@dimen/_25sdp"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:src="@drawable/ic_back_white"/>
+            android:src="@drawable/ic_back_white" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,7 +28,7 @@
             android:text="LIVE"
             android:textColor="@color/white"
             android:textSize="@dimen/_15sdp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
     <android.support.design.widget.CoordinatorLayout
@@ -105,15 +105,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:gravity="center"
-            android:layout_marginBottom="@dimen/_10sdp">
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:src="@drawable/videoicon"
                 app:border_color="@color/white"
-                app:border_width="@dimen/_2sdp"/>
+                app:border_width="@dimen/_2sdp" />
         </RelativeLayout>
     </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>
