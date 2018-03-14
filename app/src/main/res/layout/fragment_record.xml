@@ -32,7 +32,7 @@
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_300sdp">
+        android:layout_height="match_parent">
         ​
 
         <android.support.design.widget.AppBarLayout
@@ -44,7 +44,7 @@
             <android.support.design.widget.CollapsingToolbarLayout
                 android:id="@+id/main.collapsing"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_200sdp"
+                android:layout_height="@dimen/_180sdp"
                 android:layout_marginBottom="@dimen/_60sdp"
                 app:expandedTitleMarginEnd="60dp"
                 app:expandedTitleMarginStart="48dp"
@@ -52,13 +52,16 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
                     android:orientation="vertical"
                     app:layout_collapseMode="parallax">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_110sdp"
+                        android:layout_gravity="bottom"
                         android:orientation="vertical"
                         android:visibility="gone">
 
@@ -176,6 +179,9 @@
                     </LinearLayout>
                 </LinearLayout>
                 ​
+
+                ​
+
             </android.support.design.widget.CollapsingToolbarLayout>
 
             <android.support.design.widget.TabLayout
@@ -187,16 +193,14 @@
                 app:tabMode="fixed"
                 app:tabSelectedTextColor="@color/white"
                 app:tabTextColor="@color/white" />
-
         </android.support.design.widget.AppBarLayout>
-        ​
 
         <android.support.v4.view.ViewPager
             android:id="@+id/record_viewPager"
             android:layout_width="match_parent"
-            android:scrollbars="none"
             android:layout_height="wrap_content"
             android:background="@drawable/img_gold_bottom_bg"
+            android:scrollbars="none"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </android.support.design.widget.CoordinatorLayout>
