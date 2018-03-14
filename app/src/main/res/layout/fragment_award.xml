@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     android:orientation="vertical"
     tools:context="com.archirayan.starmakerapp.fragments.AwardFragment">
 
@@ -14,6 +13,7 @@
         android:background="@drawable/edit_border"
         android:drawableLeft="@drawable/ic_search_black"
         android:drawablePadding="@dimen/_5sdp"
+
         android:hint="Search"
         android:paddingLeft="@dimen/_10sdp"
         android:textColorHint="@color/black"
@@ -25,7 +25,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
@@ -113,8 +113,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:background="@color/white"
+                android:background="@color/black"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -126,8 +125,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_10sdp"
-                        android:text="Hot Hashtag"
-                        android:textColor="@color/black"
+                        android:text="Popular Hashtag"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_15sdp"
                         android:textStyle="bold" />
 
@@ -141,8 +140,9 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_margin="@dimen/_10sdp"
-                            android:text="SEE ALL"
-                            android:textColor="@color/pink"
+                            android:text="See All"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_13sdp"
                             android:textStyle="bold" />
                     </RelativeLayout>
@@ -229,6 +229,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:background="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -236,9 +237,13 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:layout_height="match_parent">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -250,9 +255,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_10sdp"
-                            android:text="Best Solos"
-                            android:textColor="@color/black"
+                            android:text="Top Solos"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_15sdp"
+
                             android:textStyle="bold" />
 
                         <RelativeLayout
@@ -265,8 +271,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
                                 android:layout_margin="@dimen/_10sdp"
-                                android:text="SEE ALL"
-                                android:textColor="@color/pink"
+                                android:text="See All"
+                                android:textAllCaps="false"
+                                android:textColor="@color/light_dark_color"
                                 android:textSize="@dimen/_13sdp"
                                 android:textStyle="bold" />
                         </RelativeLayout>
@@ -281,7 +288,6 @@
                             android:id="@+id/recycler_bestsolo"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_100sdp"
-                            android:background="#FF555555"
                             android:orientation="horizontal" />
                     </LinearLayout>
                 </LinearLayout>
@@ -290,7 +296,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_7sdp"
-                    android:background="@color/white"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -304,7 +309,7 @@
                             android:layout_gravity="center"
                             android:layout_margin="@dimen/_10sdp"
                             android:text="Most Shared"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
 
@@ -320,8 +325,8 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_gravity="center"
                                 android:layout_margin="@dimen/_10sdp"
-                                android:text="SEE ALL"
-                                android:textColor="@color/pink"
+                                android:text="See All"
+                                android:textColor="@color/light_dark_color"
                                 android:textSize="@dimen/_15sdp"
                                 android:textStyle="bold" />
 
@@ -345,7 +350,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_7sdp"
-                    android:background="@color/white"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -357,8 +361,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_10sdp"
-                            android:text="Best Collabs"
-                            android:textColor="@color/black"
+                            android:text="Top Collabs"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
 
@@ -372,8 +376,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
                                 android:layout_margin="@dimen/_10sdp"
-                                android:text="SEE ALL"
-                                android:textColor="@color/pink"
+                                android:text="See All"
+                                android:textColor="@color/light_dark_color"
                                 android:textSize="@dimen/_13sdp"
                                 android:textStyle="bold" />
                         </RelativeLayout>
@@ -396,7 +400,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_7sdp"
-                    android:background="@color/white"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -409,7 +412,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_10sdp"
                             android:text="Top Stars"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
 
@@ -423,8 +426,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
                                 android:layout_margin="@dimen/_10sdp"
-                                android:text="SEE ALL"
-                                android:textColor="@color/pink"
+                                android:text="See All"
+                                android:textColor="@color/white"
                                 android:textSize="@dimen/_13sdp"
                                 android:textStyle="bold" />
                         </RelativeLayout>
@@ -447,7 +450,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_7sdp"
-                    android:background="@color/white"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -460,7 +462,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_10sdp"
                             android:text="Top Friends"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
 
@@ -474,8 +476,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
                                 android:layout_margin="@dimen/_10sdp"
-                                android:text="SEE ALL"
-                                android:textColor="@color/pink"
+                                android:text="See All"
+                                android:textColor="@color/white"
                                 android:textSize="@dimen/_13sdp"
                                 android:textStyle="bold" />
                         </RelativeLayout>

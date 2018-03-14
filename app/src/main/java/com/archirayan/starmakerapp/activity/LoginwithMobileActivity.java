@@ -17,6 +17,7 @@ import com.archirayan.starmakerapp.retrofit.RestClient;
 import com.archirayan.starmakerapp.utils.Constant;
 import com.archirayan.starmakerapp.utils.Util;
 import com.archirayan.starmakerapp.utils.Utils;
+import com.rilixtech.Country;
 import com.rilixtech.CountryCodePicker;
 
 import org.json.JSONObject;
@@ -25,7 +26,8 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class LoginwithMobileActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginwithMobileActivity extends AppCompatActivity implements View.OnClickListener, CountryCodePicker.OnCountryChangeListener {
+    public static String str_countCode;
     public ProgressDialog pd;
     Button btn_mobilelogin;
     CountryCodePicker ccp;
@@ -39,12 +41,10 @@ public class LoginwithMobileActivity extends AppCompatActivity implements View.O
         FindviewById();
         Init();
     }
+
     // // TODO: 22/2/18 Initialize the Variable ...
-
-
     private void Init() {
-        if (!Utils.ReadSharePrefrence(LoginwithMobileActivity.this, Constant.LoginWith_MobileNO).equals(""))
-        {
+        if (!Utils.ReadSharePrefrence(LoginwithMobileActivity.this, Constant.LoginWith_MobileNO).equals("")) {
             startActivity(new Intent(LoginwithMobileActivity.this, VerifyingOTPActivity.class));
             finish();
         } else {
@@ -57,26 +57,27 @@ public class LoginwithMobileActivity extends AppCompatActivity implements View.O
     // // TODO: 22/2/18  Allocate the All Element ID ...
     private void FindviewById() {
         ccp = findViewById(R.id.ccp);
+        ccp.setOnCountryChangeListener(this);
         btn_mobilelogin = findViewById(R.id.btn_mobilelogin);
         edit_phonenumber = findViewById(R.id.edit_phonenumber);
         ll_mobilenumber = findViewById(R.id.ll_mobilenumber);
         ll_verify_progress = findViewById(R.id.ll_verify_progress);
         ll_verify_otp_sent = findViewById(R.id.ll_verify_otp_sent);
+        str_countCode = ccp.getDefaultCountryCode();
+        Log.d("Country", "========= To ===========" + str_countCode);
     }
 
+
     @Override
-    public void onClick(View view)
-    {
+
+    public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_mobilelogin:
-                if (edit_phonenumber.getText().toString().isEmpty())
-                {
+                if (edit_phonenumber.getText().toString().isEmpty()) {
                     edit_phonenumber.setError("Please enter phone no.");
-                }
-                else
-                {
+                } else {
                     Utils.hideSoftKeyboard(LoginwithMobileActivity.this);
-                    LoginMobileSmsGatway(edit_phonenumber.getText().toString());
+                    LoginMobileSmsGatway(str_countCode, edit_phonenumber.getText().toString());
 
 //                    ll_mobilenumber.setVisibility(View.GONE);
 //                    ll_verify_progress.setVisibility(View.VISIBLE);
@@ -107,7 +108,7 @@ public class LoginwithMobileActivity extends AppCompatActivity implements View.O
         }
     }
 
-    private void LoginMobileSmsGatway(String mobile) {
+    private void LoginMobileSmsGatway(String str_countCode, String mobile) {
         if (Utils.isConnectingToInternet(LoginwithMobileActivity.this)) {
             SendSMS(mobile);
         } else {
@@ -120,9 +121,12 @@ public class LoginwithMobileActivity extends AppCompatActivity implements View.O
         pd.setMessage("Loading...");
         pd.setCancelable(false);
         pd.show();
-        RestClient.getStarCreator().MobileSmsOtp(mobile, new Callback<Response>() {
+        Log.d("CountryANdNumber()", "=============  Tame Right cho ============" + str_countCode + mobile);
+        RestClient.getStarCreator().MobileSmsOtp(str_countCode + mobile, new Callback<Response>()
+        {
             @Override
-            public void success(Response response, Response response2) {
+            public void success(Response response, Response response2)
+            {
                 pd.dismiss();
                 try {
                     JSONObject jsonObject = new JSONObject(Util.getString(response.getBody().in()));
@@ -165,5 +169,21 @@ public class LoginwithMobileActivity extends AppCompatActivity implements View.O
     protected void onResume() {
         super.onResume();
         ll_mobilenumber.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onCountrySelected(Country country) {
+        str_countCode = country.getPhoneCode();
+        Log.d("Country", "========= To ===========" + str_countCode);
+    }
+
+    /**
+     * Called when pointer capture is enabled or disabled for the current window.
+     *
+     * @param hasCapture True if the window has pointer capture.
+     */
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }
