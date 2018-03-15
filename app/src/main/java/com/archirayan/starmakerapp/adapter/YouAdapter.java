@@ -34,12 +34,13 @@ public class YouAdapter extends RecyclerView.Adapter<YouAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        if (value.equals("invitation")) {
-
+        if (value.equals("invitation"))
+        {
             holder.tvInvite.setVisibility(View.VISIBLE);
             holder.tvFollow.setText("JOIN");
 
-        } else if (value.equals("recommendation")) {
+        } else if (value.equals("recommendation"))
+        {
 
             holder.tvFollow.setText("FOLLOW");
             holder.tvInvite.setVisibility(View.GONE);
@@ -48,13 +49,16 @@ public class YouAdapter extends RecyclerView.Adapter<YouAdapter.MyViewHolder> {
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
 
         int val = 0;
-
-        if (value.equals("invitation")) {
+        if (value.equals("invitation"))
+        {
             val = 1;
-        } else if (value.equals("recommendation")) {
+        }
+        else if (value.equals("recommendation"))
+        {
             val = 6;
         }
 

@@ -20,6 +20,7 @@ import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.activity.BestCollabsActivity;
 import com.archirayan.starmakerapp.activity.BestSolosActivity;
 import com.archirayan.starmakerapp.activity.EventsActivity;
+import com.archirayan.starmakerapp.activity.HastagePopularRecentActivity;
 import com.archirayan.starmakerapp.activity.HotHashtagActivity;
 import com.archirayan.starmakerapp.activity.MostSharedActivity;
 import com.archirayan.starmakerapp.activity.TopFriendsActivity;
@@ -47,6 +48,7 @@ public class AwardFragment extends Fragment implements View.OnClickListener {
     private static final Integer[] XMEN = {R.drawable.img_splashtxt, R.drawable.images, R.drawable.images_one, R.drawable.images_two, R.drawable.img_splashtxt};
     private static ViewPager mPager;
     private static int currentPage = 0;
+    public TextView txt_hastage, txt_hastage1, txt_hastage2, txt_hastage3;
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
     private BestSolosAdapter bestSolosAdapter;
     private RecyclerView recycler_bestsolo;
@@ -59,7 +61,7 @@ public class AwardFragment extends Fragment implements View.OnClickListener {
     private RecyclerView recycler_topfriends;
     private TopFriendsAdapter topFriendsAdapter;
     private LinearLayout linear_events, linear_verified;
-    private TextView txt_hashtagseeall,txt_seebestsolos,txt_seemostshared,txt_seebestcollabs,txt_seetopstars,txt_topfriends;
+    private TextView txt_hashtagseeall, txt_seebestsolos, txt_seemostshared, txt_seebestcollabs, txt_seetopstars, txt_topfriends;
 
     public AwardFragment() {
         // Required empty public constructor
@@ -134,6 +136,11 @@ public class AwardFragment extends Fragment implements View.OnClickListener {
         txt_seebestcollabs = view.findViewById(R.id.txt_seebestcollabs);
         txt_seetopstars = view.findViewById(R.id.txt_seetopstars);
         txt_topfriends = view.findViewById(R.id.txt_topfriends);
+        txt_hastage = view.findViewById(R.id.txt_hastage);
+        txt_hastage1 = view.findViewById(R.id.txt_hastage1);
+        txt_hastage2 = view.findViewById(R.id.txt_hastage2);
+        txt_hastage3 = view.findViewById(R.id.txt_hastage3);
+
 
         linear_events.setOnClickListener(this);
         linear_verified.setOnClickListener(this);
@@ -143,6 +150,11 @@ public class AwardFragment extends Fragment implements View.OnClickListener {
         txt_seebestcollabs.setOnClickListener(this);
         txt_seetopstars.setOnClickListener(this);
         txt_topfriends.setOnClickListener(this);
+        txt_hastage.setOnClickListener(this);
+        txt_hastage1.setOnClickListener(this);
+        txt_hastage2.setOnClickListener(this);
+        txt_hastage3.setOnClickListener(this);
+
     }
 
     @Override
@@ -171,6 +183,20 @@ public class AwardFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.txt_topfriends:
                 startActivity(new Intent(getActivity(), TopFriendsActivity.class));
+                break;
+
+            case R.id.txt_hastage:
+                startActivity(new Intent(getActivity(), HastagePopularRecentActivity.class));
+                break;
+
+            case R.id.txt_hastage1:
+                startActivity(new Intent(getActivity(), HastagePopularRecentActivity.class));
+                break;
+            case R.id.txt_hastage2:
+                startActivity(new Intent(getActivity(), HastagePopularRecentActivity.class));
+                break;
+            case R.id.txt_hastage3:
+                startActivity(new Intent(getActivity(), HastagePopularRecentActivity.class));
                 break;
         }
     }

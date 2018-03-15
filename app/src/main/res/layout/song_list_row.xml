@@ -31,8 +31,10 @@
                 android:layout_marginLeft="@dimen/_8sdp"
                 android:layout_weight="1"
                 android:text="Nitin.k SKS.MM"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_13sdp"
                 android:textStyle="bold" />
+
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -40,10 +42,10 @@
                 android:background="@drawable/coloured_round_bg"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingBottom="@dimen/_3sdp"
-                android:paddingLeft="@dimen/_7sdp"
-                android:paddingRight="@dimen/_7sdp"
-                android:paddingTop="@dimen/_3sdp">
+                android:paddingBottom="@dimen/_1sdp"
+                android:paddingLeft="@dimen/_4sdp"
+                android:paddingRight="@dimen/_4sdp"
+                android:paddingTop="@dimen/_1sdp">
 
                 <ImageView
                     android:layout_width="@dimen/_15sdp"
@@ -92,13 +94,22 @@
 
         <TextView
             android:id="@+id/txt_tags"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
-            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:text="hastage"
             android:textSize="@dimen/_13sdp"
-            android:textStyle="bold"
-            android:visibility="gone" />
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:text="captions"
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="bold" />
+
 
         <FrameLayout
             android:id="@+id/fram_video"
@@ -109,7 +120,19 @@
                 android:id="@+id/iv_video"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_150sdp"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone" />
+
+
+            <ImageView
+                android:id="@+id/iv_image_profile"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:background="@drawable/images"
+                android:scaleType="fitXY" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -164,7 +187,7 @@
                     android:layout_marginLeft="@dimen/_2sdp"
                     android:text="25"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_11sdp"
+                    android:textSize="@dimen/_12sdp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -220,18 +243,31 @@
                     android:id="@+id/gifters"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
-                    android:layout_marginRight="@dimen/_5sdp"
-                    android:src="@drawable/men" />
+                    android:background="@drawable/ic_topcollab_man" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/gifters1"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginLeft="-4dp"
+                    android:background="@drawable/ic_topcollab_man" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/gifters2"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginLeft="-4dp"
+                    android:background="@drawable/ic_topcollab_man" />
 
                 <ImageView
                     android:id="@+id/more_user"
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:src="@drawable/img_splashtxt" />
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:src="@drawable/ic_right_arrow" />
 
 
             </LinearLayout>
-            z
+
         </LinearLayout>
 
         <View

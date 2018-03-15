@@ -12,16 +12,19 @@ import com.archirayan.starmakerapp.R;
  * Created by archirayan on 27/2/18.
  */
 
-public class HashtagAdapter extends RecyclerView.Adapter<HashtagAdapter.MyViewHolder>{
+public class HashtagAdapter extends RecyclerView.Adapter<HashtagAdapter.MyViewHolder>
+{
 
     private Context context;
 
-    public HashtagAdapter(Context context) {
+    public HashtagAdapter(Context context)
+    {
         this.context = context;
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.hashtag_list, parent, false);
 

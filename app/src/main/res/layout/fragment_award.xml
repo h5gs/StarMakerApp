@@ -21,7 +21,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -157,32 +158,25 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/txt_hastage"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/_28sdp"
                         android:background="@drawable/ic_button_bg"
                         android:padding="@dimen/_5sdp"
-                        android:text="#lakhmarker"
+                        android:text="#lakhmarkers"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_13sdp" />
 
                     <TextView
+                        android:id="@+id/txt_hastage1"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/_28sdp"
                         android:background="@drawable/ic_button_bg"
                         android:padding="@dimen/_5sdp"
-                        android:text="#grammy2018"
+                        android:text="#grammd y2018"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_13sdp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_28sdp"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:background="@drawable/ic_button_bg"
-                        android:padding="@dimen/_5sdp"
-                        android:text="#win500k"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_13sdp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -194,36 +188,27 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:id="@+id/txt_hastage2"
+                        android:layout_width="wrap_content"
                         android:layout_height="@dimen/_28sdp"
-                        android:layout_weight="1"
                         android:background="@drawable/ic_button_bg"
                         android:padding="@dimen/_5sdp"
-                        android:text="#winrealmoney"
+                        android:text="#happybdaymirkhan 2018"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_13sdp" />
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:id="@+id/txt_hastage3"
+                        android:layout_width="wrap_content"
                         android:layout_height="@dimen/_28sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_weight="1"
                         android:background="@drawable/ic_button_bg"
                         android:padding="@dimen/_5sdp"
                         android:text="#quiz"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_13sdp" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_28sdp"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:background="@drawable/ic_button_bg"
-                        android:padding="@dimen/_5sdp"
-                        android:text="#love"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_13sdp" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -265,8 +250,7 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_margin="@dimen/_10sdp"
                                 android:text="See All"
-                                android:textAllCaps="false"
-                                android:textColor="@color/light_dark_color"
+                                android:textColor="@color/white"
                                 android:textSize="@dimen/_13sdp"
                                 android:textStyle="bold" />
                         </RelativeLayout>
@@ -324,8 +308,8 @@
                                     android:layout_gravity="center"
                                     android:layout_margin="@dimen/_10sdp"
                                     android:text="See All"
-                                    android:textColor="@color/light_dark_color"
-                                    android:textSize="@dimen/_15sdp"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_13sdp"
                                     android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -374,7 +358,7 @@
                                     android:layout_alignParentRight="true"
                                     android:layout_margin="@dimen/_10sdp"
                                     android:text="See All"
-                                    android:textColor="@color/light_dark_color"
+                                    android:textColor="@color/white"
                                     android:textSize="@dimen/_13sdp"
                                     android:textStyle="bold" />
                             </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.archirayan.starmakerapp.fragments;
 
+
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,11 +17,13 @@ import android.view.ViewGroup;
 
 import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.adapter.FriendsRecommedAdapter;
-import com.archirayan.starmakerapp.adapter.SongAdapter;
+import com.archirayan.starmakerapp.adapter.TrendingAdapter;
 import com.archirayan.starmakerapp.model.FollowList;
 import com.archirayan.starmakerapp.model.FollowingListResponse;
 import com.archirayan.starmakerapp.model.GetSongList;
+import com.archirayan.starmakerapp.model.GetTrendingSongList;
 import com.archirayan.starmakerapp.model.SongListResponse;
+import com.archirayan.starmakerapp.model.TrendingListResponse;
 import com.archirayan.starmakerapp.utils.Constant;
 import com.archirayan.starmakerapp.utils.Utils;
 import com.google.gson.Gson;
@@ -37,42 +40,43 @@ import cz.msebera.android.httpclient.Header;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SongListFragment extends Fragment
-{
-    public static final String TAG = "SongListFragment";
-    RecyclerView rvList, recycler_friendfollowing;
-    SongAdapter songAdapter;
-    public ArrayList<GetSongList> getSongList;
-    public ProgressDialog pd;
-    public FriendsRecommedAdapter friendsRecommedAdapter;
-    public ArrayList<FollowList> followLists;
-    public SwipeRefreshLayout swipe_view;
+public class TrendingListFragment extends Fragment {
 
-    public SongListFragment() {
+    private static final String TAG = "SongListFragment";
+    RecyclerView rvList, recycler_friendfollowing;
+    TrendingAdapter songAdapter;
+    private ArrayList<GetTrendingSongList> getSongList;
+    private ProgressDialog pd;
+    private FriendsRecommedAdapter friendsRecommedAdapter;
+    private ArrayList<FollowList> followLists;
+    private SwipeRefreshLayout swipe_view;
+
+    public TrendingListFragment() {
         // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_trending_list, container, false);
     }
 
     @Override
     public boolean getUserVisibleHint() {
 
         if (isVisible()) {
-            songAdapter = new SongAdapter(getActivity(), getSongList);
+            songAdapter = new TrendingAdapter(getActivity(), getSongList);
             rvList.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
             rvList.setAdapter(songAdapter);
         }
         return isVisible();
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_song_list, container, false);
-    }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
-    {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rvList = view.findViewById(R.id.item_list);
         recycler_friendfollowing = view.findViewById(R.id.recycler_friendfollowing);
@@ -86,19 +90,16 @@ public class SongListFragment extends Fragment
 
         swipe_view = view.findViewById(R.id.swipe_view);
 
-        swipe_view.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
-        {
+        swipe_view.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onRefresh()
-            {
+            public void onRefresh() {
                 getFollowList();
                 swipe_view.setRefreshing(false);
             }
         });
     }
 
-    private void getFollowList()
-    {
+    private void getFollowList() {
         followLists = new ArrayList<>();
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
@@ -118,8 +119,7 @@ public class SongListFragment extends Fragment
             }
 
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response)
-            {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "RESPONSE-" + response);
                 FollowingListResponse model = new Gson().fromJson(new String(String.valueOf(response)), FollowingListResponse.class);
@@ -135,16 +135,14 @@ public class SongListFragment extends Fragment
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable)
-            {
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 super.onFailure(statusCode, headers, responseString, throwable);
                 Log.e(TAG, throwable.getMessage());
             }
         });
     }
 
-    private void getSongList()
-    {
+    private void getSongList() {
         pd = new ProgressDialog(getActivity());
         pd.setCancelable(true);
         pd.show();
@@ -152,12 +150,11 @@ public class SongListFragment extends Fragment
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
         params.put("user_id", Utils.ReadSharePrefrence(getActivity(), Constant.USERID));
-        params.put("flag", "following");
+        params.put("flag", "trending");
 
         Log.e(TAG, "URL:" + Constant.URL + "song_list.php?" + params);
         Log.e(TAG, params.toString());
-        client.post(getActivity(), Constant.URL + "song_list.php?", params, new JsonHttpResponseHandler()
-        {
+        client.post(getActivity(), Constant.URL + "song_list.php?", params, new JsonHttpResponseHandler() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -173,12 +170,12 @@ public class SongListFragment extends Fragment
             {
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "RESPONSE-" + response);
-                SongListResponse model = new Gson().fromJson(new String(String.valueOf(response)), SongListResponse.class);
+                TrendingListResponse model = new Gson().fromJson(new String(String.valueOf(response)), TrendingListResponse.class);
                 pd.dismiss();
                 if (model.getStatus().equals("true"))
                 {
                     getSongList = model.getData();
-                    songAdapter = new SongAdapter(getActivity(), getSongList);
+                    songAdapter = new TrendingAdapter(getActivity(), getSongList);
                     RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
                     rvList.setLayoutManager(mLayoutManager);
                     rvList.setItemAnimator(new DefaultItemAnimator());

@@ -4,14 +4,14 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_margin="@dimen/_5sdp"
-            android:background="@drawable/ic_button_bg"
-            android:text="1. #lakhmarker"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_15sdp"
-            android:textStyle="bold" />
-    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:background="@drawable/file_button_gold_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/_10sdp"
+        android:text="1. #lakhmarker"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold" />
+</LinearLayout>

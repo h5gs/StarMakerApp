@@ -47,7 +47,8 @@ public class CollabsongsListAdapter extends RecyclerView.Adapter<CollabsongsList
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, int position)
+    {
         holder.btn_sing.setVisibility(View.GONE);
         holder.btn_join.setVisibility(View.VISIBLE);
         if (collabsSongLists.get(position).getImgae().isEmpty()){

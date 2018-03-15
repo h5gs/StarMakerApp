@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.activity.PlaysongfullActivity;
 import com.archirayan.starmakerapp.model.GetFollowResponse;
 import com.archirayan.starmakerapp.model.GetSongList;
+import com.archirayan.starmakerapp.model.GetTrendingSongList;
 import com.archirayan.starmakerapp.model.SongListResponse;
 import com.archirayan.starmakerapp.utils.Constant;
 import com.archirayan.starmakerapp.utils.Utils;
@@ -30,7 +32,6 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -43,83 +44,83 @@ import static com.archirayan.starmakerapp.adapter.SongAdapter.MyViewHolder.txt_l
 import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
- * Created by archirayan on 24/2/18.
+ * Created by archirayan on 15/3/18.
  */
 
-public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> {
+public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.MyViewHolder> {
     private static final String TAG = "SongListFragment";
-    public static String str_like_Updated;
     Context context;
-    private ArrayList<GetSongList> getSongLists;
+    private ArrayList<GetTrendingSongList> getSongLists;
     private ProgressDialog pd;
     private String str_Postid;
     private String str_Likes;
     private String str_Favorites;
     private String s_favorites;
 
-    public SongAdapter(Context context, ArrayList<GetSongList> getSongLists) {
+    public TrendingAdapter(Context context, ArrayList<GetTrendingSongList> getSongLists) {
         this.context = context;
         this.getSongLists = getSongLists;
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TrendingAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.song_trendinglist_row, parent, false);
-
-        return new MyViewHolder(itemView);
+                .inflate(R.layout.song_list_row, parent, false);
+        return new TrendingAdapter.MyViewHolder(itemView);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, int position) {
+    public void onBindViewHolder(final TrendingAdapter.MyViewHolder holder, int position)
+    {
         holder.profile_name.setText(getSongLists.get(position).getTitle());
         holder.txt_caption.setText(getSongLists.get(position).getCaption());
         holder.txt_tags.setText(getSongLists.get(position).getHashTag());
 
         str_Postid = (getSongLists.get(position).getId());
         str_Likes = getSongLists.get(position).getLikes().toString();
-        str_Favorites = getSongLists.get(position).getFavorite();
-        // holder.iv_image_profile.setImageResource();
-        if (getSongLists.get(position).getImgae().isEmpty()) {
+        //str_Favorites = getSongLists.get(position).getFavorite();
 
+        if (getSongLists.get(position).getImgae().isEmpty()) {
             Picasso.with(context).load(R.drawable.men);
         } else {
             Picasso.with(context).load(getSongLists.get(position).getImgae()).placeholder(R.drawable.ic_placeholder).into(holder.profile_pic);
         }
 
-
-        if (getSongLists.get(position).getImgae().isEmpty()) {
-
-            Picasso.with(context).load(R.drawable.ic_placeholder);
-        } else {
-            Picasso.with(context).load(getSongLists.get(position).getImgae()).placeholder(R.drawable.ic_placeholder).into(holder.iv_image_profile);
-        }
-
-
-        if (str_Favorites.equals("0")) {
-            s_favorites = "Added to Favorites";
-        } else {
-            s_favorites = "Removed to Favorites";
-        }
+//        if (str_Favorites.equals("0"))
+//        {
+//            s_favorites = "Added to Favorites";
+//        }
+//        else {
+//            s_favorites = "Removed to Favorites";
+//        }
 
 
-        if (getSongLists.get(position).getLikeStatus().equals("1")) {
+        if (getSongLists.get(position).getLikes().equals("1")) {
             holder.chk_like.setBackgroundResource(R.drawable.ic_like);
         } else {
             holder.chk_like.setBackgroundResource(R.drawable.ic_unlike_black);
         }
 
+        //  holder.txt_levels.setText(getSongLists.get(position).get());
+        if (getSongLists.get(position).getHashTag().isEmpty())
+        {
+            holder.txt_tags.setText(getSongLists.get(position).getHashTag());
 
+        }
+        else
+        {
+            holder.txt_tags.setVisibility(View.GONE);
+        }
         if (!getSongLists.get(position).getLikes().toString().equals("")) {
             txt_likenum.setText(getSongLists.get(position).getLikes().toString());
         }
 
-//
-//        if (!getSongLists.get(position).getStar().toString().equals("")) {
-//            holder.txt_starnum.setText(getSongLists.get(position).getStar());
-//        }
 
+        if (!getSongLists.get(position).getStar().equals(""))
+        {
+            holder.txt_starnum.setText(getSongLists.get(position).getStar());
+        }
 
 //        String path = getSongLists.get(position).getVideo();
 //
@@ -143,19 +144,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
 //            }
 //        });
 
-
-        for (int i = 0; i < getSongLists.get(position).getTopGifter().size(); i++) {
-            if (!getSongLists.get(position).getTopGifter().get(i).getImage().equalsIgnoreCase("")) {
-                Picasso.with(context).load(getSongLists.get(position).getTopGifter().get(i).getImage()).placeholder(R.drawable.men).into(holder.gifters);
-            }
-
-            if (!getSongLists.get(position).getTopGifter().get(i).getImage().equalsIgnoreCase("")) {
-                Picasso.with(context).load(getSongLists.get(position).getTopGifter().get(i).getImage()).placeholder(R.drawable.men).into(holder.gifters1);
-            }
-            if (!getSongLists.get(position).getTopGifter().get(i).getImage().equalsIgnoreCase("")) {
-                Picasso.with(context).load(getSongLists.get(position).getTopGifter().get(i).getImage()).placeholder(R.drawable.men).into(holder.gifters2);
-            }
-        }
+       // Picasso.with(context).load(getSongLists.get(position).getImgae()).placeholder(R.drawable.men).into(holder.gifters);
 
         holder.fram_video.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -212,25 +201,25 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
         });
 
 
-        holder.gifters.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                final String s_follow = null;
-//                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-//                builder.setItems(s_follow, new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int item)
-//                    {
-//                        boolean result = Utility.checkPermission(context);
-//
-//                if (s_follow.equals("Followed"))
-// {
-//                    FollowUnfollowedApi();
-//                } else if (s_follow.equals("Unfollowed")) {
-//                    FollowUnfollowedApi();
-//                }
-            }
-        });
+//        holder.gifters.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                final String s_follow = null;
+////                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+////                builder.setItems(s_follow, new DialogInterface.OnClickListener() {
+////                    @Override
+////                    public void onClick(DialogInterface dialog, int item)
+////                    {
+////                        boolean result = Utility.checkPermission(context);
+////
+////                if (s_follow.equals("Followed"))
+//// {
+////                    FollowUnfollowedApi();
+////                } else if (s_follow.equals("Unfollowed")) {
+////                    FollowUnfollowedApi();
+////                }
+//            }
+//        });
     }
 
 
@@ -353,19 +342,11 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 Log.e(TAG, "RESPONSE-" + response);
-                try {
-                    JSONObject jsonObject = new JSONObject(String.valueOf(response));
-                    str_like_Updated = jsonObject.getString("like");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
                 SongListResponse model = new Gson().fromJson(new String(String.valueOf(response)), SongListResponse.class);
                 pd.dismiss();
                 if (model.getStatus().equals("true")) {
                     Toast.makeText(context, model.getMessage(), Toast.LENGTH_SHORT).show();
-
                 }
-
             }
 
             @Override
@@ -423,39 +404,33 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
+
         public static TextView txt_likenum, txt_follow;
         private final TextView txt_starnum;
-        public CircleImageView profile_pic, gifters, gifters1, gifters2;
+        public CircleImageView profile_pic, gifters;
         public TextView profile_name, txt_levels, txt_tags, txt_st_arnum, txt_caption;
         public VideoView iv_video;
         public ImageView iv_start, iv_stop, iv_action_menu;
         public FrameLayout fram_video;
         public CheckBox chk_like;
 
-        public ImageView iv_image_profile;
-
         public MyViewHolder(View itemView) {
             super(itemView);
             profile_pic = itemView.findViewById(R.id.profile_pic);
             profile_name = itemView.findViewById(R.id.profile_name);
             txt_levels = itemView.findViewById(R.id.txt_levels);
+            txt_caption = itemView.findViewById(R.id.txt_caption);
             txt_tags = itemView.findViewById(R.id.txt_tags);
             iv_video = itemView.findViewById(R.id.iv_video);
             txt_likenum = itemView.findViewById(R.id.txt_likenum);
             txt_starnum = itemView.findViewById(R.id.txt_starnum);
             gifters = itemView.findViewById(R.id.gifters);
-            gifters1 = itemView.findViewById(R.id.gifters1);
-            gifters2 = itemView.findViewById(R.id.gifters2);
-
-
             iv_start = itemView.findViewById(R.id.iv_start);
             iv_stop = itemView.findViewById(R.id.iv_stop);
             fram_video = itemView.findViewById(R.id.fram_video);
             chk_like = itemView.findViewById(R.id.chk_like);
             iv_action_menu = itemView.findViewById(R.id.iv_action_menu);
             txt_follow = itemView.findViewById(R.id.txt_follow);
-            iv_image_profile = itemView.findViewById(R.id.iv_image_profile);
-            txt_caption = itemView.findViewById(R.id.txt_caption);
         }
     }
 }

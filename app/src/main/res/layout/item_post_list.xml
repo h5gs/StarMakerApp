@@ -5,9 +5,9 @@
     android:id="@+id/card_view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_2sdp"
-    card_view:cardCornerRadius="@dimen/_3sdp"
-    card_view:cardElevation="@dimen/_3sdp">
+    android:layout_margin="@dimen/_1sdp"
+    card_view:cardCornerRadius="@dimen/_1sdp"
+    card_view:cardElevation="@dimen/_2sdp">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"

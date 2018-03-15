@@ -8,9 +8,12 @@ import com.archirayan.starmakerapp.fragments.CollabListRecorderFragment;
 import com.archirayan.starmakerapp.fragments.FollowingFragment;
 import com.archirayan.starmakerapp.fragments.HotListRecorderFragment;
 import com.archirayan.starmakerapp.fragments.HotLiveFragment;
+import com.archirayan.starmakerapp.fragments.MostPopularFragment;
+import com.archirayan.starmakerapp.fragments.MostRecentFragment;
 import com.archirayan.starmakerapp.fragments.MysongsListRecorderFragment;
 import com.archirayan.starmakerapp.fragments.NearbyLiveFragment;
 import com.archirayan.starmakerapp.fragments.SongListFragment;
+import com.archirayan.starmakerapp.fragments.TrendingListFragment;
 import com.archirayan.starmakerapp.fragments.YouFragment;
 import com.archirayan.starmakerapp.fragments.newListRecorderFragment;
 
@@ -34,8 +37,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
         switch (come) {
             case "notification":
-                if (position == 0)
-                {
+                if (position == 0) {
                     fragment = new FollowingFragment();
                 } else if (position == 1) {
                     fragment = new YouFragment();
@@ -46,11 +48,20 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 if (position == 0) {
                     fragment = new SongListFragment();
                 } else if (position == 1) {
-                    fragment = new SongListFragment();
+                    fragment = new TrendingListFragment();
                 } else if (position == 2) {
                     fragment = new SongListFragment();
                 }
                 break;
+
+            case "hastage":
+                if (position == 0) {
+                    fragment = new MostPopularFragment();
+                } else if (position == 1) {
+                    fragment = new MostRecentFragment();
+                }
+                break;
+
             case "record":
                 if (position == 0) {
                     fragment = new HotListRecorderFragment();
@@ -65,7 +76,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case "Live":
                 if (position == 0) {
                     fragment = new HotLiveFragment();
-                }else if (position == 1) {
+                } else if (position == 1) {
                     fragment = new NearbyLiveFragment();
                 }
                 break;
@@ -86,6 +97,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case "song":
                 val = 3;
                 break;
+
+            case "hastage":
+                val = 2;
+                break;
+
             case "record":
                 val = 4;
                 break;
@@ -118,6 +134,16 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                     title = "Nearby";
                 }
                 break;
+
+
+            case "hastage":
+                if (position == 0) {
+                    title = "Most Popular";
+                } else if (position == 1) {
+                    title = "Most Recent";
+                }
+                break;
+
             case "record":
                 if (position == 0) {
                     title = "HOT";
@@ -132,7 +158,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case "Live":
                 if (position == 0) {
                     title = "HOT";
-                }else if(position == 1){
+                } else if (position == 1) {
                     title = "NEARBY";
                 }
                 break;

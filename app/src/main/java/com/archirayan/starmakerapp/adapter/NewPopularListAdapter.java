@@ -15,46 +15,44 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 /**
- * Created by archirayan on 8/3/18.
+ * Created by archirayan on 15/3/18.
  */
 
-//// TODO: 9/3/18  Created By :- Sanjay
-public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.MyViewHolder>
-{
+public class NewPopularListAdapter extends RecyclerView.Adapter<NewPopularListAdapter.MyViewHolder> {
     private ArrayList<MyPostsList> posts_arraylist;
     private Context context;
 
-    public PostListAdapter(Context context, ArrayList<MyPostsList> posts_arraylist) {
+    public NewPopularListAdapter(Context context, int i) {
         this.context = context;
-        this.posts_arraylist = posts_arraylist;
+     //   this.posts_arraylist = posts_arraylist;
     }
 
     @Override
 
-    public PostListAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public NewPopularListAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_post_list, parent, false);
+                .inflate(R.layout.item_newpopular_list, parent, false);
 
-        return new MyViewHolder(itemView);
+        return new NewPopularListAdapter.MyViewHolder(itemView);
     }
 
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.txt_posts_name.setText(posts_arraylist.get(position).getCaption());
-        holder.txt_total_plays.setText(posts_arraylist.get(position).getPlays());
-        if (posts_arraylist.get(position).getImgae().isEmpty())
-        {
-            Picasso.with(context).load(R.drawable.ic_placeholder);
-        }
-        else {
-            Picasso.with(context).load(posts_arraylist.get(position).getImgae()).placeholder(R.drawable.ic_placeholder).into(holder.img_posts);
-        }
+    public void onBindViewHolder(NewPopularListAdapter.MyViewHolder holder, int position)
+    {
+//        holder.txt_posts_name.setText(posts_arraylist.get(position).getCaption());
+//        holder.txt_total_plays.setText(posts_arraylist.get(position).getPlays());
+//        if (posts_arraylist.get(position).getImgae().isEmpty()) {
+//            Picasso.with(context).load(R.drawable.ic_placeholder);
+//        } else {
+//            Picasso.with(context).load(posts_arraylist.get(position).getImgae()).placeholder(R.drawable.ic_placeholder).into(holder.img_posts);
+//        }
     }
 
     @Override
-    public int getItemCount() {
-        return posts_arraylist.size();
+    public int getItemCount()
+    {
+        return 4;//posts_arraylist.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder
