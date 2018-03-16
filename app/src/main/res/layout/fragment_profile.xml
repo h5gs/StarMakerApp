@@ -211,6 +211,7 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/layout_total_followers"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
@@ -237,6 +238,7 @@
 
 
                     <LinearLayout
+                        android:id="@+id/layout_total_followings"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_25sdp"
@@ -264,6 +266,7 @@
 
 
                     <LinearLayout
+                        android:id="@+id/layout_total_posts"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_25sdp"

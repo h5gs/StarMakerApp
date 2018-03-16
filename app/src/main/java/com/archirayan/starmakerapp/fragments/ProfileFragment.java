@@ -23,12 +23,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.archirayan.starmakerapp.R;
 import com.archirayan.starmakerapp.activity.DailyCheckInActivity;
 import com.archirayan.starmakerapp.activity.FindFriendActivity;
+import com.archirayan.starmakerapp.activity.FollowersActivity;
+import com.archirayan.starmakerapp.activity.FollowingsActivity;
 import com.archirayan.starmakerapp.activity.ProfileSettingsActivity;
 import com.archirayan.starmakerapp.adapter.ProfilePagerAdapter;
 import com.archirayan.starmakerapp.adapter.SlideImageAdapter;
@@ -70,6 +73,7 @@ public class ProfileFragment extends Fragment implements AppBarLayout.OnOffsetCh
     private static ViewPager mPager;
     private static int currentPage = 0;
     public CircleImageView iv_profile_pic;
+    public LinearLayout layout_total_followers, layout_total_followings, layout_total_posts;
     ViewPager viewPager;
     TabLayout tabLayout;
     ImageView img_setting, img_findfreinds, img_daily_checkin;
@@ -86,8 +90,8 @@ public class ProfileFragment extends Fragment implements AppBarLayout.OnOffsetCh
     private ProgressDialog pd;
     private String userChoosenTask;
     private String imagePath;
-
     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
+
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -98,7 +102,7 @@ public class ProfileFragment extends Fragment implements AppBarLayout.OnOffsetCh
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        AppBarLayout appbarLayout = (AppBarLayout) view.findViewById(R.id.materialup_appbar);
+        final AppBarLayout appbarLayout = (AppBarLayout) view.findViewById(R.id.materialup_appbar);
         mProfileImage = (ImageView) view.findViewById(R.id.materialup_profile_image);
         img_setting = view.findViewById(R.id.img_setting);
         img_findfreinds = view.findViewById(R.id.img_findfreinds);
@@ -109,9 +113,15 @@ public class ProfileFragment extends Fragment implements AppBarLayout.OnOffsetCh
         txt_post = view.findViewById(R.id.txt_post);
         txt_username = view.findViewById(R.id.txt_username);
         txt_usertitle = view.findViewById(R.id.txt_usertitle);
-
-
+        layout_total_followers = view.findViewById(R.id.layout_total_followers);
+        layout_total_posts = view.findViewById(R.id.layout_total_posts);
+        layout_total_followings = view.findViewById(R.id.layout_total_followings);
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
+        appbarLayout.addOnOffsetChangedListener(this);
+        mMaxScrollSize = appbarLayout.getTotalScrollRange();
+
+
+        collapsingToolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id.collapsing);
 
         Pager = (ViewPager) view.findViewById(R.id.pager);
 
@@ -134,6 +144,49 @@ public class ProfileFragment extends Fragment implements AppBarLayout.OnOffsetCh
         });
 
 
+        layout_total_followers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), FollowersActivity.class));
+            }
+        });
+
+        layout_total_followings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), FollowingsActivity.class));
+            }
+        });
+
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab)
+            {
+                viewPager.setCurrentItem(0);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        layout_total_posts.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                tabLayout.performClick();
+            }
+        });
+
+
         img_findfreinds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -149,11 +202,6 @@ public class ProfileFragment extends Fragment implements AppBarLayout.OnOffsetCh
                 getActivity().overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
         });
-        appbarLayout.addOnOffsetChangedListener(this);
-        mMaxScrollSize = appbarLayout.getTotalScrollRange();
-
-
-        collapsingToolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id.collapsing);
 
 
         // TODO: 8/3/18  Upload Image (Camera & Gallerr)...
@@ -258,8 +306,7 @@ public class ProfileFragment extends Fragment implements AppBarLayout.OnOffsetCh
                 imagePath = ImageFilePath.getPath(getActivity(), data.getData());
                 UploadImage();
                 Log.d("ImagePath", "Result" + imagePath);
-            } else if (requestCode == REQUEST_CAMERA)
-            {
+            } else if (requestCode == REQUEST_CAMERA) {
                 onCaptureImageResult(data);
               /*  Uri uri = data.getData();
                 imagePath = ImageFilePath.getPath(EditprofileActivity.this,data.getData());
@@ -269,8 +316,7 @@ public class ProfileFragment extends Fragment implements AppBarLayout.OnOffsetCh
     }
 
 
-    private void onCaptureImageResult(Intent data)
-    {
+    private void onCaptureImageResult(Intent data) {
         Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
@@ -396,8 +442,7 @@ public class ProfileFragment extends Fragment implements AppBarLayout.OnOffsetCh
         builder.setTitle("Change Photos");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int item)
-            {
+            public void onClick(DialogInterface dialog, int item) {
 
 //                if (items[item].equals("Take a Photo"))
 //                {
@@ -406,15 +451,13 @@ public class ProfileFragment extends Fragment implements AppBarLayout.OnOffsetCh
 //                    intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
 //                    UploadImage();
 //                } else
-                if (items[item].equals("Choose from Gallery"))
-                {
+                if (items[item].equals("Choose from Gallery")) {
                     Intent intent = new Intent();
                     intent.setType("image/*");
                     intent.setAction(Intent.ACTION_GET_CONTENT);
                     startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_GALLERY_REQUEST);
                     UploadImage();
-                } else if (items[item].equals("Cancel"))
-                {
+                } else if (items[item].equals("Cancel")) {
                     dialog.dismiss();
                 }
             }

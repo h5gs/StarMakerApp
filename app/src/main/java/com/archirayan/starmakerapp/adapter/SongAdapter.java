@@ -125,7 +125,8 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
 //
 //        holder.iv_video.setVideoURI(Uri.parse(path));
 //
-//        holder.iv_start.setOnClickListener(new View.OnClickListener() {
+//        holder.iv_start.setOnClickListener(new View.OnClickListener()
+// {
 //            @Override
 //            public void onClick(View v) {
 //                holder.iv_video.start();
@@ -144,7 +145,8 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
 //        });
 
 
-        for (int i = 0; i < getSongLists.get(position).getTopGifter().size(); i++) {
+        for (int i = 0; i < getSongLists.get(position).getTopGifter().size(); i++)
+        {
             if (!getSongLists.get(position).getTopGifter().get(i).getImage().equalsIgnoreCase("")) {
                 Picasso.with(context).load(getSongLists.get(position).getTopGifter().get(i).getImage()).placeholder(R.drawable.men).into(holder.gifters);
             }
@@ -157,17 +159,21 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
             }
         }
 
-        holder.fram_video.setOnClickListener(new View.OnClickListener() {
+        holder.fram_video.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 context.startActivity(new Intent(context.getApplicationContext(), PlaysongfullActivity.class));
             }
         });
 
 
-        holder.chk_like.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        holder.chk_like.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
                 if (isChecked) {
                     holder.chk_like.setBackgroundResource(R.drawable.ic_like);
                     AddRemoveLikesApi();
@@ -422,7 +428,8 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
         });
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder
+    {
         public static TextView txt_likenum, txt_follow;
         private final TextView txt_starnum;
         public CircleImageView profile_pic, gifters, gifters1, gifters2;
@@ -434,7 +441,8 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
 
         public ImageView iv_image_profile;
 
-        public MyViewHolder(View itemView) {
+        public MyViewHolder(View itemView)
+        {
             super(itemView);
             profile_pic = itemView.findViewById(R.id.profile_pic);
             profile_name = itemView.findViewById(R.id.profile_name);

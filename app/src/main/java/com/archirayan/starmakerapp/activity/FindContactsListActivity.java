@@ -28,7 +28,8 @@ import com.archirayan.starmakerapp.utils.database;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FindContactsListActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class FindContactsListActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>
+{
     public static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 99;
     RecyclerView item_findyourfreinds_list;
     FindyourfreindsAdapter findyourfreindsAdapter;

@@ -147,7 +147,9 @@
         <activity android:name=".activity.newdesigning.NewSignUpActivity" />
         <activity android:name=".activity.FindContactsActivity" />
         <activity android:name=".activity.FindContactsListActivity" />
-        <activity android:name=".activity.HastagePopularRecentActivity"></activity>
+        <activity android:name=".activity.HastagePopularRecentActivity" />
+        <activity android:name=".activity.FollowersActivity" />
+        <activity android:name=".activity.FollowingsActivity"></activity>
     </application>
 
 </manifest>

@@ -43,7 +43,8 @@ public class ProfileSettingsActivity extends AppCompatActivity {
     }
 
     //Toolbar title
-    public void setTitleBar() {
+    public void setTitleBar()
+    {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -51,8 +52,10 @@ public class ProfileSettingsActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if (item.getItemId() == android.R.id.home)
+        {
 
             onBackPressed();
             overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);

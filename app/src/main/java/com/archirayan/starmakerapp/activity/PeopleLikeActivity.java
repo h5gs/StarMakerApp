@@ -22,7 +22,6 @@ public class PeopleLikeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_people_like);
 
-        item_peoplelike_list = findViewById(R.id.item_peoplelike_list);
         txt_next_homepage = findViewById(R.id.txt_next_homepage);
         txt_next_homepage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +32,8 @@ public class PeopleLikeActivity extends AppCompatActivity {
                 finish();
             }
         });
+        item_peoplelike_list = findViewById(R.id.item_peoplelike_list);
+
         peopleLikeAdapter = new PeopleLikeAdapter(PeopleLikeActivity.this);
         item_peoplelike_list.setLayoutManager(new LinearLayoutManager(PeopleLikeActivity.this, LinearLayoutManager.VERTICAL, false));
         item_peoplelike_list.setAdapter(peopleLikeAdapter);
